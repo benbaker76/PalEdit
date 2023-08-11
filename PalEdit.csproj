@@ -1,0 +1,465 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0FB16EA-9719-479B-BD29-2D7761C5D13B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PalEdit</RootNamespace>
+    <AssemblyName>PalEdit</AssemblyName>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FreeImage-dotnet-core, Version=4.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FreeImage-dotnet-core.4.3.6\lib\net40\FreeImage-dotnet-core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ColorCaches\BaseColorCache.cs" />
+    <Compile Include="ColorCaches\Common\ColorModel.cs" />
+    <Compile Include="ColorCaches\EuclideanDistance\EuclideanDistanceColorCache.cs" />
+    <Compile Include="ColorCaches\IColorCache.cs" />
+    <Compile Include="ColorCaches\LocalitySensitiveHash\LshBucketInfo.cs" />
+    <Compile Include="ColorCaches\LocalitySensitiveHash\LshColorCache.cs" />
+    <Compile Include="ColorCaches\Octree\OctreeCacheNode.cs" />
+    <Compile Include="ColorCaches\Octree\OctreeColorCache.cs" />
+    <Compile Include="Colors.cs" />
+    <Compile Include="ControlsEx\BorderedScrollableControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\CollectionBase.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\ColorDialogEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\ColorFader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\ColorMatrixHelper.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\ColorBgra.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\ColorSpaces.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\ColorSpaceTypeConverter.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\ColorUtility.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorSelectionFader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorSelectionModules.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorSelectionModules_Alpha.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorSelectionModules_HSV.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorSelectionModules_LAB.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorSelectionModules_RGB.cs" />
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorSelectionPlane.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\EyeDropper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\ColorModels\Selection\EyeDropper.Designer.cs">
+      <DependentUpon>EyeDropper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\Gradients\Gradient.cs" />
+    <Compile Include="ControlsEx\ColorManagement\Gradients\GradientCollection.cs" />
+    <Compile Include="ControlsEx\ColorManagement\Gradients\GradientCollectionEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\Gradients\GradientCollectionEditor.designer.cs">
+      <DependentUpon>GradientCollectionEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\Gradients\GradientEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\Gradients\GradientEditPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\Gradients\GradientEditPanel.designer.cs">
+      <DependentUpon>GradientEditPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsEx\ColorManagement\Win32\GDI32.cs" />
+    <Compile Include="ControlsEx\GraphicsEx.cs" />
+    <Compile Include="ControlsEx\ListControls\DisplayItems.cs" />
+    <Compile Include="ControlsEx\ListControls\DisplayList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ListControls\DisplayListDesigner.cs" />
+    <Compile Include="ControlsEx\ListControls\TableDisplayList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\UltimateWin32.cs" />
+    <Compile Include="ControlsEx\ValueControls\FloatingContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ValueControls\MiniTracker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ValueControls\ValueControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ValueControls\ValueScrollbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlsEx\ValueControls\ValueUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MyCustomToolStripControlHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PanelNoScrollOnFocus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PanelNoScrollOnFocus.Designer.cs">
+      <DependentUpon>PanelNoScrollOnFocus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolStripCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Convert.cs" />
+    <Compile Include="Ditherers\BaseColorDitherer.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\AtkinsonDithering.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\BaseErrorDiffusionDitherer.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\BurkesDitherer.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\FanDitherer.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\FilterLiteSierra.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\FloydSteinbergDitherer.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\JarvisJudiceNinkeDitherer.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\ShiauDitherer.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\SierraDitherer.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\StuckiDitherer.cs" />
+    <Compile Include="Ditherers\ErrorDiffusion\TwoRowSierraDitherer.cs" />
+    <Compile Include="Ditherers\IColorDitherer.cs" />
+    <Compile Include="Ditherers\Ordered\BaseOrderedDitherer.cs" />
+    <Compile Include="Ditherers\Ordered\BayerDitherer4.cs" />
+    <Compile Include="Ditherers\Ordered\BayerDitherer8.cs" />
+    <Compile Include="Ditherers\Ordered\ClusteredDotDitherer.cs" />
+    <Compile Include="Ditherers\Ordered\DotHalfToneDitherer.cs" />
+    <Compile Include="Extensions\Extend.IEnumerable.cs" />
+    <Compile Include="Extensions\Extend.Image.cs" />
+    <Compile Include="Extensions\Extend.PixelFormat.cs" />
+    <Compile Include="frmBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBatch.Designer.cs">
+      <DependentUpon>frmBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDonate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDonate.Designer.cs">
+      <DependentUpon>frmDonate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNew.designer.cs">
+      <DependentUpon>frmNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuantize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuantize.designer.cs">
+      <DependentUpon>frmQuantize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBitmap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBitmap.Designer.cs">
+      <DependentUpon>frmBitmap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImport.Designer.cs">
+      <DependentUpon>frmImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GifTools.cs" />
+    <Compile Include="Helpers\ColorModelHelper.cs" />
+    <Compile Include="Helpers\FastRandom.cs" />
+    <Compile Include="Helpers\Guard.cs" />
+    <Compile Include="Helpers\ImageBuffer.cs" />
+    <Compile Include="Helpers\Pixel.cs" />
+    <Compile Include="Helpers\Pixels\IIndexedPixel.cs" />
+    <Compile Include="Helpers\Pixels\Indexed\PixelData1Indexed.cs" />
+    <Compile Include="Helpers\Pixels\Indexed\PixelData4Indexed.cs" />
+    <Compile Include="Helpers\Pixels\Indexed\PixelData8Indexed.cs" />
+    <Compile Include="Helpers\Pixels\INonIndexedPixel.cs" />
+    <Compile Include="Helpers\Pixels\NonIndexed\PixelDataArgb1555.cs" />
+    <Compile Include="Helpers\Pixels\NonIndexed\PixelDataArgb64.cs" />
+    <Compile Include="Helpers\Pixels\NonIndexed\PixelDataArgb8888.cs" />
+    <Compile Include="Helpers\Pixels\NonIndexed\PixelDataGray16.cs" />
+    <Compile Include="Helpers\Pixels\NonIndexed\PixelDataRgb48.cs" />
+    <Compile Include="Helpers\Pixels\NonIndexed\PixelDataRgb555.cs" />
+    <Compile Include="Helpers\Pixels\NonIndexed\PixelDataRgb565.cs" />
+    <Compile Include="Helpers\Pixels\NonIndexed\PixelDataRgb888.cs" />
+    <Compile Include="Helpers\Pixels\NonIndexed\PixelDataRgb8888.cs" />
+    <Compile Include="Helpers\PixelTransform.cs" />
+    <Compile Include="Helpers\QuantizationHelper.cs" />
+    <Compile Include="ImageHeader.cs" />
+    <Compile Include="IniFile.cs" />
+    <Compile Include="Lab.cs" />
+    <Compile Include="Controls\MyPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Palette.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="HSL.cs" />
+    <Compile Include="Controls\PaletteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PaletteControl.Designer.cs">
+      <DependentUpon>PaletteControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PalFile.cs" />
+    <Compile Include="FileIO.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PalNode.cs" />
+    <Compile Include="PathProviders\IPathProvider.cs" />
+    <Compile Include="PathProviders\ReversedPathProvider.cs" />
+    <Compile Include="PathProviders\SerpentinePathProvider.cs" />
+    <Compile Include="PathProviders\StandardPathProvider.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ControlsEx\ColorManagement\ColorButton.resx">
+      <DependentUpon>ColorButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ColorManagement\ColorDialogEx.resx">
+      <DependentUpon>ColorDialogEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ColorManagement\ColorFader.resx">
+      <DependentUpon>ColorFader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorLabel.resx">
+      <DependentUpon>ColorLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorPicker.resx">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorSelectionFader.resx">
+      <DependentUpon>ColorSelectionFader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorSelectionPlane.resx">
+      <DependentUpon>ColorSelectionPlane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ColorManagement\ColorModels\Selection\EyeDropper.resx">
+      <DependentUpon>EyeDropper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ColorManagement\Gradients\GradientCollectionEditor.resx">
+      <DependentUpon>GradientCollectionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ColorManagement\Gradients\GradientEditPanel.resx">
+      <DependentUpon>GradientEditPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ValueControls\FloatingContainer.resx">
+      <DependentUpon>FloatingContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ValueControls\ValueControl.resx">
+      <DependentUpon>ValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ValueControls\ValueScrollbar.resx">
+      <DependentUpon>ValueScrollbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsEx\ValueControls\ValueUpDown.resx">
+      <DependentUpon>ValueUpDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBatch.resx">
+      <DependentUpon>frmBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDonate.resx">
+      <DependentUpon>frmDonate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNew.resx">
+      <DependentUpon>frmNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuantize.resx">
+      <DependentUpon>frmQuantize.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBitmap.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBitmap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImport.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PaletteControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PaletteControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZoomPanPictureBox.resx">
+      <DependentUpon>ZoomPanPictureBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Quantizers\BaseColorCacheQuantizer.cs" />
+    <Compile Include="Quantizers\BaseColorQuantizer.cs" />
+    <Compile Include="Quantizers\DistinctSelection\DistinctBucket.cs" />
+    <Compile Include="Quantizers\DistinctSelection\DistinctColorInfo.cs" />
+    <Compile Include="Quantizers\DistinctSelection\DistinctSelectionQuantizer.cs" />
+    <Compile Include="Quantizers\IColorQuantizer.cs" />
+    <Compile Include="Quantizers\MedianCut\MedianCutCube.cs" />
+    <Compile Include="Quantizers\MedianCut\MedianCutQuantizer.cs" />
+    <Compile Include="Quantizers\NeuQuant\NeuralColorQuantizer.cs" />
+    <Compile Include="Quantizers\Octree\OctreeNode.cs" />
+    <Compile Include="Quantizers\Octree\OctreeQuantizer.cs" />
+    <Compile Include="Quantizers\OptimalPalette\OptimalPaletteQuantizer.cs" />
+    <Compile Include="Quantizers\Popularity\PopularityColorSlot.cs" />
+    <Compile Include="Quantizers\Popularity\PopularityQuantizer.cs" />
+    <Compile Include="Quantizers\Uniform\UniformColorSlot.cs" />
+    <Compile Include="Quantizers\Uniform\UniformQuantizer.cs" />
+    <Compile Include="Quantizers\XiaolinWu\WuColorCube.cs" />
+    <Compile Include="Quantizers\XiaolinWu\WuColorQuantizer.cs" />
+    <Compile Include="RectanglePacker.cs" />
+    <Compile Include="Win32.cs" />
+    <Compile Include="Controls\ZoomPanPictureBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZoomPanPictureBox.designer.cs">
+      <DependentUpon>ZoomPanPictureBox.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Content Include="ControlsEx\ColorManagement\ColorModels\Selection\ColorPicker.cur" />
+    <Content Include="ControlsEx\ColorManagement\ColorModels\Selection\Cursors\EyeDropper.cur" />
+    <Content Include="ControlsEx\ColorManagement\ColorModels\Selection\Cursors\EyeDropper.png" />
+    <Content Include="ControlsEx\ColorManagement\ColorModels\Selection\dice_color.png" />
+    <Content Include="ControlsEx\ColorManagement\ColorModels\Selection\dice_grayscale.png" />
+    <Content Include="Graphics\Bitcoin_Logo.png" />
+    <Content Include="Graphics\Ethereum_Logo.png" />
+    <None Include="Graphics\Ravencoin_Logo.png" />
+    <None Include="Graphics\PayPal_Logo.png" />
+    <None Include="Graphics\Raptoreum_Logo.png" />
+    <None Include="Controls\Icons\reload_48.png" />
+    <None Include="Controls\Icons\palette_48.png" />
+    <None Include="Controls\Icons\sort_desccending.png" />
+    <None Include="Controls\Icons\cross_48.png" />
+    <None Include="Controls\Icons\checkmark_48.png" />
+    <None Include="Controls\Icons\lock.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

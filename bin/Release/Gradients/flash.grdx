@@ -1,0 +1,98 @@
+<Collection>
+	<Gradient GammaCorrected="False" Title="Custom">
+		<ColorPoint Position="0" Focus="0.5" Color="36.2954202537912, 71.7960192675946, 11.9450572524204" />
+		<ColorPoint Position="1" Focus="0.5" Color="12.7564733591366, 23.4862729088036, 3.8609697947329" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_10">
+		<ColorPoint Position="0" Focus="0.5" Color="0.179754750197293, 0.121095125356644, 0.186195592788199" />
+		<ColorPoint Position="1" Focus="0.5" Color="39.8314620228143, 20.0837777649888, 22.1992790758798" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_11">
+		<ColorPoint Position="0" Focus="0.5" Color="0.655911198107723, 1.27465855234973, 0.211463711658037" />
+		<ColorPoint Position="1" Focus="0.5" Color="34.3372262742382, 68.4493767700982, 11.4022980298669" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_12">
+		<ColorPoint Position="0" Focus="0.5" Color="42.9401726686069, 25.2050749519052, 2.60186777530721" />
+		<ColorPoint Position="1" Focus="0.5" Color="71.8581157321098, 81.961945106912, 13.7831748428" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_13">
+		<ColorPoint Position="0" Focus="0.5" Color="39.3518150536695, 26.4788516874394, 97.6446026494621" />
+		<ColorPoint Position="1" Focus="0.5" Color="79.9002657393791, 79.0749522457247, 105.659536560785" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_14">
+		<ColorPoint Position="0" Focus="0.5" Color="7.20245892675633, 3.71300380171774, 0.337069489055279" />
+		<ColorPoint Position="1" Focus="0.5" Color="38.0060357528756, 19.5928302644553, 1.77865298261518" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_15">
+		<ColorPoint Position="0" Focus="0.5" Color="47.1188720462968, 23.5269904403057, 36.7080527738126" />
+		<ColorPoint Position="1" Focus="0.5" Color="29.9921659372591, 14.5270649496841, 92.4900283508172" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_16">
+		<ColorPoint Position="0" Focus="0.5" Color="23.7775449635821, 25.0158284729953, 27.2422372070919" />
+		<ColorPoint Position="1" Focus="0.5" Color="73.0127665458755, 76.8151147247507, 83.6516599352535" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_2">
+		<ColorPoint Position="0" Focus="0.5" Color="21.8833225542489, 9.40269874195564, 90.2840548378401" />
+		<ColorPoint Position="1" Focus="0.5" Color="47.0177248813147, 48.8491596365982, 101.558472897018" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_3">
+		<ColorPoint Position="0" Focus="0.5" Color="7.14949652299686, 3.67654401308991, 0.748287890070196" />
+		<ColorPoint Position="1" Focus="0.5" Color="41.24, 21.26, 1.93" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_4">
+		<ColorPoint Position="0" Focus="0.5" Color="12.4105413345949, 12.844603322655, 36.0075693469934" />
+		<ColorPoint Position="1" Focus="0.5" Color="34.4152156326746, 36.4212028575413, 88.4352079464161" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_5">
+		<ColorPoint Position="0" Focus="0.5" Color="21.9286454315409, 10.6698458045363, 95.5114600130322" />
+		<ColorPoint Position="1" Focus="0.5" Color="51.7688120566874, 75.4059422047357, 103.921763030179" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_6">
+		<ColorPoint Position="0" Focus="0.5" Color="3.64164457764849, 1.67149006060831, 16.0502817853541" />
+		<ColorPoint Position="1" Focus="0.5" Color="22.0777385250509, 15.238313206236, 96.3854061539724" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_7">
+		<ColorPoint Position="0" Focus="0.5" Color="57.1943086739056, 53.7133469625026, 7.35324644374012" />
+		<ColorPoint Position="1" Focus="0.5" Color="60.354820259159, 65.3262834220919, 9.42819387566426" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_8">
+		<ColorPoint Position="0" Focus="0.5" Color="4.9194664563336, 2.50103266874846, 1.81357065103717" />
+		<ColorPoint Position="1" Focus="0.5" Color="35.4589802498835, 16.3045305906287, 90.900724621907" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+	<Gradient GammaCorrected="False" Title="Custom_9">
+		<ColorPoint Position="0" Focus="0.5" Color="45.243824028716, 24.1302306038249, 19.1026066459811" />
+		<ColorPoint Position="1" Focus="0.5" Color="75.9048837760305, 92.2154468738702, 13.7987494104689" />
+		<AlphaPoint Position="0" Focus="0.5" Alpha="1" />
+		<AlphaPoint Position="1" Focus="0.5" Alpha="1" />
+	</Gradient>
+</Collection>
