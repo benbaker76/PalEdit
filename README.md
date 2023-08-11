@@ -2,7 +2,9 @@
 
 ## About
 
-PalEdit is a palette editor which can edit and manipulate various different palette and graphic formats. Features
+PalEdit is a palette editor which can edit and manipulate various different palette and graphic formats.
+
+### Features
 
 - Select All, None, Inverse or Used Colors
 - Supports .act, .pal, .gpl, .txt, .bmp, .gif, .png, .jpg, .pcx, .tif
