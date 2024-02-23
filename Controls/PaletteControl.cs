@@ -1025,12 +1025,9 @@ namespace PalEdit
                     colorIndices[i] = i;
             }
 
-            if (m_bitmap != null)
-            {
-                Colors.SetColorIndices(m_bitmap, colorIndices);
-            }
+			Colors.SetColorIndices(m_bitmap, colorIndices);
 
-            DrawPalette();
+			DrawPalette();
 
             OnPaletteSelect?.Invoke(this, new ColorEventArgs());
         }
@@ -1129,75 +1126,264 @@ namespace PalEdit
             OnPaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
-        public void SortPalette()
+		private List<ColorNode> CreateColorList()
+		{
+			List<ColorNode> colorList = new List<ColorNode>();
+
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (!Palette[i].IsSelected)
+					continue;
+
+				colorList.Add(new ColorNode(i, Palette[i].Color));
+			}
+
+			return colorList;
+		}
+
+		private List<ColorNode> CreateSelectedColorList()
+		{
+			List<ColorNode> colorList = new List<ColorNode>();
+
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (!Palette[i].IsSelected)
+					continue;
+
+				colorList.Add(new ColorNode(i, Palette[i].Color));
+			}
+
+			return colorList;
+		}
+
+		private void UpdateIndices(List<ColorNode> colorList)
+		{
+			int count = 0;
+			int[] colorIndices = new int[Palette.Length];
+
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				Palette[i].Color = colorList[count].Color;
+				colorIndices[colorList[count].Index] = i;
+				count++;
+			}
+
+			Colors.SetColorIndices(m_bitmap, colorIndices);
+		}
+
+		private void UpdateSelectedIndices(List<ColorNode> colorList)
+		{
+			int count = 0;
+			int[] colorIndices = new int[Palette.Length];
+
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (Palette[i].IsSelected)
+				{
+					Palette[i].Color = colorList[count].Color;
+					colorIndices[colorList[count].Index] = i;
+					count++;
+				}
+				else
+					colorIndices[i] = i;
+			}
+
+			Colors.SetColorIndices(m_bitmap, colorIndices);
+		}
+
+		private int[] GetColorIndices()
+		{
+			int[] colorIndices;
+
+			if (m_bitmap != null)
+				Colors.GetColorIndices(m_bitmap, out colorIndices);
+			else
+				colorIndices = new int[Palette.Length];
+
+			return colorIndices;
+		}
+
+		private List<int> GetSelectedIndices()
+		{
+			List<int> selectedIndices = new List<int>();
+
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (Palette[i].IsSelected)
+				{
+					selectedIndices.Add(i);
+				}
+			}
+
+			return selectedIndices;
+		}
+
+		public void SortPalette(Colors.SortColorMode sortColorMode)
         {
-            List<ColorNode> colorList = new List<ColorNode>();
+			List<ColorNode> colorList = CreateColorList();
 
-            for (int i = 0; i < Palette.Length; i++)
-                colorList.Add(new ColorNode(i, Palette[i].Color));
+			Colors.SortColorList(colorList, sortColorMode);
 
-            colorList.Sort(new ColorNodeSorter());
+			UpdateIndices(colorList);
 
-            int count = 0;
-            int[] colorIndices = new int[Palette.Length];
-
-            for (int i = 0; i < Palette.Length; i++)
-            {
-                Palette[i].Color = colorList[count].Color;
-                colorIndices[colorList[count].Index] = i;
-                count++;
-            }
-
-            if (m_bitmap != null)
-            {
-                Colors.SetColorIndices(m_bitmap, colorIndices);
-            }
-
-            DrawPalette();
+			DrawPalette();
 
             OnPaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
-        public void SortSelectedPalette()
-        {
-            List<ColorNode> colorList = new List<ColorNode>();
+        public void SortSelectedPalette(Colors.SortColorMode sortColorMode)
+		{
+			List<ColorNode> colorList = CreateSelectedColorList();
 
-            for (int i = 0; i < Palette.Length; i++)
-            {
-                if (!Palette[i].IsSelected)
-                    continue;
+			Colors.SortColorList(colorList, sortColorMode);
 
-                colorList.Add(new ColorNode(i, Palette[i].Color));
-            }
+			UpdateSelectedIndices(colorList);
 
-            colorList.Sort(new ColorNodeSorter());
-
-            int count = 0;
-            int[] colorIndices = new int[Palette.Length];
-
-            for (int i = 0; i < Palette.Length; i++)
-            {
-                if (Palette[i].IsSelected)
-                {
-                    Palette[i].Color = colorList[count].Color;
-                    colorIndices[colorList[count].Index] = i;
-                    count++;
-                }
-                else
-                    colorIndices[i] = i;
-            }
-
-            if (m_bitmap != null)
-            {
-                Colors.SetColorIndices(m_bitmap, colorIndices);
-            }
-
-            DrawPalette();
+			DrawPalette();
 
             OnPaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
-        public void ShowColorPicker()
+		public void RotateLeftSelectedPalette()
+		{
+			List<ColorNode> colorList = CreateSelectedColorList();
+			int[] colorIndices = GetColorIndices();
+			List<int> selectedIndices = GetSelectedIndices();
+
+			for (int i = 0; i < selectedIndices.Count; i++)
+			{
+				int index = selectedIndices[i];
+				int newIndex = (i == selectedIndices.Count - 1 ? 0 : i + 1);
+				Palette[index].Color = colorList[newIndex].Color;
+				colorIndices[colorList[newIndex].Index] = index;
+			}
+
+			Colors.SetColorIndices(m_bitmap, colorIndices);
+
+			DrawPalette();
+
+			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+		}
+
+		public void RotateRightSelectedPalette()
+		{
+			List<ColorNode> colorList = CreateSelectedColorList();
+			int[] colorIndices = GetColorIndices();
+			List<int> selectedIndices = GetSelectedIndices();
+
+			for (int i = 0; i < selectedIndices.Count; i++)
+			{
+				int index = selectedIndices[i];
+				int newIndex = (i == 0 ? selectedIndices.Count - 1 : i - 1);
+				Palette[index].Color = colorList[newIndex].Color;
+				colorIndices[colorList[newIndex].Index] = index;
+			}
+
+			Colors.SetColorIndices(m_bitmap, colorIndices);
+
+			DrawPalette();
+
+			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+		}
+
+
+		public void ReverseSelectedPalette()
+		{
+			List<ColorNode> colorList = CreateSelectedColorList();
+			int[] colorIndices = GetColorIndices();
+			List<int> selectedIndices = GetSelectedIndices();
+
+			for (int i = 0; i < selectedIndices.Count; i++)
+			{
+				int index = selectedIndices[i];
+				int newIndex = selectedIndices.Count - 1 - i;
+				Palette[index].Color = colorList[newIndex].Color;
+				colorIndices[colorList[newIndex].Index] = index;
+			}
+
+			Colors.SetColorIndices(m_bitmap, colorIndices);
+
+			DrawPalette();
+
+			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+		}
+
+		public void RestrictSelectedPaletteToRGB332()
+		{
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (Palette[i].IsSelected)
+				{
+					Palette[i].Color = Convert.ColorFromRGB332(Convert.ColorToRGB332(Palette[i].Color));
+				}
+			}
+
+			DrawPalette();
+
+			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+		}
+
+		public void RestrictSelectedPaletteToRGB333()
+		{
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (Palette[i].IsSelected)
+				{
+					Palette[i].Color = Convert.ColorFromRGB333(Convert.ColorToRGB333(Palette[i].Color));
+				}
+			}
+
+			DrawPalette();
+
+			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+		}
+
+		public void RestrictSelectedPaletteToRGB444()
+		{
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (Palette[i].IsSelected)
+				{
+					Palette[i].Color = Convert.ColorFromRGB444(Convert.ColorToRGB444(Palette[i].Color));
+				}
+			}
+
+			DrawPalette();
+
+			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+		}
+
+		public void RestrictSelectedPaletteToRGB555()
+		{
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (Palette[i].IsSelected)
+				{
+					Palette[i].Color = Convert.ColorFromRGB555(Convert.ColorToRGB555(Palette[i].Color));
+				}
+			}
+
+			DrawPalette();
+
+			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+		}
+
+		public void RestrictSelectedPaletteToRGB565()
+		{
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (Palette[i].IsSelected)
+				{
+					Palette[i].Color = Convert.ColorFromRGB565(Convert.ColorToRGB565(Palette[i].Color));
+				}
+			}
+
+			DrawPalette();
+
+			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+		}
+
+		public void ShowColorPicker()
         {
             using (ColorDialogEx colDiag = new ColorDialogEx())
             {

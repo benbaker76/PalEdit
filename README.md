@@ -22,6 +22,9 @@ PalEdit is a palette editor which can edit and manipulate various different pale
 - Description for the color blind
 - Swatches and palette lock
 - Complement, Split Complement, Triadic, Tetradic and Analagous schemes
+- Sort Sqrt, H > S > L, Lab Distance
+- Order Rotate Left, Rotate Right, Reverse
+- Restrict RGB332, RGB333, RGB444, RGB555, RGB565
 
 ## Screenshots
 
@@ -39,6 +42,7 @@ PalEdit is a palette editor which can edit and manipulate various different pale
 
 | Date | Description |
 |---|---|
+| 22-02-2024 | v2.8 - Sort Sqrt, H > S > L, Lab Distance, Order Rotate Left, Rotate Right, Reverse, Restrict RGB332, RGB333, RGB444, RGB555, RGB565 |
 | 21-12-2021 | v2.7 - Add RVN |
 | 20-11-2021 | v2.6 - Improved Swatches Palette selection dropdown, add donation window |
 | 22-09-2021 | v2.5 - Bug fixes |

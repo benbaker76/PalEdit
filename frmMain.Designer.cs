@@ -63,11 +63,17 @@ namespace PalEdit
 			this.mnuSelectInverse = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSelectMatchingColors = new System.Windows.Forms.ToolStripMenuItem();
 			this.matchingColorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuOrder = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSort = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSqrtSort = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuHSLSort = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRotateLeft = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRotateRight = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuReverse = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-			this.paletteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuPalette = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuColor = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-			this.mnuSort = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuQuantize = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuBitmap = new System.Windows.Forms.ToolStripMenuItem();
@@ -166,6 +172,13 @@ namespace PalEdit
 			this.tsbSortColors = new System.Windows.Forms.ToolStripButton();
 			this.tsbSelectMatchingColors = new System.Windows.Forms.ToolStripButton();
 			this.tsbSelectNonMatchingColors = new System.Windows.Forms.ToolStripButton();
+			this.mnuLABSort = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRestrict = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRGB444 = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRGB332 = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRGB333 = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRGB555 = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRGB565 = new System.Windows.Forms.ToolStripMenuItem();
 			this.panelNoScrollOnFocus2 = new PalEdit.Controls.PanelNoScrollOnFocus();
 			this.palControl = new PalEdit.PaletteControl();
 			this.panelNoScrollOnFocus1 = new PalEdit.Controls.PanelNoScrollOnFocus();
@@ -361,11 +374,12 @@ namespace PalEdit
             this.mnuGradient,
             this.toolStripMenuItem6,
             this.selectiomnuNew,
+            this.mnuOrder,
+            this.mnuRestrict,
             this.toolStripMenuItem3,
-            this.paletteToolStripMenuItem,
+            this.mnuPalette,
             this.mnuColor,
             this.toolStripMenuItem4,
-            this.mnuSort,
             this.mnuQuantize});
 			this.mnuEdit.Name = "mnuEdit";
 			this.mnuEdit.Size = new System.Drawing.Size(39, 20);
@@ -375,7 +389,7 @@ namespace PalEdit
 			// 
 			this.mnuCut.Name = "mnuCut";
 			this.mnuCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-			this.mnuCut.Size = new System.Drawing.Size(161, 22);
+			this.mnuCut.Size = new System.Drawing.Size(180, 22);
 			this.mnuCut.Text = "Cut";
 			this.mnuCut.Click += new System.EventHandler(this.mnuCut_Click);
 			// 
@@ -383,7 +397,7 @@ namespace PalEdit
 			// 
 			this.mnuCopy.Name = "mnuCopy";
 			this.mnuCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-			this.mnuCopy.Size = new System.Drawing.Size(161, 22);
+			this.mnuCopy.Size = new System.Drawing.Size(180, 22);
 			this.mnuCopy.Text = "Copy";
 			this.mnuCopy.Click += new System.EventHandler(this.mnuCopy_Click);
 			// 
@@ -391,7 +405,7 @@ namespace PalEdit
 			// 
 			this.mnuPaste.Name = "mnuPaste";
 			this.mnuPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-			this.mnuPaste.Size = new System.Drawing.Size(161, 22);
+			this.mnuPaste.Size = new System.Drawing.Size(180, 22);
 			this.mnuPaste.Text = "Paste";
 			this.mnuPaste.Click += new System.EventHandler(this.mnuPaste_Click);
 			// 
@@ -399,7 +413,7 @@ namespace PalEdit
 			// 
 			this.mnuFill.Name = "mnuFill";
 			this.mnuFill.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-			this.mnuFill.Size = new System.Drawing.Size(161, 22);
+			this.mnuFill.Size = new System.Drawing.Size(180, 22);
 			this.mnuFill.Text = "Fill";
 			this.mnuFill.Click += new System.EventHandler(this.mnuFill_Click);
 			// 
@@ -407,7 +421,7 @@ namespace PalEdit
 			// 
 			this.mnuSwap.Name = "mnuSwap";
 			this.mnuSwap.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.mnuSwap.Size = new System.Drawing.Size(161, 22);
+			this.mnuSwap.Size = new System.Drawing.Size(180, 22);
 			this.mnuSwap.Text = "Swap";
 			this.mnuSwap.Click += new System.EventHandler(this.mnuSwap_Click);
 			// 
@@ -415,7 +429,7 @@ namespace PalEdit
 			// 
 			this.mnuMerge.Name = "mnuMerge";
 			this.mnuMerge.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-			this.mnuMerge.Size = new System.Drawing.Size(161, 22);
+			this.mnuMerge.Size = new System.Drawing.Size(180, 22);
 			this.mnuMerge.Text = "Merge";
 			this.mnuMerge.Click += new System.EventHandler(this.mnuMerge_Click);
 			// 
@@ -423,14 +437,14 @@ namespace PalEdit
 			// 
 			this.mnuGradient.Name = "mnuGradient";
 			this.mnuGradient.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-			this.mnuGradient.Size = new System.Drawing.Size(161, 22);
+			this.mnuGradient.Size = new System.Drawing.Size(180, 22);
 			this.mnuGradient.Text = "Gradient";
 			this.mnuGradient.Click += new System.EventHandler(this.mnuGradient_Click);
 			// 
 			// toolStripMenuItem6
 			// 
 			this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-			this.toolStripMenuItem6.Size = new System.Drawing.Size(158, 6);
+			this.toolStripMenuItem6.Size = new System.Drawing.Size(177, 6);
 			// 
 			// selectiomnuNew
 			// 
@@ -441,7 +455,7 @@ namespace PalEdit
             this.mnuSelectMatchingColors,
             this.matchingColorsToolStripMenuItem});
 			this.selectiomnuNew.Name = "selectiomnuNew";
-			this.selectiomnuNew.Size = new System.Drawing.Size(161, 22);
+			this.selectiomnuNew.Size = new System.Drawing.Size(180, 22);
 			this.selectiomnuNew.Text = "Select";
 			// 
 			// mnuSelectAll
@@ -484,40 +498,89 @@ namespace PalEdit
 			this.matchingColorsToolStripMenuItem.Text = "Matching Colors";
 			this.matchingColorsToolStripMenuItem.Click += new System.EventHandler(this.mnuSelectMatchingColors_Click);
 			// 
+			// mnuOrder
+			// 
+			this.mnuOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuSort,
+            this.mnuRotateLeft,
+            this.mnuRotateRight,
+            this.mnuReverse});
+			this.mnuOrder.Name = "mnuOrder";
+			this.mnuOrder.Size = new System.Drawing.Size(180, 22);
+			this.mnuOrder.Text = "Order";
+			// 
+			// mnuSort
+			// 
+			this.mnuSort.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuSqrtSort,
+            this.mnuHSLSort,
+            this.mnuLABSort});
+			this.mnuSort.Name = "mnuSort";
+			this.mnuSort.Size = new System.Drawing.Size(180, 22);
+			this.mnuSort.Text = "Sort";
+			// 
+			// mnuSqrtSort
+			// 
+			this.mnuSqrtSort.Name = "mnuSqrtSort";
+			this.mnuSqrtSort.Size = new System.Drawing.Size(143, 22);
+			this.mnuSqrtSort.Text = "Sqrt";
+			this.mnuSqrtSort.Click += new System.EventHandler(this.mnuSortSqrt_Click);
+			// 
+			// mnuHSLSort
+			// 
+			this.mnuHSLSort.Name = "mnuHSLSort";
+			this.mnuHSLSort.Size = new System.Drawing.Size(143, 22);
+			this.mnuHSLSort.Text = "H > S > L";
+			this.mnuHSLSort.Click += new System.EventHandler(this.mnuSortHSL_Click);
+			// 
+			// mnuRotateLeft
+			// 
+			this.mnuRotateLeft.Name = "mnuRotateLeft";
+			this.mnuRotateLeft.Size = new System.Drawing.Size(180, 22);
+			this.mnuRotateLeft.Text = "Rotate Left";
+			this.mnuRotateLeft.Click += new System.EventHandler(this.mnuRotateLeft_Click);
+			// 
+			// mnuRotateRight
+			// 
+			this.mnuRotateRight.Name = "mnuRotateRight";
+			this.mnuRotateRight.Size = new System.Drawing.Size(180, 22);
+			this.mnuRotateRight.Text = "Rotate Right";
+			this.mnuRotateRight.Click += new System.EventHandler(this.mnuRotateRight_Click);
+			// 
+			// mnuReverse
+			// 
+			this.mnuReverse.Name = "mnuReverse";
+			this.mnuReverse.Size = new System.Drawing.Size(180, 22);
+			this.mnuReverse.Text = "Reverse";
+			this.mnuReverse.Click += new System.EventHandler(this.mnuReverse_Click);
+			// 
 			// toolStripMenuItem3
 			// 
 			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(158, 6);
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
 			// 
-			// paletteToolStripMenuItem
+			// mnuPalette
 			// 
-			this.paletteToolStripMenuItem.Name = "paletteToolStripMenuItem";
-			this.paletteToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-			this.paletteToolStripMenuItem.Text = "Palette";
+			this.mnuPalette.Name = "mnuPalette";
+			this.mnuPalette.Size = new System.Drawing.Size(180, 22);
+			this.mnuPalette.Text = "Palette";
 			// 
 			// mnuColor
 			// 
 			this.mnuColor.Name = "mnuColor";
-			this.mnuColor.Size = new System.Drawing.Size(161, 22);
+			this.mnuColor.Size = new System.Drawing.Size(180, 22);
 			this.mnuColor.Text = "Color...";
 			this.mnuColor.Click += new System.EventHandler(this.mnuColor_Click);
 			// 
 			// toolStripMenuItem4
 			// 
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(158, 6);
-			// 
-			// mnuSort
-			// 
-			this.mnuSort.Name = "mnuSort";
-			this.mnuSort.Size = new System.Drawing.Size(161, 22);
-			this.mnuSort.Text = "Sort";
-			this.mnuSort.Click += new System.EventHandler(this.mnuSort_Click);
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
 			// 
 			// mnuQuantize
 			// 
 			this.mnuQuantize.Name = "mnuQuantize";
-			this.mnuQuantize.Size = new System.Drawing.Size(161, 22);
+			this.mnuQuantize.Size = new System.Drawing.Size(180, 22);
 			this.mnuQuantize.Text = "Quantize...";
 			this.mnuQuantize.Click += new System.EventHandler(this.mnuQuantize_Click);
 			// 
@@ -1498,6 +1561,60 @@ namespace PalEdit
 			this.tsbSelectNonMatchingColors.ToolTipText = "Select Non-Matching Colors";
 			this.tsbSelectNonMatchingColors.Click += new System.EventHandler(this.tsbSelectNonMatchingColors_Click);
 			// 
+			// mnuLABSort
+			// 
+			this.mnuLABSort.Name = "mnuLABSort";
+			this.mnuLABSort.Size = new System.Drawing.Size(143, 22);
+			this.mnuLABSort.Text = "LAB Distance";
+			this.mnuLABSort.Click += new System.EventHandler(this.mnuSortLAB_Click);
+			// 
+			// mnuRestrict
+			// 
+			this.mnuRestrict.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRGB332,
+            this.mnuRGB333,
+            this.mnuRGB444,
+            this.mnuRGB555,
+            this.mnuRGB565});
+			this.mnuRestrict.Name = "mnuRestrict";
+			this.mnuRestrict.Size = new System.Drawing.Size(180, 22);
+			this.mnuRestrict.Text = "Restrict";
+			// 
+			// mnuRGB444
+			// 
+			this.mnuRGB444.Name = "mnuRGB444";
+			this.mnuRGB444.Size = new System.Drawing.Size(180, 22);
+			this.mnuRGB444.Text = "RGB444";
+			this.mnuRGB444.Click += new System.EventHandler(this.mnuRGB444_Click);
+			// 
+			// mnuRGB332
+			// 
+			this.mnuRGB332.Name = "mnuRGB332";
+			this.mnuRGB332.Size = new System.Drawing.Size(180, 22);
+			this.mnuRGB332.Text = "RGB332";
+			this.mnuRGB332.Click += new System.EventHandler(this.mnuRGB332_Click);
+			// 
+			// mnuRGB333
+			// 
+			this.mnuRGB333.Name = "mnuRGB333";
+			this.mnuRGB333.Size = new System.Drawing.Size(180, 22);
+			this.mnuRGB333.Text = "RGB333";
+			this.mnuRGB333.Click += new System.EventHandler(this.mnuRGB333_Click);
+			// 
+			// mnuRGB555
+			// 
+			this.mnuRGB555.Name = "mnuRGB555";
+			this.mnuRGB555.Size = new System.Drawing.Size(180, 22);
+			this.mnuRGB555.Text = "RGB555";
+			this.mnuRGB555.Click += new System.EventHandler(this.mnuRGB555_Click);
+			// 
+			// mnuRGB565
+			// 
+			this.mnuRGB565.Name = "mnuRGB565";
+			this.mnuRGB565.Size = new System.Drawing.Size(180, 22);
+			this.mnuRGB565.Text = "RGB565";
+			this.mnuRGB565.Click += new System.EventHandler(this.mnuRGB565_Click);
+			// 
 			// panelNoScrollOnFocus2
 			// 
 			this.panelNoScrollOnFocus2.AutoScroll = true;
@@ -2169,7 +2286,6 @@ namespace PalEdit
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem mnuColor;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem mnuSort;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem selectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiSelectInverse;
@@ -2196,7 +2312,7 @@ namespace PalEdit
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem tsmiSort;
         private System.Windows.Forms.ToolStripMenuItem tsmiQuantize;
-        private System.Windows.Forms.ToolStripMenuItem paletteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuPalette;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuNintendoDS;
         private System.Windows.Forms.ToolStripMenuItem mnuSpectrumNext;
@@ -2282,6 +2398,20 @@ namespace PalEdit
 		private System.Windows.Forms.ToolStripButton tsbSelectNonMatchingColors;
 		private System.Windows.Forms.ToolStripButton tsbSwatchesReset;
 		private System.Windows.Forms.ToolStripMenuItem mnuDonate;
+		private System.Windows.Forms.ToolStripMenuItem mnuOrder;
+		private System.Windows.Forms.ToolStripMenuItem mnuSort;
+		private System.Windows.Forms.ToolStripMenuItem mnuRotateLeft;
+		private System.Windows.Forms.ToolStripMenuItem mnuRotateRight;
+		private System.Windows.Forms.ToolStripMenuItem mnuReverse;
+		private System.Windows.Forms.ToolStripMenuItem mnuSqrtSort;
+		private System.Windows.Forms.ToolStripMenuItem mnuHSLSort;
+		private System.Windows.Forms.ToolStripMenuItem mnuLABSort;
+		private System.Windows.Forms.ToolStripMenuItem mnuRestrict;
+		private System.Windows.Forms.ToolStripMenuItem mnuRGB444;
+		private System.Windows.Forms.ToolStripMenuItem mnuRGB332;
+		private System.Windows.Forms.ToolStripMenuItem mnuRGB333;
+		private System.Windows.Forms.ToolStripMenuItem mnuRGB555;
+		private System.Windows.Forms.ToolStripMenuItem mnuRGB565;
 	}
 }
 

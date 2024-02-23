@@ -3,5 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartArguments>
     </StartArguments>
+    <NXTargetSerialNumber />
+    <NXTargetName>Default</NXTargetName>
   </PropertyGroup>
 </Project>

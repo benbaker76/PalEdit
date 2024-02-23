@@ -49,7 +49,7 @@ namespace PalEdit
 
             return; */
 
-            Colors.LoadPalettes(paletteToolStripMenuItem, tsddbSwatchesPalette, OnPalette_Click, OnSwatchesPalette_Click);
+            Colors.LoadPalettes(mnuPalette, tsddbSwatchesPalette, OnPalette_Click, OnSwatchesPalette_Click);
             LoadDescriptionColors();
             //string workingPath = Path.Combine(Application.StartupPath, "Batch3");
             //Colors.BatchProcessIniFile(Path.Combine(workingPath, "SpriteSheet.ini"));
@@ -907,13 +907,62 @@ namespace PalEdit
         {
             palControl.ShowColorPicker();
         }
+		
+		private void mnuSortSqrt_Click(object sender, EventArgs e)
+		{
+			palControl.SortSelectedPalette(Colors.SortColorMode.Sqrt);
+		}
 
-        private void mnuSort_Click(object sender, EventArgs e)
-        {
-            palControl.SortSelectedPalette();
-        }
+		private void mnuSortHSL_Click(object sender, EventArgs e)
+		{
+			palControl.SortSelectedPalette(Colors.SortColorMode.HSB);
+		}
+		private void mnuSortLAB_Click(object sender, EventArgs e)
+		{
+			palControl.SortSelectedPalette(Colors.SortColorMode.Lab);
+		}
 
-        private void mnuBitmap_Click(object sender, EventArgs e)
+		private void mnuRotateLeft_Click(object sender, EventArgs e)
+		{
+			palControl.RotateLeftSelectedPalette();
+		}
+
+		private void mnuRotateRight_Click(object sender, EventArgs e)
+		{
+			palControl.RotateRightSelectedPalette();
+		}
+
+		private void mnuReverse_Click(object sender, EventArgs e)
+		{
+			palControl.ReverseSelectedPalette();
+		}
+
+		private void mnuRGB332_Click(object sender, EventArgs e)
+		{
+			palControl.RestrictSelectedPaletteToRGB332();
+		}
+
+		private void mnuRGB333_Click(object sender, EventArgs e)
+		{
+			palControl.RestrictSelectedPaletteToRGB333();
+		}
+
+		private void mnuRGB444_Click(object sender, EventArgs e)
+		{
+			palControl.RestrictSelectedPaletteToRGB444();
+		}
+
+		private void mnuRGB555_Click(object sender, EventArgs e)
+		{
+			palControl.RestrictSelectedPaletteToRGB555();
+		}
+
+		private void mnuRGB565_Click(object sender, EventArgs e)
+		{
+			palControl.RestrictSelectedPaletteToRGB565();
+		}
+
+		private void mnuBitmap_Click(object sender, EventArgs e)
         {
             if (palControl.Bitmap != null && m_frmBitmap == null)
             {
@@ -1065,7 +1114,7 @@ namespace PalEdit
 
         private void tsmiSort_Click(object sender, EventArgs e)
         {
-            palControl.SortSelectedPalette();
+            palControl.SortSelectedPalette(Colors.SortColorMode.Sqrt);
         }
 
         private void tsmiQuantize_Click(object sender, EventArgs e)

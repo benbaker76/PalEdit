@@ -37,7 +37,14 @@ namespace PalEdit
             Lab
         };
 
-        public static Color[] NextPalette332
+		public enum SortColorMode
+		{
+			Sqrt,
+			HSB,
+			Lab
+		}
+
+		public static Color[] NextPalette332
         {
             get { return GetNextPalette(false); }
         }
@@ -599,7 +606,28 @@ namespace PalEdit
             bitmap.UnlockBits(bmpData);
         }
 
-        public static void SortPalette(Bitmap bitmap)
+		public static void SortColorList(List<ColorNode> colorList, SortColorMode sortColorMode, int transparentIndex)
+		{
+			switch (sortColorMode)
+			{
+				case SortColorMode.Sqrt:
+					colorList.Sort(new SqrtSorter(transparentIndex));
+					break;
+				case SortColorMode.HSB:
+					colorList.Sort(new HSLSorter(transparentIndex));
+					break;
+				case SortColorMode.Lab:
+					colorList.Sort(new LabSorter(transparentIndex));
+					break;
+			}
+		}
+
+		public static void SortColorList(List<ColorNode> colorList, SortColorMode sortColorMode)
+		{
+			SortColorList(colorList, sortColorMode, -1);
+		}
+
+		public static void SortPalette(Bitmap bitmap, SortColorMode sortColorMode)
         {
             ColorPalette colorPalette = bitmap.Palette;
             List<ColorNode> colorList = new List<ColorNode>();
@@ -607,9 +635,9 @@ namespace PalEdit
             for (int i = 0; i < colorPalette.Entries.Length; i++)
                 colorList.Add(new ColorNode(i, colorPalette.Entries[i]));
 
-            colorList.Sort(new ColorNodeSorter());
+			SortColorList(colorList, sortColorMode);
 
-            int count = 0;
+			int count = 0;
             int[] colorIndices = new int[colorPalette.Entries.Length];
 
             for (int i = 0; i < colorPalette.Entries.Length; i++)
@@ -624,6 +652,9 @@ namespace PalEdit
 
         public static void SetColorIndices(Bitmap bitmap, int[] colorIndices)
         {
+			if (bitmap == null)
+				return;
+
             BitmapData bmpData = bitmap.LockBits(new Rectangle(Point.Empty, bitmap.Size), ImageLockMode.ReadWrite, PixelFormat.Format8bppIndexed);
 
             int indicesCount = bmpData.Height * bmpData.Stride;
@@ -1058,7 +1089,7 @@ namespace PalEdit
             return colorList.ToArray();
         }
 
-        public static void SortBitmapPalette(Bitmap bitmap, int transparentIndex)
+        public static void SortBitmapPalette(Bitmap bitmap, SortColorMode sortColorMode, int transparentIndex)
         {
             ColorPalette colorPalette = bitmap.Palette;
             int[] indices = new int[colorPalette.Entries.Length];
@@ -1069,7 +1100,7 @@ namespace PalEdit
                 colorList.Add(new ColorNode(i, colorPalette.Entries[i]));
             }
 
-            colorList.Sort(new ColorNodeSorter(transparentIndex));
+			SortColorList(colorList, sortColorMode, transparentIndex);
 
             for (int i = 0; i < colorList.Count; i++)
             {
@@ -1238,8 +1269,9 @@ namespace PalEdit
             settings.CreateCombinedImage = iniFile.Read<bool>("General", "CreateCombinedImage", true);
             settings.MaxPaletteCount = iniFile.Read<int>("General", "MaxPaletteCount", 16);
             settings.TransparentIndex = iniFile.Read<int>("General", "TransparentIndex", 0);
+			settings.AutoPosition = iniFile.Read<bool>("General", "AutoPosition", true);
 
-            if (!String.IsNullOrEmpty(sourceDirectory))
+			if (!String.IsNullOrEmpty(sourceDirectory))
             {
                 if (!Path.IsPathRooted(sourceDirectory))
                 {
@@ -1508,7 +1540,7 @@ namespace PalEdit
 
                     if (settings.SortColors)
                     {
-                        SortBitmapPalette(image.Bitmap, settings.TransparentIndex);
+                        SortBitmapPalette(image.Bitmap, SortColorMode.Sqrt, settings.TransparentIndex);
                         palette = image.Bitmap.Palette;
                     }
                 }
@@ -1579,27 +1611,35 @@ namespace PalEdit
                 {
                     ImageNode image = imageList[i];
                     Bitmap bitmap = image.Bitmap;
-                    int dstWidth = bitmap.Width, imageCount = 1;
-                    Rectangle srcRectangle = new Rectangle(Point.Empty, bitmap.Size);
-                    Rectangle dstRectangle = new Rectangle(image.Position.X, image.Position.Y, bitmap.Width, bitmap.Height);
+					Rectangle srcRectangle = new Rectangle(Point.Empty, bitmap.Size);
+					Rectangle dstRectangle = new Rectangle(image.Position.X, image.Position.Y, bitmap.Width, bitmap.Height);
 
-                    dstRectangle.Intersect(outputRectangle);
-                    dstWidth -= dstRectangle.Width;
+					if (settings.AutoPosition)
+					{
+						int dstWidth = bitmap.Width, imageCount = 1;
 
-                    CopyBitmap(bitmap, outputBitmap, srcRectangle, dstRectangle);
+						dstRectangle.Intersect(outputRectangle);
+						dstWidth -= dstRectangle.Width;
 
-                    while (dstWidth > 0)
-                    {
-                        srcRectangle = new Rectangle(bitmap.Width - dstWidth, 0, dstWidth, bitmap.Height);
-                        dstRectangle = new Rectangle(0, image.Position.Y + bitmap.Height * imageCount, dstWidth, bitmap.Height);
+						CopyBitmap(bitmap, outputBitmap, srcRectangle, dstRectangle);
 
-                        dstRectangle.Intersect(outputRectangle);
-                        dstWidth -= dstRectangle.Width;
+						while (dstWidth > 0)
+						{
+							srcRectangle = new Rectangle(bitmap.Width - dstWidth, 0, dstWidth, bitmap.Height);
+							dstRectangle = new Rectangle(0, image.Position.Y + bitmap.Height * imageCount, dstWidth, bitmap.Height);
 
-                        CopyBitmap(bitmap, outputBitmap, srcRectangle, dstRectangle);
+							dstRectangle.Intersect(outputRectangle);
+							dstWidth -= dstRectangle.Width;
 
-                        imageCount++;
-                    }
+							CopyBitmap(bitmap, outputBitmap, srcRectangle, dstRectangle);
+
+							imageCount++;
+						}
+					}
+					else
+					{
+						CopyBitmap(bitmap, outputBitmap, srcRectangle, dstRectangle);
+					}
 
                     image.Bitmap.Dispose();
                     image.Bitmap = null;
@@ -1766,15 +1806,15 @@ namespace PalEdit
         }
     }
 
-    class ColorNodeSorter : IComparer<ColorNode>
+    class SqrtSorter : IComparer<ColorNode>
     {
         private int m_transparentIndex = -1;
 
-        public ColorNodeSorter()
+        public SqrtSorter()
         {
         }
 
-        public ColorNodeSorter(int transparentIndex)
+        public SqrtSorter(int transparentIndex)
         {
             m_transparentIndex = transparentIndex;
         }
@@ -1811,7 +1851,105 @@ namespace PalEdit
         #endregion
     }
 
-    internal class ColorNode
+	class HSLSorter : IComparer<ColorNode>
+	{
+		private int m_transparentIndex = -1;
+
+		public HSLSorter()
+		{
+		}
+
+		public HSLSorter(int transparentIndex)
+		{
+			m_transparentIndex = transparentIndex;
+		}
+
+		public int Compare(ColorNode cnx, ColorNode cny)
+		{
+			if (m_transparentIndex != -1)
+			{
+				if (cnx.Index == m_transparentIndex || cny.Index == m_transparentIndex)
+				{
+					if (cnx.Index > cny.Index)
+						return cny.Index.CompareTo(cnx.Index);
+					else
+						return cnx.Index.CompareTo(cny.Index);
+				}
+			}
+
+			HSL hslX = HSL.FromRGB(cnx.Color.R, cnx.Color.G, cnx.Color.B);
+			HSL hslY = HSL.FromRGB(cny.Color.R, cny.Color.G, cny.Color.B);
+
+			if (hslX.Hue < hslY.Hue || (hslX.Hue == hslY.Hue && hslX.Saturation < hslY.Saturation) || (hslX.Hue == hslY.Hue && hslX.Saturation == hslY.Saturation && hslX.Luminance < hslY.Luminance))
+			{
+				return -1;
+			}
+			else if (hslX.Hue == hslY.Hue && hslX.Saturation == hslY.Saturation && hslX.Luminance == hslY.Luminance)
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;
+			}
+		}
+	}
+
+	class LabSorter : IComparer<ColorNode>
+	{
+		private int m_transparentIndex = -1;
+
+		public LabSorter()
+		{
+		}
+
+		public LabSorter(int transparentIndex)
+		{
+			m_transparentIndex = transparentIndex;
+		}
+
+		#region IComparer Members
+
+		public int Compare(ColorNode cnx, ColorNode cny)
+		{
+			if (m_transparentIndex != -1)
+			{
+				if (cnx.Index == m_transparentIndex || cny.Index == m_transparentIndex)
+				{
+					if (cnx.Index > cny.Index)
+						return cny.Index.CompareTo(cnx.Index);
+					else
+						return cnx.Index.CompareTo(cny.Index);
+				}
+			}
+
+			CIELab vx = Lab.RGBtoLab(cnx.Color);
+			CIELab vy = Lab.RGBtoLab(cny.Color);
+			CIELab vz = Lab.RGBtoLab(Color.Empty);
+
+			double vxd1 = Lab.GetDeltaE_CIEDE2000(vx, vz);
+			double vxd2 = Lab.GetDeltaE_CMC(vx, vz);
+			double vxd = (vxd1 + vxd2) / 2.0;
+
+			double vyd1 = Lab.GetDeltaE_CIEDE2000(vy, vz);
+			double vyd2 = Lab.GetDeltaE_CMC(vy, vz);
+			double vyd = (vyd1 + vyd2) / 2.0;
+
+			if (vxd.Equals(vyd))
+			{
+				if (cnx.Index > cny.Index)
+					return cny.Index.CompareTo(cnx.Index);
+				else
+					return cnx.Index.CompareTo(cny.Index);
+			}
+
+			return vxd.CompareTo(vyd);
+		}
+
+		#endregion
+	}
+
+	public class ColorNode
     {
         public int Index;
         public Color Color;
@@ -1830,7 +1968,7 @@ namespace PalEdit
 
         public double Value
         {
-            get { return Math.Pow(Color.A, 2) + Math.Pow(Color.R, 2) + Math.Pow(Color.G, 2) + Math.Pow(Color.B, 2); }
+            get { return Math.Sqrt(Math.Pow(Color.A, 2) + Math.Pow(Color.R, 2) + Math.Pow(Color.G, 2) + Math.Pow(Color.B, 2)); }
         }
     }
 
@@ -1863,7 +2001,8 @@ namespace PalEdit
         public bool Quantize;
         public bool AddPaletteOffset;
         public bool CreateCombinedImage;
-        public int MaxPaletteCount;
+		public bool AutoPosition;
+		public int MaxPaletteCount;
     }
 
     public class ImageNode : IComparer<ImageNode>
