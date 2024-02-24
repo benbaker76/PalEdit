@@ -139,20 +139,22 @@ namespace PalEdit
 
         private static Color[] DecodeActPal(BinaryReader binaryReader)
         {
-            Color[] colorPalette = new Color[256];
+			List<Color> colorPalette = new List<Color>();
 
             try
             {
-                for (int i = 0; i < colorPalette.Length; i++)
+                for (int i = 0; i < 256; i++)
                 {
                     byte[] colorArray = binaryReader.ReadBytes(3);
-                    colorPalette[i] = Color.FromArgb(colorArray[0], colorArray[1], colorArray[2]);
+					colorPalette.Add(Color.FromArgb(colorArray[0], colorArray[1], colorArray[2]));
                 }
 
-                if (binaryReader.BaseStream.Position < binaryReader.BaseStream.Length - 4)
+				if (binaryReader.BaseStream.Position == binaryReader.BaseStream.Length - 4)
                 {
                     short palCount = ReadLittleEndianInt16(binaryReader);
                     short transparentIndex = ReadLittleEndianInt16(binaryReader);
+
+					colorPalette.RemoveRange(palCount, 256 - palCount);
 
                     if (transparentIndex != -1)
                         colorPalette[transparentIndex] = Color.FromArgb(0, colorPalette[transparentIndex]);
@@ -162,7 +164,7 @@ namespace PalEdit
             {
             }
 
-            return colorPalette;
+            return colorPalette.ToArray();
         }
 
         private static Color[] DecodeJASCPal(BinaryReader binaryReader)
@@ -350,38 +352,47 @@ namespace PalEdit
             }
         }
 
-        private static void WriteActFile(string fileName, Color[] colorPalette, int transparentIndex)
-        {
-            List<byte> byteList = new List<byte>();
+		private static void WriteActFile(string fileName, Color[] colorPalette, int transparentIndex)
+		{
+			List<byte> byteList = new List<byte>();
 
-            for (int i = 0; i < colorPalette.Length; i++)
-            {
-                byteList.Add(colorPalette[i].R);
-                byteList.Add(colorPalette[i].G);
-                byteList.Add(colorPalette[i].B);
-            }
+			for (int i = 0; i < 256; i++)
+			{
+				if (i < colorPalette.Length)
+				{
+					byteList.Add(colorPalette[i].R);
+					byteList.Add(colorPalette[i].G);
+					byteList.Add(colorPalette[i].B);
+				}
+				else
+				{
+					byteList.Add(0);
+					byteList.Add(0);
+					byteList.Add(0);
+				}
+			}
 
-            if (transparentIndex != -1 || colorPalette.Length < 256)
-            {
-                byteList.Add((byte)(colorPalette.Length >> 8));
-                byteList.Add((byte)colorPalette.Length);
+			if (transparentIndex != -1 || colorPalette.Length < 256)
+			{
+				byteList.Add((byte)(colorPalette.Length >> 8));
+				byteList.Add((byte)colorPalette.Length);
 
-                if (transparentIndex == -1)
-                {
-                    byteList.Add((byte)0xFF);
-                    byteList.Add((byte)0xFF);
-                }
-                else
-                {
-                    byteList.Add((byte)(transparentIndex >> 8));
-                    byteList.Add((byte)transparentIndex);
-                }
-            }
+				if (transparentIndex == -1)
+				{
+					byteList.Add((byte)0xFF);
+					byteList.Add((byte)0xFF);
+				}
+				else
+				{
+					byteList.Add((byte)(transparentIndex >> 8));
+					byteList.Add((byte)transparentIndex);
+				}
+			}
 
-            File.WriteAllBytes(fileName, byteList.ToArray());
-        }
+			File.WriteAllBytes(fileName, byteList.ToArray());
+		}
 
-        private static void WriteMSPalFile(string fileName, Color[] colorPalette)
+		private static void WriteMSPalFile(string fileName, Color[] colorPalette)
         {
             List<byte> byteList = new List<byte>();
 
