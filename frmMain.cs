@@ -129,6 +129,10 @@ namespace PalEdit
         private void LoadDescriptionColors()
         {
             string fileName = Path.Combine(Application.StartupPath, "Colors.ini");
+
+			if (!File.Exists(fileName))
+				return;
+
             string[] lineArray = File.ReadAllLines(fileName);
             List<Color> colorList = new List<Color>();
             List<string> nameList = new List<string>();
@@ -272,7 +276,10 @@ namespace PalEdit
             if (palControl.SelectedIndex == -1)
                 return;
 
-            ApplySwatchesPalette();
+			if (Colors.DescriptionTextArray.Length == 0)
+				return;
+
+			ApplySwatchesPalette();
 
             Color selectedColor = palControl.SelectedColor;
             int selectedIndex = palControl.SelectedIndex;

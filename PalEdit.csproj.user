@@ -6,4 +6,8 @@
     <NXTargetSerialNumber />
     <NXTargetName>Default</NXTargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <NXTargetSerialNumber />
+    <NXTargetName>Default</NXTargetName>
+  </PropertyGroup>
 </Project>

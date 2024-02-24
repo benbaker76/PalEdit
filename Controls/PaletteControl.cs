@@ -1193,12 +1193,10 @@ namespace PalEdit
 
 		private int[] GetColorIndices()
 		{
-			int[] colorIndices;
+			int[] colorIndices = new int[Palette.Length];
 
-			if (m_bitmap != null)
-				Colors.GetColorIndices(m_bitmap, out colorIndices);
-			else
-				colorIndices = new int[Palette.Length];
+			for (int i = 0; i < Palette.Length; i++)
+				colorIndices[i] = i;
 
 			return colorIndices;
 		}

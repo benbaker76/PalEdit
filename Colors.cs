@@ -679,7 +679,12 @@ namespace PalEdit
 
             for (int i = 0; i < colorIndices.Length; i++)
             {
-                colorPalette.Entries[colorIndices[i]] = tempEntries[i];
+				int colorIndex = colorIndices[i];
+
+				if (colorIndex >= colorPalette.Entries.Length)
+					continue;
+
+				colorPalette.Entries[colorIndices[i]] = tempEntries[i];
             }
 
             bitmap.Palette = colorPalette;
