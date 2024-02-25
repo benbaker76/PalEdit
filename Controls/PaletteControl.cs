@@ -905,11 +905,19 @@ namespace PalEdit
 
                 for (int i = 0; i < Palette.Length; i++)
                 {
-                    for (; count < Palette.Length; count++)
-                        if (m_palClipboard[count].IsSelected)
-                            break;
+					for (; count < Palette.Length; count++)
+					{
+						if (m_palClipboard[count] == null)
+							break;
 
-                    if (count == Palette.Length)
+						if (m_palClipboard[count].IsSelected)
+							break;
+					}
+
+					if (m_palClipboard[count] == null)
+						break;
+
+					if (count == Palette.Length)
                         break;
 
                     if (Palette[i].IsSelected && m_palClipboard[count].IsSelected)
