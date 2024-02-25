@@ -914,11 +914,11 @@ namespace PalEdit
 							break;
 					}
 
-					if (m_palClipboard[count] == null)
+					if (count == Palette.Length)
 						break;
 
-					if (count == Palette.Length)
-                        break;
+					if (m_palClipboard[count] == null)
+						break;
 
                     if (Palette[i].IsSelected && m_palClipboard[count].IsSelected)
                     {
@@ -1089,6 +1089,9 @@ namespace PalEdit
 
         public void ShowGradientPicker(bool startAndEndOnly)
         {
+			if (m_gradientCollection == null)
+				return;
+
             Gradient gradient = null;
             int colorCount = TryGetGradient(startAndEndOnly, out gradient);
 
