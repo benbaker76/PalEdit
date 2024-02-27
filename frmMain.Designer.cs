@@ -207,7 +207,7 @@ namespace PalEdit
 			this.tsbSwatchesLock = new System.Windows.Forms.ToolStripButton();
 			this.tsbCopy = new System.Windows.Forms.ToolStripButton();
 			this.tsbPaste = new System.Windows.Forms.ToolStripButton();
-			this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.tsbSort = new System.Windows.Forms.ToolStripDropDownButton();
 			this.tsbSortSqrt = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsbSortHSB = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsbSortHSB_ = new System.Windows.Forms.ToolStripMenuItem();
@@ -426,7 +426,7 @@ namespace PalEdit
 			// 
 			this.mnuCut.Name = "mnuCut";
 			this.mnuCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-			this.mnuCut.Size = new System.Drawing.Size(148, 22);
+			this.mnuCut.Size = new System.Drawing.Size(180, 22);
 			this.mnuCut.Text = "Cut";
 			this.mnuCut.Click += new System.EventHandler(this.mnuCut_Click);
 			// 
@@ -434,7 +434,7 @@ namespace PalEdit
 			// 
 			this.mnuCopy.Name = "mnuCopy";
 			this.mnuCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-			this.mnuCopy.Size = new System.Drawing.Size(148, 22);
+			this.mnuCopy.Size = new System.Drawing.Size(180, 22);
 			this.mnuCopy.Text = "Copy";
 			this.mnuCopy.Click += new System.EventHandler(this.mnuCopy_Click);
 			// 
@@ -442,7 +442,7 @@ namespace PalEdit
 			// 
 			this.mnuPaste.Name = "mnuPaste";
 			this.mnuPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-			this.mnuPaste.Size = new System.Drawing.Size(148, 22);
+			this.mnuPaste.Size = new System.Drawing.Size(180, 22);
 			this.mnuPaste.Text = "Paste";
 			this.mnuPaste.Click += new System.EventHandler(this.mnuPaste_Click);
 			// 
@@ -450,7 +450,7 @@ namespace PalEdit
 			// 
 			this.mnuFill.Name = "mnuFill";
 			this.mnuFill.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-			this.mnuFill.Size = new System.Drawing.Size(148, 22);
+			this.mnuFill.Size = new System.Drawing.Size(180, 22);
 			this.mnuFill.Text = "Fill";
 			this.mnuFill.Click += new System.EventHandler(this.mnuFill_Click);
 			// 
@@ -458,7 +458,7 @@ namespace PalEdit
 			// 
 			this.mnuSwap.Name = "mnuSwap";
 			this.mnuSwap.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.mnuSwap.Size = new System.Drawing.Size(148, 22);
+			this.mnuSwap.Size = new System.Drawing.Size(180, 22);
 			this.mnuSwap.Text = "Swap";
 			this.mnuSwap.Click += new System.EventHandler(this.mnuSwap_Click);
 			// 
@@ -466,14 +466,14 @@ namespace PalEdit
 			// 
 			this.mnuMerge.Name = "mnuMerge";
 			this.mnuMerge.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-			this.mnuMerge.Size = new System.Drawing.Size(148, 22);
+			this.mnuMerge.Size = new System.Drawing.Size(180, 22);
 			this.mnuMerge.Text = "Merge";
 			this.mnuMerge.Click += new System.EventHandler(this.mnuMerge_Click);
 			// 
 			// toolStripMenuItem6
 			// 
 			this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-			this.toolStripMenuItem6.Size = new System.Drawing.Size(145, 6);
+			this.toolStripMenuItem6.Size = new System.Drawing.Size(177, 6);
 			// 
 			// mnuSelect
 			// 
@@ -484,7 +484,7 @@ namespace PalEdit
             this.mnuSelectMatchingColors,
             this.matchingColorsToolStripMenuItem});
 			this.mnuSelect.Name = "mnuSelect";
-			this.mnuSelect.Size = new System.Drawing.Size(148, 22);
+			this.mnuSelect.Size = new System.Drawing.Size(180, 22);
 			this.mnuSelect.Text = "Select";
 			// 
 			// mnuSelectAll
@@ -534,7 +534,7 @@ namespace PalEdit
             this.mnuHSBSort,
             this.mnuLABSort});
 			this.mnuSort.Name = "mnuSort";
-			this.mnuSort.Size = new System.Drawing.Size(148, 22);
+			this.mnuSort.Size = new System.Drawing.Size(180, 22);
 			this.mnuSort.Text = "Sort";
 			// 
 			// mnuSqrtSort
@@ -613,7 +613,7 @@ namespace PalEdit
             this.mnuRotateRight,
             this.mnuReverse});
 			this.mnuOrder.Name = "mnuOrder";
-			this.mnuOrder.Size = new System.Drawing.Size(148, 22);
+			this.mnuOrder.Size = new System.Drawing.Size(180, 22);
 			this.mnuOrder.Text = "Order";
 			// 
 			// mnuRotateLeft
@@ -646,7 +646,7 @@ namespace PalEdit
             this.mnuRGB555,
             this.mnuRGB565});
 			this.mnuRestrict.Name = "mnuRestrict";
-			this.mnuRestrict.Size = new System.Drawing.Size(148, 22);
+			this.mnuRestrict.Size = new System.Drawing.Size(180, 22);
 			this.mnuRestrict.Text = "Restrict";
 			// 
 			// mnuRGB332
@@ -687,37 +687,37 @@ namespace PalEdit
 			// mnuPalette
 			// 
 			this.mnuPalette.Name = "mnuPalette";
-			this.mnuPalette.Size = new System.Drawing.Size(148, 22);
+			this.mnuPalette.Size = new System.Drawing.Size(180, 22);
 			this.mnuPalette.Text = "Palette";
 			// 
 			// toolStripMenuItem3
 			// 
 			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(145, 6);
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
 			// 
 			// mnuColor
 			// 
 			this.mnuColor.Name = "mnuColor";
-			this.mnuColor.Size = new System.Drawing.Size(148, 22);
+			this.mnuColor.Size = new System.Drawing.Size(180, 22);
 			this.mnuColor.Text = "Color...";
 			this.mnuColor.Click += new System.EventHandler(this.mnuColor_Click);
 			// 
 			// mnuGradient
 			// 
 			this.mnuGradient.Name = "mnuGradient";
-			this.mnuGradient.Size = new System.Drawing.Size(148, 22);
+			this.mnuGradient.Size = new System.Drawing.Size(180, 22);
 			this.mnuGradient.Text = "Gradient...";
 			this.mnuGradient.Click += new System.EventHandler(this.mnuGradient_Click);
 			// 
 			// toolStripMenuItem4
 			// 
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(145, 6);
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
 			// 
 			// mnuQuantize
 			// 
 			this.mnuQuantize.Name = "mnuQuantize";
-			this.mnuQuantize.Size = new System.Drawing.Size(148, 22);
+			this.mnuQuantize.Size = new System.Drawing.Size(180, 22);
 			this.mnuQuantize.Text = "Quantize...";
 			this.mnuQuantize.Click += new System.EventHandler(this.mnuQuantize_Click);
 			// 
@@ -804,61 +804,55 @@ namespace PalEdit
             this.toolStripMenuItem8,
             this.tsmiQuantize});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(149, 308);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(131, 308);
 			this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
 			// 
 			// tsmiCut
 			// 
 			this.tsmiCut.Name = "tsmiCut";
-			this.tsmiCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-			this.tsmiCut.Size = new System.Drawing.Size(148, 22);
+			this.tsmiCut.Size = new System.Drawing.Size(130, 22);
 			this.tsmiCut.Text = "Cut";
 			this.tsmiCut.Click += new System.EventHandler(this.tsmiCut_Click);
 			// 
 			// tsmiCopy
 			// 
 			this.tsmiCopy.Name = "tsmiCopy";
-			this.tsmiCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-			this.tsmiCopy.Size = new System.Drawing.Size(148, 22);
+			this.tsmiCopy.Size = new System.Drawing.Size(130, 22);
 			this.tsmiCopy.Text = "Copy";
 			this.tsmiCopy.Click += new System.EventHandler(this.tsmiCopy_Click);
 			// 
 			// tsmiPaste
 			// 
 			this.tsmiPaste.Name = "tsmiPaste";
-			this.tsmiPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-			this.tsmiPaste.Size = new System.Drawing.Size(148, 22);
+			this.tsmiPaste.Size = new System.Drawing.Size(130, 22);
 			this.tsmiPaste.Text = "Paste";
 			this.tsmiPaste.Click += new System.EventHandler(this.tsmiPaste_Click);
 			// 
 			// tsmiFill
 			// 
 			this.tsmiFill.Name = "tsmiFill";
-			this.tsmiFill.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-			this.tsmiFill.Size = new System.Drawing.Size(148, 22);
+			this.tsmiFill.Size = new System.Drawing.Size(130, 22);
 			this.tsmiFill.Text = "Fill";
 			this.tsmiFill.Click += new System.EventHandler(this.tsmiFill_Click);
 			// 
 			// tsmiSwap
 			// 
 			this.tsmiSwap.Name = "tsmiSwap";
-			this.tsmiSwap.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.tsmiSwap.Size = new System.Drawing.Size(148, 22);
+			this.tsmiSwap.Size = new System.Drawing.Size(130, 22);
 			this.tsmiSwap.Text = "Swap";
 			this.tsmiSwap.Click += new System.EventHandler(this.tsmiSwap_Click);
 			// 
 			// tsmiMerge
 			// 
 			this.tsmiMerge.Name = "tsmiMerge";
-			this.tsmiMerge.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-			this.tsmiMerge.Size = new System.Drawing.Size(148, 22);
+			this.tsmiMerge.Size = new System.Drawing.Size(130, 22);
 			this.tsmiMerge.Text = "Merge";
 			this.tsmiMerge.Click += new System.EventHandler(this.tsmiMerge_Click);
 			// 
 			// toolStripMenuItem5
 			// 
 			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-			this.toolStripMenuItem5.Size = new System.Drawing.Size(145, 6);
+			this.toolStripMenuItem5.Size = new System.Drawing.Size(127, 6);
 			// 
 			// tsmiSelect
 			// 
@@ -869,7 +863,7 @@ namespace PalEdit
             this.tsmiSelectUsedColors,
             this.tsmiSelectMatchedColors});
 			this.tsmiSelect.Name = "tsmiSelect";
-			this.tsmiSelect.Size = new System.Drawing.Size(148, 22);
+			this.tsmiSelect.Size = new System.Drawing.Size(130, 22);
 			this.tsmiSelect.Text = "Select";
 			// 
 			// tsmiSelectAll
@@ -919,7 +913,7 @@ namespace PalEdit
             this.tsmiSortHSB,
             this.tsmiSortLAB});
 			this.tsmiSort.Name = "tsmiSort";
-			this.tsmiSort.Size = new System.Drawing.Size(148, 22);
+			this.tsmiSort.Size = new System.Drawing.Size(130, 22);
 			this.tsmiSort.Text = "Sort";
 			// 
 			// tsmiSortSqrt
@@ -998,7 +992,7 @@ namespace PalEdit
             this.tsmiRotateRight,
             this.tsmiReverse});
 			this.tsmiOrder.Name = "tsmiOrder";
-			this.tsmiOrder.Size = new System.Drawing.Size(148, 22);
+			this.tsmiOrder.Size = new System.Drawing.Size(130, 22);
 			this.tsmiOrder.Text = "Order";
 			// 
 			// tsmiRotateLeft
@@ -1031,7 +1025,7 @@ namespace PalEdit
             this.tsmiRGB555,
             this.tsmiRGB565});
 			this.tsmiRestrict.Name = "tsmiRestrict";
-			this.tsmiRestrict.Size = new System.Drawing.Size(148, 22);
+			this.tsmiRestrict.Size = new System.Drawing.Size(130, 22);
 			this.tsmiRestrict.Text = "Restrict";
 			// 
 			// tsmiRGB332
@@ -1072,31 +1066,31 @@ namespace PalEdit
 			// toolStripMenuItem7
 			// 
 			this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-			this.toolStripMenuItem7.Size = new System.Drawing.Size(145, 6);
+			this.toolStripMenuItem7.Size = new System.Drawing.Size(127, 6);
 			// 
 			// tsmiColor
 			// 
 			this.tsmiColor.Name = "tsmiColor";
-			this.tsmiColor.Size = new System.Drawing.Size(148, 22);
+			this.tsmiColor.Size = new System.Drawing.Size(130, 22);
 			this.tsmiColor.Text = "Color...";
 			this.tsmiColor.Click += new System.EventHandler(this.tsmiColor_Click);
 			// 
 			// tsmiGradient
 			// 
 			this.tsmiGradient.Name = "tsmiGradient";
-			this.tsmiGradient.Size = new System.Drawing.Size(148, 22);
+			this.tsmiGradient.Size = new System.Drawing.Size(130, 22);
 			this.tsmiGradient.Text = "Gradient...";
 			this.tsmiGradient.Click += new System.EventHandler(this.tsmiGradient_Click);
 			// 
 			// toolStripMenuItem8
 			// 
 			this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-			this.toolStripMenuItem8.Size = new System.Drawing.Size(145, 6);
+			this.toolStripMenuItem8.Size = new System.Drawing.Size(127, 6);
 			// 
 			// tsmiQuantize
 			// 
 			this.tsmiQuantize.Name = "tsmiQuantize";
-			this.tsmiQuantize.Size = new System.Drawing.Size(148, 22);
+			this.tsmiQuantize.Size = new System.Drawing.Size(130, 22);
 			this.tsmiQuantize.Text = "Quantize...";
 			this.tsmiQuantize.Click += new System.EventHandler(this.tsmiQuantize_Click);
 			// 
@@ -1405,263 +1399,6 @@ namespace PalEdit
 			this.mainPalette.Margin = new System.Windows.Forms.Padding(0);
 			this.mainPalette.Name = "mainPalette";
 			this.mainPalette.Offset = new System.Drawing.Point(4, 4);
-			this.mainPalette.PaletteClipboard = new PalEdit.PalNode[] {
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null};
 			this.mainPalette.PalUsed = 256;
 			this.mainPalette.SelectedColor = System.Drawing.Color.Empty;
 			this.mainPalette.SelectedIndex = -1;
@@ -2587,263 +2324,6 @@ namespace PalEdit
 			this.swatchesPalette.Margin = new System.Windows.Forms.Padding(0);
 			this.swatchesPalette.Name = "swatchesPalette";
 			this.swatchesPalette.Offset = new System.Drawing.Point(4, 4);
-			this.swatchesPalette.PaletteClipboard = new PalEdit.PalNode[] {
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null};
 			this.swatchesPalette.PalUsed = 256;
 			this.swatchesPalette.SelectedColor = System.Drawing.Color.Empty;
 			this.swatchesPalette.SelectedIndex = -1;
@@ -2859,7 +2339,7 @@ namespace PalEdit
             this.tsbSwatchesLock,
             this.tsbCopy,
             this.tsbPaste,
-            this.toolStripDropDownButton1,
+            this.tsbSort,
             this.tsbSelectMatchingColors,
             this.tsbSelectNonMatchingColors});
 			this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
@@ -2932,19 +2412,19 @@ namespace PalEdit
 			this.tsbPaste.ToolTipText = "Paste";
 			this.tsbPaste.Click += new System.EventHandler(this.tsbPaste_Click);
 			// 
-			// toolStripDropDownButton1
+			// tsbSort
 			// 
-			this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.tsbSort.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbSort.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbSortSqrt,
             this.tsbSortHSB,
             this.tsbSortLAB});
-			this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-			this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-			this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 20);
-			this.toolStripDropDownButton1.Text = "tsbSortColors";
-			this.toolStripDropDownButton1.ToolTipText = "Sort";
+			this.tsbSort.Image = ((System.Drawing.Image)(resources.GetObject("tsbSort.Image")));
+			this.tsbSort.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbSort.Name = "tsbSort";
+			this.tsbSort.Size = new System.Drawing.Size(29, 20);
+			this.tsbSort.Text = "tsbSortColors";
+			this.tsbSort.ToolTipText = "Sort";
 			// 
 			// tsbSortSqrt
 			// 
@@ -3052,7 +2532,6 @@ namespace PalEdit
 			this.Text = "PalEdit [VERSION]";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
 			this.Load += new System.EventHandler(this.frmMain_Load);
-			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.statusStrip1.ResumeLayout(false);
@@ -3256,7 +2735,7 @@ namespace PalEdit
 		private System.Windows.Forms.ToolStripMenuItem mnuRGB333;
 		private System.Windows.Forms.ToolStripMenuItem mnuRGB555;
 		private System.Windows.Forms.ToolStripMenuItem mnuRGB565;
-		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+		private System.Windows.Forms.ToolStripDropDownButton tsbSort;
 		private System.Windows.Forms.ToolStripMenuItem tsbSortSqrt;
 		private System.Windows.Forms.ToolStripMenuItem tsbSortHSB;
 		private System.Windows.Forms.ToolStripMenuItem tsbSortLAB;

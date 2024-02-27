@@ -115,11 +115,17 @@ namespace PalEdit
             get { return m_tint; }
         }
 
+		public object Tag { get; set; }
+
         #region ICloneable Members
 
         public PalNode Clone()
         {
-            return new PalNode(m_color, m_selected, m_rectangle, m_hue, m_saturation, m_brightness, m_tint);
+			PalNode palNode = new PalNode(m_color, m_selected, m_rectangle, m_hue, m_saturation, m_brightness, m_tint);
+
+			palNode.Tag = Tag;
+
+			return palNode;
         }
 
         #endregion

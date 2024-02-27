@@ -262,6 +262,13 @@ namespace PalEdit
             }
         }
 
+		private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+		{
+			ContextMenuStrip contextMenuStrip = (ContextMenuStrip)sender;
+
+			m_paletteControl = (PaletteControl)contextMenuStrip.SourceControl;
+		}
+
 		private void OnPaletteSelect(object sender, ColorEventArgs e)
         {
 			if (sender is PaletteControl)
@@ -579,6 +586,16 @@ namespace PalEdit
             return (Control.ModifierKeys & Keys.Shift) == Keys.Shift;
         }
 
+		private void CopyPalette(PaletteControl paletteControl, bool cutClipboard)
+		{
+			if (paletteControl == mainPalette)
+				swatchesPalette.SetClipboardPalette(mainPalette.SelectedPalette, cutClipboard);
+			else if (paletteControl == swatchesPalette)
+				mainPalette.SetClipboardPalette(swatchesPalette.SelectedPalette, cutClipboard);
+
+			paletteControl.CopyPalette();
+		}
+
         private void trkHue_Scroll(object sender, EventArgs e)
         {
             mainPalette.SetHue(trkHue.Value, trkHue.Maximum);
@@ -846,38 +863,37 @@ namespace PalEdit
 
         private void mnuCut_Click(object sender, EventArgs e)
         {
-            mainPalette.CutPalette();
-        }
+			CopyPalette(m_paletteControl, true);
+		}
 
         private void mnuCopy_Click(object sender, EventArgs e)
         {
-			swatchesPalette.SetClipboardPalette(mainPalette.Palette, false);
-			mainPalette.CopyPalette();
-        }
+			CopyPalette(m_paletteControl, false);
+		}
 
         private void mnuPaste_Click(object sender, EventArgs e)
         {
-            mainPalette.PastePalette();
+			m_paletteControl.PastePalette();
         }
 
         private void mnuFill_Click(object sender, EventArgs e)
         {
-            mainPalette.FillPalette();
+			m_paletteControl.FillPalette();
         }
 
         private void mnuSwap_Click(object sender, EventArgs e)
         {
-            mainPalette.SwapPalette();
+			m_paletteControl.SwapPalette();
         }
 
         private void mnuMerge_Click(object sender, EventArgs e)
         {
-            mainPalette.MergePalette();
+			m_paletteControl.MergePalette();
         }
 
         private void mnuGradient_Click(object sender, EventArgs e)
         {
-            mainPalette.ShowGradientPicker(chkStartAndEndOnly.Checked);
+			mainPalette.ShowGradientPicker(chkStartAndEndOnly.Checked);
         }
 
 		private void mnuQuantize_Click(object sender, EventArgs e)
@@ -892,31 +908,31 @@ namespace PalEdit
 
         private void mnuSelectAll_Click(object sender, EventArgs e)
         {
-            mainPalette.SelectAll();
+			m_paletteControl.SelectAll();
         }
 
         private void mnuSelectNone_Click(object sender, EventArgs e)
         {
-            mainPalette.SelectNone();
+			m_paletteControl.SelectNone();
         }
 
         private void mnuSelectInverse_Click(object sender, EventArgs e)
         {
-            mainPalette.SelectInverse();
+			m_paletteControl.SelectInverse();
         }
 
         private void mnuSelectUsedColors_Click(object sender, EventArgs e)
         {
-            mainPalette.SelectUsedColors(!IsShiftDown());
+			m_paletteControl.SelectUsedColors(!IsShiftDown());
 
-            OnPaletteSelect(mainPalette, new ColorEventArgs(mainPalette.SelectedIndex, mainPalette.SelectedColor));
+            OnPaletteSelect(m_paletteControl, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
         }
 
         private void mnuSelectMatchingColors_Click(object sender, EventArgs e)
         {
-            mainPalette.SelectMatchingColors();
+			m_paletteControl.SelectMatchingColors();
 
-            OnPaletteSelect(mainPalette, new ColorEventArgs(mainPalette.SelectedIndex, mainPalette.SelectedColor));
+            OnPaletteSelect(m_paletteControl, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
         }
 
         private void mnuColor_Click(object sender, EventArgs e)
@@ -1092,50 +1108,14 @@ namespace PalEdit
                 frmAbout.ShowDialog(this);
         }
 
-        private void frmMain_KeyDown(object sender, KeyEventArgs e)
-        {
-			if (m_paletteControl == null)
-				return;
-
-            if (e.Control && e.KeyCode == Keys.X) // Cut
-				m_paletteControl.CutPalette();
-            if (e.Control && e.KeyCode == Keys.C) // Copy
-				m_paletteControl.CopyPalette();
-            if (e.Control && e.KeyCode == Keys.V) // Paste
-				m_paletteControl.PastePalette();
-            if (e.Control && e.KeyCode == Keys.F) // Fill
-				m_paletteControl.FillPalette();
-            if (e.Control && e.KeyCode == Keys.S) // Swap
-				m_paletteControl.SwapPalette();
-            if (e.Control && e.KeyCode == Keys.G) // Gradient
-				m_paletteControl.ShowGradientPicker(chkStartAndEndOnly.Checked);
-            if (e.Control && e.KeyCode == Keys.A) // Select All
-				m_paletteControl.SelectAll();
-            if (e.Control && e.KeyCode == Keys.N) // Select None
-				m_paletteControl.SelectNone();
-            if (e.Control && e.KeyCode == Keys.I) // Select Inverse
-				m_paletteControl.SelectInverse();
-            if (e.Control && e.KeyCode == Keys.U) // Select Used Colors
-            {
-				m_paletteControl.SelectUsedColors(!IsShiftDown());
-
-                OnPaletteSelect(m_paletteControl, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
-            }
-        }
-
         private void tsmiCut_Click(object sender, EventArgs e)
         {
-			m_paletteControl.CutPalette();
-        }
+			CopyPalette(m_paletteControl, true);
+		}
 
         private void tsmiCopy_Click(object sender, EventArgs e)
         {
-			if (m_paletteControl == mainPalette)
-				swatchesPalette.SetClipboardPalette(mainPalette.Palette, false);
-			else if (m_paletteControl == swatchesPalette)
-				mainPalette.SetClipboardPalette(swatchesPalette.Palette, false);
-
-			m_paletteControl.CopyPalette();
+			CopyPalette(m_paletteControl, false);
 		}
 
         private void tsmiPaste_Click(object sender, EventArgs e)
@@ -1408,13 +1388,13 @@ namespace PalEdit
         {
             if (tsbSwatchesLock.Checked)
             {
-                mainPalette.SetBitmapColorPalette(GetSwatchesPalette(), Colors.NearestColorMode.Sqrt, false);
+                mainPalette.SetBitmapColorPalette(swatchesPalette.ColorArray, Colors.NearestColorMode.Sqrt, false);
             }
         }
 
         private Color GetNearestSwatchColor(Color color)
         {
-            return Colors.GetNearestColor(color, GetSwatchesPalette(), Colors.NearestColorMode.Sqrt);
+            return Colors.GetNearestColor(color, swatchesPalette.ColorArray, Colors.NearestColorMode.Sqrt);
         }
 
         private Color[] GetSwatchesPalette()
@@ -1434,8 +1414,7 @@ namespace PalEdit
 
 		private void tsbCopy_Click(object sender, EventArgs e)
 		{
-			mainPalette.SetClipboardPalette(swatchesPalette.Palette, false);
-			swatchesPalette.CopyPalette();
+			CopyPalette(swatchesPalette, false);
 		}
 
 		private void tsbPaste_Click(object sender, EventArgs e)
@@ -1445,17 +1424,12 @@ namespace PalEdit
 
 		private void tsbSelectMatchingColors_Click(object sender, EventArgs e)
         {
-            mainPalette.SelectMatchingColors(GetSwatchesPalette());
+            mainPalette.SelectMatchingColors(swatchesPalette.SelectedColors);
         }
 
         private void tsbSelectNonMatchingColors_Click(object sender, EventArgs e)
         {
-            mainPalette.SelectNonMatchingColors(GetSwatchesPalette());
-        }
-
-        private void tsbSortColors_Click(object sender, EventArgs e)
-        {
-            swatchesPalette.SetColorPalette(GetSwatchesPalette(), true);
+            mainPalette.SelectNonMatchingColors(swatchesPalette.SelectedColors);
         }
 
         private void pbGradient_Click(object sender, EventArgs e)
@@ -1520,12 +1494,5 @@ namespace PalEdit
                 LoadPalette(fileName);
             }
         }
-
-		private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-		{
-			ContextMenuStrip contextMenuStrip = (ContextMenuStrip)sender;
-
-			m_paletteControl = (PaletteControl)contextMenuStrip.SourceControl;
-		}
 	}
 }

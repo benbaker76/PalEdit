@@ -24,7 +24,7 @@ namespace PalEdit
     public partial class PaletteControl : UserControl
     {
         private Bitmap m_bitmap = null;
-        private PalNode[] m_palClipboard = null;
+		private List<PalNode> m_palClipboard = null;
 
         private Keys m_modifierKeys;
 
@@ -198,12 +198,16 @@ namespace PalEdit
         private void ResetPalette(int palCount)
         {
             Palette = new PalNode[palCount];
-            m_palClipboard = new PalNode[palCount];
 
-            for (int i = 0; i < Palette.Length; i++)
-                 Palette[i] = new PalNode(Color.Black);
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				Palette[i] = new PalNode(Color.Black);
+				Palette[i].Tag = this;
+			}
 
-            RefreshPalette();
+			m_palClipboard = new List<PalNode>();
+
+			RefreshPalette();
         }
 
         private void ResizePalette()
@@ -675,38 +679,44 @@ namespace PalEdit
             }
         }
 
-        public void SetClipboardPalette(PalNode[] palette, bool cutClipboard)
-        {
-            for (int i = 0; i < palette.Length; i++)
-                m_palClipboard[i] = palette[i].Clone();
+		public void SetClipboardPalette(PalNode[] palette, bool cutClipboard)
+		{
+			m_palClipboard.Clear();
+
+			for (int i = 0; i < palette.Length; i++)
+			{
+				m_palClipboard.Add(palette[i].Clone());
+				//Console.WriteLine(((PaletteControl)m_palClipboard[i].Tag).Name +":"+m_palClipboard[i].Color.ToString());
+			}
 
             m_cutClipboard = cutClipboard;
         }
 
         private void PastePalette(bool swap)
         {
-            if (m_palClipboard[0] == null)
+            if (m_palClipboard.Count == 0)
                 return;
 
             int count = 0;
 
             for (int i = 0; i < Palette.Length; i++)
             {
-                for (; count < m_palClipboard.Length; count++)
-                    if (m_palClipboard[count].IsSelected)
-                        break;
+				PalNode color = m_palClipboard[count];
 
-                if (count == Palette.Length)
-                    break;
-
-                if (Palette[i].IsSelected && m_palClipboard[count].IsSelected)
+                if (Palette[i].IsSelected)
                 {
-                    Palette[i].Color = m_palClipboard[count].Color;
+                    Palette[i].Color = color.Color;
 
-                    if (swap)
-                        Palette[count].Color = m_palClipboard[i].Color;
+					if (swap)
+					{
+						if (count < Palette.Length && Palette[count].Tag == this && i < m_palClipboard.Count)
+						{
+							Palette[count].Color = m_palClipboard[i].Color;
+						}
+					}
 
-                    count++;
+					if (++count == m_palClipboard.Count)
+						break;
                 }
             }
 
@@ -717,7 +727,7 @@ namespace PalEdit
 
         private void PasteBitmap()
         {
-            if (m_palClipboard[0] == null)
+            if (m_palClipboard.Count == 0)
                 return;
 
             BitmapData bmpData = m_bitmap.LockBits(new Rectangle(0, 0, m_bitmap.Width, m_bitmap.Height), ImageLockMode.ReadWrite, PixelFormat.Format8bppIndexed);
@@ -729,14 +739,9 @@ namespace PalEdit
 
             for (int i = 0; i < Palette.Length; i++)
             {
-                for (; count < Palette.Length; count++)
-                    if (m_palClipboard[count].IsSelected)
-                        break;
+				PalNode palNode = m_palClipboard[count];
 
-                if (count == Palette.Length)
-                    break;
-
-                if (Palette[i].IsSelected && m_palClipboard[count].IsSelected)
+                if (Palette[i].IsSelected)
                 {
                     for (int j = 0; j < pixels.Length; j++)
                     {
@@ -746,7 +751,8 @@ namespace PalEdit
                             pixels[j] = (byte)i;
                     }
 
-                    count++;
+					if (++count == m_palClipboard.Count)
+						break;
                 }
             }
 
@@ -768,7 +774,7 @@ namespace PalEdit
             {
                 colorPalette[i] = Palette[i].Color;
 
-                if (Palette[i].Alpha == 0)
+				if (Palette[i].Alpha == 0)
                     transparentIndex = i;
             }
 
@@ -875,18 +881,18 @@ namespace PalEdit
 
         public void CutPalette()
         {
-            SetClipboardPalette(Palette, true);
+            SetClipboardPalette(SelectedPalette, true);
         }
 
         public void CopyPalette()
         {
-            SetClipboardPalette(Palette, false);
+            SetClipboardPalette(SelectedPalette, false);
         }
 
         public void PastePalette()
         {
-            if (m_palClipboard[0] == null)
-                return;
+			if (m_palClipboard.Count == 0)
+				return;
 
             if (m_cutClipboard)
             {
@@ -902,30 +908,19 @@ namespace PalEdit
             }
             else
             {
-                int count = 0;
+				
+				int count = 0;
 
                 for (int i = 0; i < Palette.Length; i++)
                 {
-					for (; count < Palette.Length; count++)
-					{
-						if (m_palClipboard[count] == null)
-							break;
+					PalNode palNode = m_palClipboard[count];
 
-						if (m_palClipboard[count].IsSelected)
-							break;
-					}
-
-					if (count == Palette.Length)
-						break;
-
-					if (m_palClipboard[count] == null)
-						break;
-
-                    if (Palette[i].IsSelected && m_palClipboard[count].IsSelected)
+                    if (Palette[i].IsSelected)
                     {
-                        Palette[i].Color = Color.FromArgb(255, m_palClipboard[count].Color);
+                        Palette[i].Color = Color.FromArgb(255, palNode.Color);
 
-                        count++;
+						if (++count == m_palClipboard.Count)
+							break;
                     }
                 }
             }
@@ -937,7 +932,7 @@ namespace PalEdit
 
         public void FillPalette()
         {
-            if (m_palClipboard[0] == null)
+            if (m_palClipboard.Count == 0)
                 return;
 
             if (m_cutClipboard)
@@ -958,23 +953,15 @@ namespace PalEdit
 
                 for (int i = 0; i < Palette.Length; i++)
                 {
-                    for (; count < Palette.Length; count++)
-                        if (m_palClipboard[count].IsSelected)
-                            break;
+					PalNode palNode = m_palClipboard[count];
 
-                    if (count == Palette.Length)
+                    if (Palette[i].IsSelected)
                     {
-                        for (count = 0; count < Palette.Length; count++)
-                            if (m_palClipboard[count].IsSelected)
-                                break;
-                    }
+                        Palette[i].Color = Color.FromArgb(255, palNode.Color);
 
-                    if (Palette[i].IsSelected && m_palClipboard[count].IsSelected)
-                    {
-                        Palette[i].Color = Color.FromArgb(255, m_palClipboard[count].Color);
-
-                        count++;
-                    }
+						if (++count == m_palClipboard.Count)
+							break;
+					}
                 }
             }
 
@@ -1153,7 +1140,7 @@ namespace PalEdit
 			return colorList;
 		}
 
-		private List<ColorNode> CreateSelectedColorList()
+		private List<ColorNode> GetSelectedColorList()
 		{
 			List<ColorNode> colorList = new List<ColorNode>();
 
@@ -1166,6 +1153,46 @@ namespace PalEdit
 			}
 
 			return colorList;
+		}
+
+		private Color[] GetColorArray()
+		{
+			Color[] colorArray = new Color[Palette.Length];
+
+			for (int i = 0; i < colorArray.Length; i++)
+				colorArray[i] = Palette[i].Color;
+
+			return colorArray;
+		}
+
+		private PalNode[] GetSelectedPalette()
+		{
+			List<PalNode> palList = new List<PalNode>();
+
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (!Palette[i].IsSelected)
+					continue;
+
+				palList.Add(Palette[i]);
+			}
+
+			return palList.ToArray();
+		}
+
+		private Color[] GetSelectedColorArray()
+		{
+			List<Color> colorList = new List<Color>();
+
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (!Palette[i].IsSelected)
+					continue;
+
+				colorList.Add(Palette[i].Color);
+			}
+
+			return colorList.ToArray();
 		}
 
 		private void UpdateIndices(List<ColorNode> colorList)
@@ -1243,7 +1270,7 @@ namespace PalEdit
 
         public void SortSelectedPalette(Colors.SortColorMode sortColorMode, Colors.HSBSortMode hsbSortMode = Colors.HSBSortMode.HSB)
 		{
-			List<ColorNode> colorList = CreateSelectedColorList();
+			List<ColorNode> colorList = GetSelectedColorList();
 
 			Colors.SortColorList(colorList, sortColorMode, hsbSortMode);
 
@@ -1256,7 +1283,7 @@ namespace PalEdit
 
 		public void RotateLeftSelectedPalette()
 		{
-			List<ColorNode> colorList = CreateSelectedColorList();
+			List<ColorNode> colorList = GetSelectedColorList();
 			int[] colorIndices = GetColorIndices();
 			List<int> selectedIndices = GetSelectedIndices();
 
@@ -1277,7 +1304,7 @@ namespace PalEdit
 
 		public void RotateRightSelectedPalette()
 		{
-			List<ColorNode> colorList = CreateSelectedColorList();
+			List<ColorNode> colorList = GetSelectedColorList();
 			int[] colorIndices = GetColorIndices();
 			List<int> selectedIndices = GetSelectedIndices();
 
@@ -1299,7 +1326,7 @@ namespace PalEdit
 
 		public void ReverseSelectedPalette()
 		{
-			List<ColorNode> colorList = CreateSelectedColorList();
+			List<ColorNode> colorList = GetSelectedColorList();
 			int[] colorIndices = GetColorIndices();
 			List<int> selectedIndices = GetSelectedIndices();
 
@@ -1533,7 +1560,9 @@ namespace PalEdit
 
         public PalNode[] Palette { get; private set; } = null;
 
-		public PalNode[] PaletteClipboard { get { return m_palClipboard; } set { m_palClipboard = value; } }
+		public PalNode[] SelectedPalette { get { return GetSelectedPalette(); } }
+
+		public PalNode[] PaletteClipboard { get { return m_palClipboard.ToArray(); } }
 
         public Size SwatchSize { get { int swatchWidth = (this.ClientSize.Width - (Offset.X * 2)) / Columns; return SnapToGrid(new SizeF(swatchWidth, swatchWidth), 2f); } }
 
@@ -1564,6 +1593,8 @@ namespace PalEdit
             set { if (Selected != null) { Selected.Color = value; DrawPalette(); } }
         }
 
+		public Color[] SelectedColors { get { return GetSelectedColorArray();  } }
+
         public int[] SelectedIndices
         {
             get
@@ -1591,12 +1622,7 @@ namespace PalEdit
         {
             get
             {
-                Color[] palette = new Color[Palette.Length];
-
-                for (int i = 0; i < palette.Length; i++)
-                    palette[i] = Palette[i].Color;
-
-                return palette;
+				return GetColorArray();
             }
             set
             {
