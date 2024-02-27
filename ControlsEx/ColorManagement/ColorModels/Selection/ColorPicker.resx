@@ -112,26 +112,26 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 168</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>323, 1</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -139,7 +139,7 @@
     <value>label1</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -172,7 +172,7 @@
     <value>btnCancel</value>
   </data>
   <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -205,15 +205,15 @@
     <value>btnOK</value>
   </data>
   <data name="&gt;&gt;btnOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnOK.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnOK.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
-  <metadata name="contextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="contextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="ctxHSV_RGB.Text" xml:space="preserve">
@@ -253,7 +253,7 @@
     <value>rdHSV_H</value>
   </data>
   <data name="&gt;&gt;rdHSV_H.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rdHSV_H.Parent" xml:space="preserve">
     <value>$this</value>
@@ -283,13 +283,13 @@
     <value>rdHSV_S</value>
   </data>
   <data name="&gt;&gt;rdHSV_S.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rdHSV_S.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rdHSV_S.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="rdHSV_V.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -313,13 +313,13 @@
     <value>rdHSV_V</value>
   </data>
   <data name="&gt;&gt;rdHSV_V.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rdHSV_V.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rdHSV_V.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="rdSecond_1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -343,13 +343,13 @@
     <value>rdSecond_1</value>
   </data>
   <data name="&gt;&gt;rdSecond_1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rdSecond_1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rdSecond_1.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="rdSecond_2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -373,13 +373,13 @@
     <value>rdSecond_2</value>
   </data>
   <data name="&gt;&gt;rdSecond_2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rdSecond_2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rdSecond_2.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="rdSecond_3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -403,13 +403,13 @@
     <value>rdSecond_3</value>
   </data>
   <data name="&gt;&gt;rdSecond_3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rdSecond_3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rdSecond_3.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="tbHSV_H.Location" type="System.Drawing.Point, System.Drawing">
     <value>232, 8</value>
@@ -430,7 +430,7 @@
     <value>tbHSV_H</value>
   </data>
   <data name="&gt;&gt;tbHSV_H.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbHSV_H.Parent" xml:space="preserve">
     <value>$this</value>
@@ -457,7 +457,7 @@
     <value>tbHSV_S</value>
   </data>
   <data name="&gt;&gt;tbHSV_S.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbHSV_S.Parent" xml:space="preserve">
     <value>$this</value>
@@ -484,7 +484,7 @@
     <value>tbHSV_V</value>
   </data>
   <data name="&gt;&gt;tbHSV_V.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbHSV_V.Parent" xml:space="preserve">
     <value>$this</value>
@@ -511,7 +511,7 @@
     <value>tbSecond_1</value>
   </data>
   <data name="&gt;&gt;tbSecond_1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbSecond_1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -538,7 +538,7 @@
     <value>tbSecond_2</value>
   </data>
   <data name="&gt;&gt;tbSecond_2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbSecond_2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -565,7 +565,7 @@
     <value>tbSecond_3</value>
   </data>
   <data name="&gt;&gt;tbSecond_3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbSecond_3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -595,7 +595,7 @@
     <value>lblHSV_H</value>
   </data>
   <data name="&gt;&gt;lblHSV_H.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblHSV_H.Parent" xml:space="preserve">
     <value>$this</value>
@@ -625,13 +625,13 @@
     <value>lblHSV_S</value>
   </data>
   <data name="&gt;&gt;lblHSV_S.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblHSV_S.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblHSV_S.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="lblHSV_V.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -655,13 +655,13 @@
     <value>lblHSV_V</value>
   </data>
   <data name="&gt;&gt;lblHSV_V.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblHSV_V.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblHSV_V.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="lblSecond_1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -682,13 +682,13 @@
     <value>lblSecond_1</value>
   </data>
   <data name="&gt;&gt;lblSecond_1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSecond_1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSecond_1.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="lblSecond_2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -709,13 +709,13 @@
     <value>lblSecond_2</value>
   </data>
   <data name="&gt;&gt;lblSecond_2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSecond_2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSecond_2.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>25</value>
   </data>
   <data name="lblSecond_3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -736,65 +736,17 @@
     <value>lblSecond_3</value>
   </data>
   <data name="&gt;&gt;lblSecond_3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSecond_3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSecond_3.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
-  <data name="eyeDropper1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 172</value>
-  </data>
-  <data name="eyeDropper1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 32</value>
-  </data>
-  <data name="eyeDropper1.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="eyeDropper1.Text" xml:space="preserve">
-    <value>eyeDropper1</value>
-  </data>
-  <data name="&gt;&gt;eyeDropper1.Name" xml:space="preserve">
-    <value>eyeDropper1</value>
-  </data>
-  <data name="&gt;&gt;eyeDropper1.Type" xml:space="preserve">
-    <value>ControlsEx.ColorManagement.EyeDropper, BitmapFontEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;eyeDropper1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;eyeDropper1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="colorSelectionFader2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>301, 3</value>
-  </data>
-  <data name="colorSelectionFader2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 158</value>
-  </data>
-  <data name="colorSelectionFader2.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="colorSelectionFader2.ToolTip" xml:space="preserve">
-    <value>Hold down Shift for snap at 10% steps</value>
-  </data>
-  <data name="&gt;&gt;colorSelectionFader2.Name" xml:space="preserve">
-    <value>colorSelectionFader2</value>
-  </data>
-  <data name="&gt;&gt;colorSelectionFader2.Type" xml:space="preserve">
-    <value>ControlsEx.ColorManagement.ColorModels.Selection.ColorSelectionFader, BitmapFontEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;colorSelectionFader2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;colorSelectionFader2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="lblColorOut.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -818,7 +770,7 @@ Left Click and drag outside to pick a color from screen.</value>
     <value>lblColorOut</value>
   </data>
   <data name="&gt;&gt;lblColorOut.Type" xml:space="preserve">
-    <value>ControlsEx.ColorManagement.ColorLabel, BitmapFontEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>ControlsEx.ColorManagement.ColorLabel, PalEdit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lblColorOut.Parent" xml:space="preserve">
     <value>$this</value>
@@ -842,13 +794,37 @@ Left Click and drag outside to pick a color from screen.</value>
     <value>colorSelectionFader1</value>
   </data>
   <data name="&gt;&gt;colorSelectionFader1.Type" xml:space="preserve">
-    <value>ControlsEx.ColorManagement.ColorModels.Selection.ColorSelectionFader, BitmapFontEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>ControlsEx.ColorManagement.ColorModels.Selection.ColorSelectionFader, PalEdit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;colorSelectionFader1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;colorSelectionFader1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
+  </data>
+  <data name="colorSelectionFader2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>301, 3</value>
+  </data>
+  <data name="colorSelectionFader2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 158</value>
+  </data>
+  <data name="colorSelectionFader2.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="colorSelectionFader2.ToolTip" xml:space="preserve">
+    <value>Hold down Shift for snap at 10% steps</value>
+  </data>
+  <data name="&gt;&gt;colorSelectionFader2.Name" xml:space="preserve">
+    <value>colorSelectionFader2</value>
+  </data>
+  <data name="&gt;&gt;colorSelectionFader2.Type" xml:space="preserve">
+    <value>ControlsEx.ColorManagement.ColorModels.Selection.ColorSelectionFader, PalEdit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;colorSelectionFader2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;colorSelectionFader2.ZOrder" xml:space="preserve">
+    <value>15</value>
   </data>
   <data name="colorSelectionPlane1.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 8</value>
@@ -866,15 +842,126 @@ Left Click and drag outside to pick a color from screen.</value>
     <value>colorSelectionPlane1</value>
   </data>
   <data name="&gt;&gt;colorSelectionPlane1.Type" xml:space="preserve">
-    <value>ControlsEx.ColorManagement.ColorModels.Selection.ColorSelectionPlane, BitmapFontEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>ControlsEx.ColorManagement.ColorModels.Selection.ColorSelectionPlane, PalEdit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;colorSelectionPlane1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;colorSelectionPlane1.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="eyeDropper1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 172</value>
+  </data>
+  <data name="eyeDropper1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="eyeDropper1.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="eyeDropper1.Text" xml:space="preserve">
+    <value>EyeDropper</value>
+  </data>
+  <data name="&gt;&gt;eyeDropper1.Name" xml:space="preserve">
+    <value>eyeDropper1</value>
+  </data>
+  <data name="&gt;&gt;eyeDropper1.Type" xml:space="preserve">
+    <value>ControlsEx.ColorManagement.EyeDropper, PalEdit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;eyeDropper1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;eyeDropper1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chkLock.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="chkLock.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkLock.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="chkLock.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>222, 17</value>
+  </metadata>
+  <data name="imageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACC
+        CQAAAk1TRnQBSQFMAgEBAgEAARABAAEQAQABEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        AwABEAMAAQEBAAEgBgABEBoAAVABTAFEAYABUAFMAUQBgAFQAUwBRAGAAVABTAFEAYABUAFMAUQBgAFQ
+        AUwBRAGAAVABTAFEAYABUAFMAUQBgAFQAUwBRAGAAVABTAFEAYABUAFMAUQBgAFQAUwBRAGA0AAB4gGh
+        ARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/
+        AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8QAAHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHi
+        AaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZ
+        Af8B4gGhARkB/5AAAeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wFQAUwBRAGA
+        BAAB4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/EAAB4gGhARkB/wHiAaEBGQH/
+        AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGh
+        ARkB/wHiAaEBGQH/AeIBoQEZAf+QAAHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZ
+        Af8BUAFMAUQBgAQAAeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/xAAAeIBoQEZ
+        Af8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHi
+        AaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/kAAB4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGh
+        ARkB/wHVAZsBIAH4AxoBJQQAAW4BYwFHAakB4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/xAA
+        AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AYUBbwFFAcABUAFMAUQBgAFQAUwBRAGAAVABTAFEAYABUAFM
+        AUQBgAFQAUwBRAGAAeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/kAAB4gGhARkB/wHiAaEBGQH/AeIBoQEZ
+        Af8B4gGhARkB/wHGAZQBJwHwAwEBAgQAAVEBTQFEAYEB4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGh
+        ARkB/xAAAeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AVABTAFEAYAUAAHiAaEBGQH/AeIBoQEZAf8B4gGh
+        ARkB/5AAAeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wFlAVwBSAGeAU0BSQFC
+        AXsBswGJATMB5AHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/EAAB4gGhARkB/wHiAaEBGQH/
+        AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGh
+        ARkB/wHiAaEBGQH/AeIBoQEZAf+QAAHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZ
+        Af8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/xAA
+        AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGh
+        ARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/tAAB4gGhARkB/wHiAaEBGQH/FAABUAFM
+        AUQBgAGFAW8BRQHAAeIBoQEZAf8BhQFvAUUBwAFQAUwBRAGAAVABTAFEAYABUAFMAUQBgAFQAUwBRAGA
+        AVABTAFEAYAB4gGhARkB/wHiAaEBGQH/AVABTAFEAYCUAAFQAUwBRAGAAeIBoQEZAf8BUAFMAUQBgBQA
+        AeIBoQEZAf8B4gGhARkB/xgAAVABTAFEAYAB4gGhARkB/wFQAUwBRAGAFAAB4gGhARkB/wHiAaEBGQH/
+        mAABTwFLAUMBfwHiAaEBGQH/AVMBTgFFAYQQAAMGAQgB4gGhARkB/wHVAZsBIAH4GAABSAFFAUABcwHi
+        AaEBGQH/AWMBWwFIAZsQAAIlASQBNgHiAaEBGQH/Aa8BiAE3AeGYAAFFAUMBPgFuAeIBoQEZAf8BeAFo
+        AUcBsxAAAUABPgE7AWYB4gGhARkB/wGYAXwBQQHPGAABLAIrAUIB4gGhARkB/wHOAZgBJQH1AxQBGwgA
+        AwoBDgG6AY8BLwHqAeIBoQEZAf8BVAFPAUUBh5gAAx4BKwHYAZsBHwH7AdgBnAEfAfsBVgFRAUYBiQMY
+        ASEDCwEPATsBOgE4AV4BzgGXASIB9gHYAZwBHwH7ATECMAFLGAADBQEHAW0BYQFJAacB4gGhARkB/wHO
+        AZgBJQH1AWYBXAFIAZ8BWwFUAUYBjwGaAXwBPwHSAeIBoQEZAf8BmgF8AT0B0wMKAQ6cAAE9ATwBOQFg
+        AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AWsBYAFIAaUkAAFd
+        AVYBRwGTAeIBoQEZAf8B4gGhARkB/wHiAaEBGQH/AeIBoQEZAf8BswGJATMB5AMbASakAAE1ATQBMwFS
+        AYkBcgFFAcMBzgGXASIB9gHiAaEBGQH/AZ4BgAE9AdUBSQFGAUABdQMMARAkAAMCAQMCKgEpAT8BRwFE
+        AT8BcQFQAUwBRAGAAjUBMwFTAwYBCP8AlQABQgFNAT4HAAE+AwABKAMAAUADAAEQAwABAQEAAQEFAAGA
+        FwAD/wEAAcABAwL/BAABwAEDAcABAwQAAcABgwHAAQMEAAHAAYMBwAEDBAABwAGDAcABAwQAAcABgwHD
+        AeMEAAHAAQMBwAEDBAABwAEDAcABAwQAAf8B5wHAAQMEAAHjAecB4wHnBAAB4wHHAeMBxwQAAeMBxwHh
+        AYcEAAHgAQcB4AEHBAAB8AEPAfgBDwQAAfgBDwH4AR8EAAT/BAAL
+</value>
+  </data>
+  <data name="chkLock.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 173</value>
+  </data>
+  <data name="chkLock.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="chkLock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>22, 22</value>
+  </data>
+  <data name="chkLock.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;chkLock.Name" xml:space="preserve">
+    <value>chkLock</value>
+  </data>
+  <data name="&gt;&gt;chkLock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkLock.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chkLock.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
@@ -893,48 +980,54 @@ Left Click and drag outside to pick a color from screen.</value>
     <value>contextMenu</value>
   </data>
   <data name="&gt;&gt;contextMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenu, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ContextMenu, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ctxHSV_RGB.Name" xml:space="preserve">
     <value>ctxHSV_RGB</value>
   </data>
   <data name="&gt;&gt;ctxHSV_RGB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ctxHSV_LAB.Name" xml:space="preserve">
     <value>ctxHSV_LAB</value>
   </data>
   <data name="&gt;&gt;ctxHSV_LAB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;separator1.Name" xml:space="preserve">
     <value>separator1</value>
   </data>
   <data name="&gt;&gt;separator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ctxPrevColor.Name" xml:space="preserve">
     <value>ctxPrevColor</value>
   </data>
   <data name="&gt;&gt;ctxPrevColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ctxCopy.Name" xml:space="preserve">
     <value>ctxCopy</value>
   </data>
   <data name="&gt;&gt;ctxCopy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolTip.Name" xml:space="preserve">
     <value>toolTip</value>
   </data>
   <data name="&gt;&gt;toolTip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
+    <value>imageList1</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ColorPicker</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

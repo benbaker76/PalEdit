@@ -17,6 +17,12 @@ namespace ControlsEx.ColorManagement
 		private int _alpha = 255;
 		private ColorPicker.Mode _mode = ColorPicker.Mode.HSV_RGB;
 		private ColorPicker.Fader _fader = ColorPicker.Fader.HSV_H;
+
+		private bool _isLocked = false;
+
+		public event EventHandler<ColorEventArgs> SelectedColorChanged;
+		public event EventHandler<ColorEventArgs> SelectedColorComplete;
+
 		#endregion
 		public ColorDialogEx()
 		{
@@ -32,6 +38,8 @@ namespace ControlsEx.ColorManagement
 			{
 				frm.Color = _xyz;
 				frm.Alpha = _alpha;
+				frm.SelectedColorChanged += OnSelectedColorChanged;
+				frm.SelectedColorComplete += OnSelectedColorComplete;
 				res = frm.ShowDialog(owner);
 				if (res == DialogResult.OK)
 				{
@@ -39,11 +47,24 @@ namespace ControlsEx.ColorManagement
 					_alpha = frm.Alpha;
 					_mode = frm.SecondaryMode;
 					_fader = frm.PrimaryFader;
+					_isLocked = frm.IsLocked;
 				}
 			}
 			return res;
 		}
+
+		private void OnSelectedColorChanged(object sender, ColorEventArgs e)
+		{
+			SelectedColorChanged?.Invoke(sender, e);
+		}
+
+		private void OnSelectedColorComplete(object sender, ColorEventArgs e)
+		{
+			SelectedColorComplete?.Invoke(sender, e);
+		}
+
 		#region properties
+
 		[DefaultValue(typeof(Color), "White")]
 		public Color Color
 		{
@@ -54,6 +75,9 @@ namespace ControlsEx.ColorManagement
 				_alpha = value.A;
 			}
 		}
+
+		public bool IsLocked { get { return _isLocked; } }
+
 		#endregion
 	}
 }

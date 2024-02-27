@@ -24,7 +24,11 @@ namespace ControlsEx.ColorManagement
 
 		private bool m_isCapturing = false;
 
-		public event EventHandler SelectedColorChanged;
+		private bool m_isLocked = false;
+		private int m_index = 0;
+
+		public event EventHandler<ColorEventArgs> SelectedColorChanged;
+		public event EventHandler<ColorEventArgs> SelectedColorComplete;
 
 		public EyeDropper()
 		{
@@ -64,7 +68,7 @@ namespace ControlsEx.ColorManagement
 				Cursor = m_eyeDropperCursor;
 				Cursor.Position = this.Parent.PointToScreen(new Point(this.Left + 2, this.Bottom - 4));
 				m_isCapturing = true;
-				
+
 				Invalidate();
 			}
 		}
@@ -84,12 +88,21 @@ namespace ControlsEx.ColorManagement
 		protected override void OnMouseUp(MouseEventArgs e)
 		{
 			base.OnMouseUp(e);
-			{
-				Cursor = Cursors.Arrow;
-				m_isCapturing = false;
 
-				this.Invalidate();
+			ColorEventArgs colorEventArgs = new ColorEventArgs(m_selectedColor, m_index);
+
+			if (SelectedColorComplete != null)
+			{
+				SelectedColorComplete(this, colorEventArgs);
+
+				m_isLocked = colorEventArgs.IsLocked;
+				m_index = colorEventArgs.Index;
 			}
+
+			Cursor = Cursors.Arrow;
+			m_isCapturing = false;
+
+			this.Invalidate();
 		}
 
 		private void CaptureScreen()
@@ -108,8 +121,7 @@ namespace ControlsEx.ColorManagement
 				{
 					m_selectedColor = selectedColor;
 
-					if (SelectedColorChanged != null)
-						SelectedColorChanged(this, null);
+					SelectedColorChanged?.Invoke(this, new ColorEventArgs(m_selectedColor, m_index));
 				}
 			}
 		}
@@ -134,7 +146,7 @@ namespace ControlsEx.ColorManagement
 			{
 				graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
 				Rectangle screenRectangle = new Rectangle(0, 0, this.Width, this.Height);
-				Point screenPoint = new Point(this.Width  / 2, this.Height / 2);
+				Point screenPoint = new Point(this.Width / 2, this.Height / 2);
 				graphics.DrawImage(m_screenCaptureBitmap, screenRectangle);
 				bool useBlack = (m_selectedColor.R + m_selectedColor.G + m_selectedColor.B > 128 * 3 ? true : false);
 				graphics.DrawLine(useBlack ? Pens.Black : Pens.White, screenPoint.X - 4, screenPoint.Y, screenPoint.X + 4, screenPoint.Y);
@@ -150,10 +162,30 @@ namespace ControlsEx.ColorManagement
 			}
 		}
 
+		public bool IsLocked
+		{
+			get { return m_isLocked; }
+		}
+
 		public Color SelectedColor
 		{
 			get { return m_selectedColor; }
 			set { m_selectedColor = value; }
 		}
+	}
+
+	public class ColorEventArgs : EventArgs
+	{
+		public ColorEventArgs(Color color, int index)
+		{
+			Color = color;
+			Index = index;
+		}
+
+		public bool IsLocked { get; set; }
+
+		public int Index { get; set; }
+
+		public Color Color { get; set; }
 	}
 }

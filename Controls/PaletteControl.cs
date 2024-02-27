@@ -480,7 +480,32 @@ namespace PalEdit
             PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
-        public void SetPalette(Color[] colorPalette)
+		public bool TrySetSelectedColor(int index, Color color)
+		{
+			int count = 0;
+			bool indexFound = false;
+
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (!Palette[i].IsSelected)
+					continue;
+
+				if (index == count++)
+				{
+					Palette[i].Color = color;
+					indexFound = true;
+
+					break;
+				}
+			}
+
+			DrawPalette();
+			PaletteSelect?.Invoke(this, new ColorEventArgs());
+
+			return indexFound;
+		}
+
+		public void SetPalette(Color[] colorPalette)
         {
             for (int i = 0; i < Palette.Length; i++)
                 Palette[i].Color = colorPalette[i];
@@ -1425,13 +1450,33 @@ namespace PalEdit
             using (ColorDialogEx colDiag = new ColorDialogEx())
             {
                 colDiag.Color = (Selected != null ? Selected.Color : Color.Black);
+				colDiag.SelectedColorComplete += colDiag_SelectedColorComplete;
 
-                if (colDiag.ShowDialog(this) == DialogResult.OK)
-                    SetAllSelectedColor(colDiag.Color);
+				if (colDiag.ShowDialog(this) == DialogResult.OK)
+				{
+					if (!colDiag.IsLocked)
+						SetAllSelectedColor(colDiag.Color);
+				}
             }
         }
 
-        private void PaletteControl_Paint(object sender, PaintEventArgs e)
+		private void colDiag_SelectedColorComplete(object sender, ControlsEx.ColorManagement.ColorEventArgs e)
+		{
+			if (e.IsLocked)
+			{
+				if (TrySetSelectedColor(e.Index, e.Color))
+					e.Index++;
+				else
+				{
+					e.Index = 0;
+
+					if (TrySetSelectedColor(e.Index, e.Color))
+						e.Index++;
+				}
+			}
+		}
+
+		private void PaletteControl_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.InterpolationMode = InterpolationMode.Low;
             e.Graphics.SmoothingMode = SmoothingMode.None;
