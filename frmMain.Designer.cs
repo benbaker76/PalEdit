@@ -804,14 +804,14 @@ namespace PalEdit
             this.toolStripMenuItem8,
             this.tsmiQuantize});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(181, 330);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(149, 308);
 			this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
 			// 
 			// tsmiCut
 			// 
 			this.tsmiCut.Name = "tsmiCut";
 			this.tsmiCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-			this.tsmiCut.Size = new System.Drawing.Size(180, 22);
+			this.tsmiCut.Size = new System.Drawing.Size(148, 22);
 			this.tsmiCut.Text = "Cut";
 			this.tsmiCut.Click += new System.EventHandler(this.tsmiCut_Click);
 			// 
@@ -819,7 +819,7 @@ namespace PalEdit
 			// 
 			this.tsmiCopy.Name = "tsmiCopy";
 			this.tsmiCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-			this.tsmiCopy.Size = new System.Drawing.Size(180, 22);
+			this.tsmiCopy.Size = new System.Drawing.Size(148, 22);
 			this.tsmiCopy.Text = "Copy";
 			this.tsmiCopy.Click += new System.EventHandler(this.tsmiCopy_Click);
 			// 
@@ -827,7 +827,7 @@ namespace PalEdit
 			// 
 			this.tsmiPaste.Name = "tsmiPaste";
 			this.tsmiPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-			this.tsmiPaste.Size = new System.Drawing.Size(180, 22);
+			this.tsmiPaste.Size = new System.Drawing.Size(148, 22);
 			this.tsmiPaste.Text = "Paste";
 			this.tsmiPaste.Click += new System.EventHandler(this.tsmiPaste_Click);
 			// 
@@ -835,7 +835,7 @@ namespace PalEdit
 			// 
 			this.tsmiFill.Name = "tsmiFill";
 			this.tsmiFill.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-			this.tsmiFill.Size = new System.Drawing.Size(180, 22);
+			this.tsmiFill.Size = new System.Drawing.Size(148, 22);
 			this.tsmiFill.Text = "Fill";
 			this.tsmiFill.Click += new System.EventHandler(this.tsmiFill_Click);
 			// 
@@ -843,7 +843,7 @@ namespace PalEdit
 			// 
 			this.tsmiSwap.Name = "tsmiSwap";
 			this.tsmiSwap.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.tsmiSwap.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSwap.Size = new System.Drawing.Size(148, 22);
 			this.tsmiSwap.Text = "Swap";
 			this.tsmiSwap.Click += new System.EventHandler(this.tsmiSwap_Click);
 			// 
@@ -851,14 +851,14 @@ namespace PalEdit
 			// 
 			this.tsmiMerge.Name = "tsmiMerge";
 			this.tsmiMerge.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-			this.tsmiMerge.Size = new System.Drawing.Size(180, 22);
+			this.tsmiMerge.Size = new System.Drawing.Size(148, 22);
 			this.tsmiMerge.Text = "Merge";
 			this.tsmiMerge.Click += new System.EventHandler(this.tsmiMerge_Click);
 			// 
 			// toolStripMenuItem5
 			// 
 			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-			this.toolStripMenuItem5.Size = new System.Drawing.Size(177, 6);
+			this.toolStripMenuItem5.Size = new System.Drawing.Size(145, 6);
 			// 
 			// tsmiSelect
 			// 
@@ -869,7 +869,7 @@ namespace PalEdit
             this.tsmiSelectUsedColors,
             this.tsmiSelectMatchedColors});
 			this.tsmiSelect.Name = "tsmiSelect";
-			this.tsmiSelect.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSelect.Size = new System.Drawing.Size(148, 22);
 			this.tsmiSelect.Text = "Select";
 			// 
 			// tsmiSelectAll
@@ -919,13 +919,13 @@ namespace PalEdit
             this.tsmiSortHSB,
             this.tsmiSortLAB});
 			this.tsmiSort.Name = "tsmiSort";
-			this.tsmiSort.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSort.Size = new System.Drawing.Size(148, 22);
 			this.tsmiSort.Text = "Sort";
 			// 
 			// tsmiSortSqrt
 			// 
 			this.tsmiSortSqrt.Name = "tsmiSortSqrt";
-			this.tsmiSortSqrt.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSortSqrt.Size = new System.Drawing.Size(161, 22);
 			this.tsmiSortSqrt.Text = "Sqrt Pow2";
 			this.tsmiSortSqrt.Click += new System.EventHandler(this.tsmiSortSqrt_Click);
 			// 
@@ -939,7 +939,7 @@ namespace PalEdit
             this.tsmiSortBHS,
             this.tsmiSortBSH});
 			this.tsmiSortHSB.Name = "tsmiSortHSB";
-			this.tsmiSortHSB.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSortHSB.Size = new System.Drawing.Size(161, 22);
 			this.tsmiSortHSB.Text = "HSB";
 			// 
 			// tsmiSortHSB_
@@ -987,7 +987,7 @@ namespace PalEdit
 			// tsmiSortLAB
 			// 
 			this.tsmiSortLAB.Name = "tsmiSortLAB";
-			this.tsmiSortLAB.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSortLAB.Size = new System.Drawing.Size(161, 22);
 			this.tsmiSortLAB.Text = "LAB (CIEDE2000)";
 			this.tsmiSortLAB.Click += new System.EventHandler(this.tsmiSortLAB_Click);
 			// 
@@ -998,27 +998,27 @@ namespace PalEdit
             this.tsmiRotateRight,
             this.tsmiReverse});
 			this.tsmiOrder.Name = "tsmiOrder";
-			this.tsmiOrder.Size = new System.Drawing.Size(180, 22);
+			this.tsmiOrder.Size = new System.Drawing.Size(148, 22);
 			this.tsmiOrder.Text = "Order";
 			// 
 			// tsmiRotateLeft
 			// 
 			this.tsmiRotateLeft.Name = "tsmiRotateLeft";
-			this.tsmiRotateLeft.Size = new System.Drawing.Size(180, 22);
+			this.tsmiRotateLeft.Size = new System.Drawing.Size(139, 22);
 			this.tsmiRotateLeft.Text = "Rotate Left";
 			this.tsmiRotateLeft.Click += new System.EventHandler(this.tsmiRotateLeft_Click);
 			// 
 			// tsmiRotateRight
 			// 
 			this.tsmiRotateRight.Name = "tsmiRotateRight";
-			this.tsmiRotateRight.Size = new System.Drawing.Size(180, 22);
+			this.tsmiRotateRight.Size = new System.Drawing.Size(139, 22);
 			this.tsmiRotateRight.Text = "Rotate Right";
 			this.tsmiRotateRight.Click += new System.EventHandler(this.tsmiRotateRight_Click);
 			// 
 			// tsmiReverse
 			// 
 			this.tsmiReverse.Name = "tsmiReverse";
-			this.tsmiReverse.Size = new System.Drawing.Size(180, 22);
+			this.tsmiReverse.Size = new System.Drawing.Size(139, 22);
 			this.tsmiReverse.Text = "Reverse";
 			this.tsmiReverse.Click += new System.EventHandler(this.tsmiReverse_Click);
 			// 
@@ -1031,7 +1031,7 @@ namespace PalEdit
             this.tsmiRGB555,
             this.tsmiRGB565});
 			this.tsmiRestrict.Name = "tsmiRestrict";
-			this.tsmiRestrict.Size = new System.Drawing.Size(180, 22);
+			this.tsmiRestrict.Size = new System.Drawing.Size(148, 22);
 			this.tsmiRestrict.Text = "Restrict";
 			// 
 			// tsmiRGB332
@@ -1072,31 +1072,31 @@ namespace PalEdit
 			// toolStripMenuItem7
 			// 
 			this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-			this.toolStripMenuItem7.Size = new System.Drawing.Size(177, 6);
+			this.toolStripMenuItem7.Size = new System.Drawing.Size(145, 6);
 			// 
 			// tsmiColor
 			// 
 			this.tsmiColor.Name = "tsmiColor";
-			this.tsmiColor.Size = new System.Drawing.Size(180, 22);
+			this.tsmiColor.Size = new System.Drawing.Size(148, 22);
 			this.tsmiColor.Text = "Color...";
 			this.tsmiColor.Click += new System.EventHandler(this.tsmiColor_Click);
 			// 
 			// tsmiGradient
 			// 
 			this.tsmiGradient.Name = "tsmiGradient";
-			this.tsmiGradient.Size = new System.Drawing.Size(180, 22);
+			this.tsmiGradient.Size = new System.Drawing.Size(148, 22);
 			this.tsmiGradient.Text = "Gradient...";
 			this.tsmiGradient.Click += new System.EventHandler(this.tsmiGradient_Click);
 			// 
 			// toolStripMenuItem8
 			// 
 			this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-			this.toolStripMenuItem8.Size = new System.Drawing.Size(177, 6);
+			this.toolStripMenuItem8.Size = new System.Drawing.Size(145, 6);
 			// 
 			// tsmiQuantize
 			// 
 			this.tsmiQuantize.Name = "tsmiQuantize";
-			this.tsmiQuantize.Size = new System.Drawing.Size(180, 22);
+			this.tsmiQuantize.Size = new System.Drawing.Size(148, 22);
 			this.tsmiQuantize.Text = "Quantize...";
 			this.tsmiQuantize.Click += new System.EventHandler(this.tsmiQuantize_Click);
 			// 

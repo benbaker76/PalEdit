@@ -264,9 +264,10 @@ namespace PalEdit
 
 		private void OnPaletteSelect(object sender, ColorEventArgs e)
         {
-			m_paletteControl = (PaletteControl)sender;
+			if (sender is PaletteControl)
+				m_paletteControl = (PaletteControl)sender;
 
-			UpdatePalette((PaletteControl)sender);
+			UpdatePalette(m_paletteControl);
         }
 
 		private void OnMouseEnter(object sender, EventArgs e)
@@ -1093,34 +1094,32 @@ namespace PalEdit
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
-			PaletteControl paletteControl = m_paletteControl;
-
-			if (paletteControl == null)
+			if (m_paletteControl == null)
 				return;
 
             if (e.Control && e.KeyCode == Keys.X) // Cut
-				paletteControl.CutPalette();
+				m_paletteControl.CutPalette();
             if (e.Control && e.KeyCode == Keys.C) // Copy
-				paletteControl.CopyPalette();
+				m_paletteControl.CopyPalette();
             if (e.Control && e.KeyCode == Keys.V) // Paste
-				paletteControl.PastePalette();
+				m_paletteControl.PastePalette();
             if (e.Control && e.KeyCode == Keys.F) // Fill
-				paletteControl.FillPalette();
+				m_paletteControl.FillPalette();
             if (e.Control && e.KeyCode == Keys.S) // Swap
-				paletteControl.SwapPalette();
+				m_paletteControl.SwapPalette();
             if (e.Control && e.KeyCode == Keys.G) // Gradient
-				paletteControl.ShowGradientPicker(chkStartAndEndOnly.Checked);
+				m_paletteControl.ShowGradientPicker(chkStartAndEndOnly.Checked);
             if (e.Control && e.KeyCode == Keys.A) // Select All
-				paletteControl.SelectAll();
+				m_paletteControl.SelectAll();
             if (e.Control && e.KeyCode == Keys.N) // Select None
-				paletteControl.SelectNone();
+				m_paletteControl.SelectNone();
             if (e.Control && e.KeyCode == Keys.I) // Select Inverse
-				paletteControl.SelectInverse();
+				m_paletteControl.SelectInverse();
             if (e.Control && e.KeyCode == Keys.U) // Select Used Colors
             {
-				paletteControl.SelectUsedColors(!IsShiftDown());
+				m_paletteControl.SelectUsedColors(!IsShiftDown());
 
-                OnPaletteSelect(paletteControl, new ColorEventArgs(paletteControl.SelectedIndex, paletteControl.SelectedColor));
+                OnPaletteSelect(m_paletteControl, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
             }
         }
 
@@ -1183,14 +1182,14 @@ namespace PalEdit
         {
 			m_paletteControl.SelectUsedColors(!IsShiftDown());
 
-            OnPaletteSelect(sender, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
+            OnPaletteSelect(m_paletteControl, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
         }
 
         private void tsmiSelectMatchingColors_Click(object sender, EventArgs e)
         {
 			m_paletteControl.SelectMatchingColors();
 
-            OnPaletteSelect(sender, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
+            OnPaletteSelect(m_paletteControl, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
         }
 
         private void tsmiColor_Click(object sender, EventArgs e)
