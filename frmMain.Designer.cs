@@ -55,24 +55,37 @@ namespace PalEdit
 			this.mnuFill = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSwap = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuMerge = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuGradient = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
-			this.selectiomnuNew = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSelect = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSelectAll = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSelectNone = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSelectInverse = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSelectMatchingColors = new System.Windows.Forms.ToolStripMenuItem();
 			this.matchingColorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuOrder = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSort = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuSqrtSort = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuHSLSort = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuHSBSort = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSortHSB = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSortHBS = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSortSHB = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSortSBH = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSortBHS = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuSortBSH = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuLABSort = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuOrder = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuRotateLeft = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuRotateRight = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuReverse = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+			this.mnuRestrict = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRGB332 = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRGB333 = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRGB444 = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRGB555 = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuRGB565 = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuPalette = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
 			this.mnuColor = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnuGradient = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
 			this.mnuQuantize = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,21 +103,42 @@ namespace PalEdit
 			this.tsmiFill = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiSwap = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiMerge = new System.Windows.Forms.ToolStripMenuItem();
-			this.tsmiGradient = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-			this.selectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSelect = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiSelectAll = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiSelectNone = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiSelectInverse = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiSelectUsedColors = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiSelectMatchedColors = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSort = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSortSqrt = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSortHSB = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSortHSB_ = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSortHBS = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSortSHB = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSortSBH = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSortBHS = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSortBSH = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiSortLAB = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiOrder = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiRotateLeft = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiRotateRight = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiReverse = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiRestrict = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiRGB332 = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiRGB333 = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiRGB444 = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiRGB555 = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiRGB565 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsmiColor = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiGradient = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
-			this.tsmiSort = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiQuantize = new System.Windows.Forms.ToolStripMenuItem();
 			this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.panelNoScrollOnFocus2 = new PalEdit.Controls.PanelNoScrollOnFocus();
+			this.mainPalette = new PalEdit.PaletteControl();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabInfo = new System.Windows.Forms.TabPage();
 			this.chkStartAndEndOnly = new System.Windows.Forms.CheckBox();
@@ -164,25 +198,27 @@ namespace PalEdit
 			this.picSplitComplement0 = new System.Windows.Forms.PictureBox();
 			this.picComplement = new System.Windows.Forms.PictureBox();
 			this.tabSwatches = new System.Windows.Forms.TabPage();
+			this.panelNoScrollOnFocus1 = new PalEdit.Controls.PanelNoScrollOnFocus();
+			this.swatchesPalette = new PalEdit.PaletteControl();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.tsddbSwatchesPalette = new System.Windows.Forms.ToolStripDropDownButton();
 			this.tsbLoadSwatches = new System.Windows.Forms.ToolStripButton();
 			this.tsbSwatchesReset = new System.Windows.Forms.ToolStripButton();
 			this.tsbSwatchesLock = new System.Windows.Forms.ToolStripButton();
-			this.tsbSortColors = new System.Windows.Forms.ToolStripButton();
+			this.tsbCopy = new System.Windows.Forms.ToolStripButton();
+			this.tsbPaste = new System.Windows.Forms.ToolStripButton();
+			this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.tsbSortSqrt = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsbSortHSB = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsbSortHSB_ = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsbSortHBS = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsbSortSHB = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsbSortSBH = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsbSortBHS = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsbSortBSH = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsbSortLAB = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsbSelectMatchingColors = new System.Windows.Forms.ToolStripButton();
 			this.tsbSelectNonMatchingColors = new System.Windows.Forms.ToolStripButton();
-			this.mnuLABSort = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuRestrict = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuRGB444 = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuRGB332 = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuRGB333 = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuRGB555 = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnuRGB565 = new System.Windows.Forms.ToolStripMenuItem();
-			this.panelNoScrollOnFocus2 = new PalEdit.Controls.PanelNoScrollOnFocus();
-			this.palControl = new PalEdit.PaletteControl();
-			this.panelNoScrollOnFocus1 = new PalEdit.Controls.PanelNoScrollOnFocus();
-			this.palSwatches = new PalEdit.PaletteControl();
 			this.menuStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.contextMenuStrip1.SuspendLayout();
@@ -190,6 +226,7 @@ namespace PalEdit
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
+			this.panelNoScrollOnFocus2.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabInfo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbGradient)).BeginInit();
@@ -212,9 +249,8 @@ namespace PalEdit
 			((System.ComponentModel.ISupportInitialize)(this.picSplitComplement0)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picComplement)).BeginInit();
 			this.tabSwatches.SuspendLayout();
-			this.toolStrip1.SuspendLayout();
-			this.panelNoScrollOnFocus2.SuspendLayout();
 			this.panelNoScrollOnFocus1.SuspendLayout();
+			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -371,14 +407,15 @@ namespace PalEdit
             this.mnuFill,
             this.mnuSwap,
             this.mnuMerge,
-            this.mnuGradient,
             this.toolStripMenuItem6,
-            this.selectiomnuNew,
+            this.mnuSelect,
+            this.mnuSort,
             this.mnuOrder,
             this.mnuRestrict,
-            this.toolStripMenuItem3,
             this.mnuPalette,
+            this.toolStripMenuItem3,
             this.mnuColor,
+            this.mnuGradient,
             this.toolStripMenuItem4,
             this.mnuQuantize});
 			this.mnuEdit.Name = "mnuEdit";
@@ -389,7 +426,7 @@ namespace PalEdit
 			// 
 			this.mnuCut.Name = "mnuCut";
 			this.mnuCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-			this.mnuCut.Size = new System.Drawing.Size(180, 22);
+			this.mnuCut.Size = new System.Drawing.Size(148, 22);
 			this.mnuCut.Text = "Cut";
 			this.mnuCut.Click += new System.EventHandler(this.mnuCut_Click);
 			// 
@@ -397,7 +434,7 @@ namespace PalEdit
 			// 
 			this.mnuCopy.Name = "mnuCopy";
 			this.mnuCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-			this.mnuCopy.Size = new System.Drawing.Size(180, 22);
+			this.mnuCopy.Size = new System.Drawing.Size(148, 22);
 			this.mnuCopy.Text = "Copy";
 			this.mnuCopy.Click += new System.EventHandler(this.mnuCopy_Click);
 			// 
@@ -405,7 +442,7 @@ namespace PalEdit
 			// 
 			this.mnuPaste.Name = "mnuPaste";
 			this.mnuPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-			this.mnuPaste.Size = new System.Drawing.Size(180, 22);
+			this.mnuPaste.Size = new System.Drawing.Size(148, 22);
 			this.mnuPaste.Text = "Paste";
 			this.mnuPaste.Click += new System.EventHandler(this.mnuPaste_Click);
 			// 
@@ -413,7 +450,7 @@ namespace PalEdit
 			// 
 			this.mnuFill.Name = "mnuFill";
 			this.mnuFill.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-			this.mnuFill.Size = new System.Drawing.Size(180, 22);
+			this.mnuFill.Size = new System.Drawing.Size(148, 22);
 			this.mnuFill.Text = "Fill";
 			this.mnuFill.Click += new System.EventHandler(this.mnuFill_Click);
 			// 
@@ -421,7 +458,7 @@ namespace PalEdit
 			// 
 			this.mnuSwap.Name = "mnuSwap";
 			this.mnuSwap.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.mnuSwap.Size = new System.Drawing.Size(180, 22);
+			this.mnuSwap.Size = new System.Drawing.Size(148, 22);
 			this.mnuSwap.Text = "Swap";
 			this.mnuSwap.Click += new System.EventHandler(this.mnuSwap_Click);
 			// 
@@ -429,34 +466,26 @@ namespace PalEdit
 			// 
 			this.mnuMerge.Name = "mnuMerge";
 			this.mnuMerge.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-			this.mnuMerge.Size = new System.Drawing.Size(180, 22);
+			this.mnuMerge.Size = new System.Drawing.Size(148, 22);
 			this.mnuMerge.Text = "Merge";
 			this.mnuMerge.Click += new System.EventHandler(this.mnuMerge_Click);
-			// 
-			// mnuGradient
-			// 
-			this.mnuGradient.Name = "mnuGradient";
-			this.mnuGradient.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-			this.mnuGradient.Size = new System.Drawing.Size(180, 22);
-			this.mnuGradient.Text = "Gradient";
-			this.mnuGradient.Click += new System.EventHandler(this.mnuGradient_Click);
 			// 
 			// toolStripMenuItem6
 			// 
 			this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-			this.toolStripMenuItem6.Size = new System.Drawing.Size(177, 6);
+			this.toolStripMenuItem6.Size = new System.Drawing.Size(145, 6);
 			// 
-			// selectiomnuNew
+			// mnuSelect
 			// 
-			this.selectiomnuNew.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.mnuSelect.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSelectAll,
             this.mnuSelectNone,
             this.mnuSelectInverse,
             this.mnuSelectMatchingColors,
             this.matchingColorsToolStripMenuItem});
-			this.selectiomnuNew.Name = "selectiomnuNew";
-			this.selectiomnuNew.Size = new System.Drawing.Size(180, 22);
-			this.selectiomnuNew.Text = "Select";
+			this.mnuSelect.Name = "mnuSelect";
+			this.mnuSelect.Size = new System.Drawing.Size(148, 22);
+			this.mnuSelect.Text = "Select";
 			// 
 			// mnuSelectAll
 			// 
@@ -498,89 +527,197 @@ namespace PalEdit
 			this.matchingColorsToolStripMenuItem.Text = "Matching Colors";
 			this.matchingColorsToolStripMenuItem.Click += new System.EventHandler(this.mnuSelectMatchingColors_Click);
 			// 
-			// mnuOrder
-			// 
-			this.mnuOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuSort,
-            this.mnuRotateLeft,
-            this.mnuRotateRight,
-            this.mnuReverse});
-			this.mnuOrder.Name = "mnuOrder";
-			this.mnuOrder.Size = new System.Drawing.Size(180, 22);
-			this.mnuOrder.Text = "Order";
-			// 
 			// mnuSort
 			// 
 			this.mnuSort.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSqrtSort,
-            this.mnuHSLSort,
+            this.mnuHSBSort,
             this.mnuLABSort});
 			this.mnuSort.Name = "mnuSort";
-			this.mnuSort.Size = new System.Drawing.Size(180, 22);
+			this.mnuSort.Size = new System.Drawing.Size(148, 22);
 			this.mnuSort.Text = "Sort";
 			// 
 			// mnuSqrtSort
 			// 
 			this.mnuSqrtSort.Name = "mnuSqrtSort";
-			this.mnuSqrtSort.Size = new System.Drawing.Size(143, 22);
-			this.mnuSqrtSort.Text = "Sqrt";
+			this.mnuSqrtSort.Size = new System.Drawing.Size(161, 22);
+			this.mnuSqrtSort.Text = "Sqrt Pow2";
 			this.mnuSqrtSort.Click += new System.EventHandler(this.mnuSortSqrt_Click);
 			// 
-			// mnuHSLSort
+			// mnuHSBSort
 			// 
-			this.mnuHSLSort.Name = "mnuHSLSort";
-			this.mnuHSLSort.Size = new System.Drawing.Size(143, 22);
-			this.mnuHSLSort.Text = "H > S > L";
-			this.mnuHSLSort.Click += new System.EventHandler(this.mnuSortHSL_Click);
+			this.mnuHSBSort.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuSortHSB,
+            this.mnuSortHBS,
+            this.mnuSortSHB,
+            this.mnuSortSBH,
+            this.mnuSortBHS,
+            this.mnuSortBSH});
+			this.mnuHSBSort.Name = "mnuHSBSort";
+			this.mnuHSBSort.Size = new System.Drawing.Size(161, 22);
+			this.mnuHSBSort.Text = "HSB";
+			// 
+			// mnuSortHSB
+			// 
+			this.mnuSortHSB.Name = "mnuSortHSB";
+			this.mnuSortHSB.Size = new System.Drawing.Size(124, 22);
+			this.mnuSortHSB.Text = "H > S > B";
+			this.mnuSortHSB.Click += new System.EventHandler(this.mnuSortHSB_Click);
+			// 
+			// mnuSortHBS
+			// 
+			this.mnuSortHBS.Name = "mnuSortHBS";
+			this.mnuSortHBS.Size = new System.Drawing.Size(124, 22);
+			this.mnuSortHBS.Text = "H > B > S";
+			this.mnuSortHBS.Click += new System.EventHandler(this.mnuSortHBS_Click);
+			// 
+			// mnuSortSHB
+			// 
+			this.mnuSortSHB.Name = "mnuSortSHB";
+			this.mnuSortSHB.Size = new System.Drawing.Size(124, 22);
+			this.mnuSortSHB.Text = "S > H > B";
+			this.mnuSortSHB.Click += new System.EventHandler(this.mnuSortSHB_Click);
+			// 
+			// mnuSortSBH
+			// 
+			this.mnuSortSBH.Name = "mnuSortSBH";
+			this.mnuSortSBH.Size = new System.Drawing.Size(124, 22);
+			this.mnuSortSBH.Text = "S > B > H";
+			this.mnuSortSBH.Click += new System.EventHandler(this.mnuSortSBH_Click);
+			// 
+			// mnuSortBHS
+			// 
+			this.mnuSortBHS.Name = "mnuSortBHS";
+			this.mnuSortBHS.Size = new System.Drawing.Size(124, 22);
+			this.mnuSortBHS.Text = "B > H > S";
+			this.mnuSortBHS.Click += new System.EventHandler(this.mnuSortBHS_Click);
+			// 
+			// mnuSortBSH
+			// 
+			this.mnuSortBSH.Name = "mnuSortBSH";
+			this.mnuSortBSH.Size = new System.Drawing.Size(124, 22);
+			this.mnuSortBSH.Text = "B > S > H";
+			this.mnuSortBSH.Click += new System.EventHandler(this.mnuSortBSH_Click);
+			// 
+			// mnuLABSort
+			// 
+			this.mnuLABSort.Name = "mnuLABSort";
+			this.mnuLABSort.Size = new System.Drawing.Size(161, 22);
+			this.mnuLABSort.Text = "LAB (CIEDE2000)";
+			this.mnuLABSort.Click += new System.EventHandler(this.mnuSortLAB_Click);
+			// 
+			// mnuOrder
+			// 
+			this.mnuOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRotateLeft,
+            this.mnuRotateRight,
+            this.mnuReverse});
+			this.mnuOrder.Name = "mnuOrder";
+			this.mnuOrder.Size = new System.Drawing.Size(148, 22);
+			this.mnuOrder.Text = "Order";
 			// 
 			// mnuRotateLeft
 			// 
 			this.mnuRotateLeft.Name = "mnuRotateLeft";
-			this.mnuRotateLeft.Size = new System.Drawing.Size(180, 22);
+			this.mnuRotateLeft.Size = new System.Drawing.Size(139, 22);
 			this.mnuRotateLeft.Text = "Rotate Left";
 			this.mnuRotateLeft.Click += new System.EventHandler(this.mnuRotateLeft_Click);
 			// 
 			// mnuRotateRight
 			// 
 			this.mnuRotateRight.Name = "mnuRotateRight";
-			this.mnuRotateRight.Size = new System.Drawing.Size(180, 22);
+			this.mnuRotateRight.Size = new System.Drawing.Size(139, 22);
 			this.mnuRotateRight.Text = "Rotate Right";
 			this.mnuRotateRight.Click += new System.EventHandler(this.mnuRotateRight_Click);
 			// 
 			// mnuReverse
 			// 
 			this.mnuReverse.Name = "mnuReverse";
-			this.mnuReverse.Size = new System.Drawing.Size(180, 22);
+			this.mnuReverse.Size = new System.Drawing.Size(139, 22);
 			this.mnuReverse.Text = "Reverse";
 			this.mnuReverse.Click += new System.EventHandler(this.mnuReverse_Click);
 			// 
-			// toolStripMenuItem3
+			// mnuRestrict
 			// 
-			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
+			this.mnuRestrict.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRGB332,
+            this.mnuRGB333,
+            this.mnuRGB444,
+            this.mnuRGB555,
+            this.mnuRGB565});
+			this.mnuRestrict.Name = "mnuRestrict";
+			this.mnuRestrict.Size = new System.Drawing.Size(148, 22);
+			this.mnuRestrict.Text = "Restrict";
+			// 
+			// mnuRGB332
+			// 
+			this.mnuRGB332.Name = "mnuRGB332";
+			this.mnuRGB332.Size = new System.Drawing.Size(114, 22);
+			this.mnuRGB332.Text = "RGB332";
+			this.mnuRGB332.Click += new System.EventHandler(this.mnuRGB332_Click);
+			// 
+			// mnuRGB333
+			// 
+			this.mnuRGB333.Name = "mnuRGB333";
+			this.mnuRGB333.Size = new System.Drawing.Size(114, 22);
+			this.mnuRGB333.Text = "RGB333";
+			this.mnuRGB333.Click += new System.EventHandler(this.mnuRGB333_Click);
+			// 
+			// mnuRGB444
+			// 
+			this.mnuRGB444.Name = "mnuRGB444";
+			this.mnuRGB444.Size = new System.Drawing.Size(114, 22);
+			this.mnuRGB444.Text = "RGB444";
+			this.mnuRGB444.Click += new System.EventHandler(this.mnuRGB444_Click);
+			// 
+			// mnuRGB555
+			// 
+			this.mnuRGB555.Name = "mnuRGB555";
+			this.mnuRGB555.Size = new System.Drawing.Size(114, 22);
+			this.mnuRGB555.Text = "RGB555";
+			this.mnuRGB555.Click += new System.EventHandler(this.mnuRGB555_Click);
+			// 
+			// mnuRGB565
+			// 
+			this.mnuRGB565.Name = "mnuRGB565";
+			this.mnuRGB565.Size = new System.Drawing.Size(114, 22);
+			this.mnuRGB565.Text = "RGB565";
+			this.mnuRGB565.Click += new System.EventHandler(this.mnuRGB565_Click);
 			// 
 			// mnuPalette
 			// 
 			this.mnuPalette.Name = "mnuPalette";
-			this.mnuPalette.Size = new System.Drawing.Size(180, 22);
+			this.mnuPalette.Size = new System.Drawing.Size(148, 22);
 			this.mnuPalette.Text = "Palette";
+			// 
+			// toolStripMenuItem3
+			// 
+			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(145, 6);
 			// 
 			// mnuColor
 			// 
 			this.mnuColor.Name = "mnuColor";
-			this.mnuColor.Size = new System.Drawing.Size(180, 22);
+			this.mnuColor.Size = new System.Drawing.Size(148, 22);
 			this.mnuColor.Text = "Color...";
 			this.mnuColor.Click += new System.EventHandler(this.mnuColor_Click);
+			// 
+			// mnuGradient
+			// 
+			this.mnuGradient.Name = "mnuGradient";
+			this.mnuGradient.Size = new System.Drawing.Size(148, 22);
+			this.mnuGradient.Text = "Gradient...";
+			this.mnuGradient.Click += new System.EventHandler(this.mnuGradient_Click);
 			// 
 			// toolStripMenuItem4
 			// 
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(145, 6);
 			// 
 			// mnuQuantize
 			// 
 			this.mnuQuantize.Name = "mnuQuantize";
-			this.mnuQuantize.Size = new System.Drawing.Size(180, 22);
+			this.mnuQuantize.Size = new System.Drawing.Size(148, 22);
 			this.mnuQuantize.Text = "Quantize...";
 			this.mnuQuantize.Click += new System.EventHandler(this.mnuQuantize_Click);
 			// 
@@ -656,22 +793,25 @@ namespace PalEdit
             this.tsmiFill,
             this.tsmiSwap,
             this.tsmiMerge,
-            this.tsmiGradient,
             this.toolStripMenuItem5,
-            this.selectToolStripMenuItem,
+            this.tsmiSelect,
+            this.tsmiSort,
+            this.tsmiOrder,
+            this.tsmiRestrict,
             this.toolStripMenuItem7,
             this.tsmiColor,
+            this.tsmiGradient,
             this.toolStripMenuItem8,
-            this.tsmiSort,
             this.tsmiQuantize});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(162, 264);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(181, 330);
+			this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
 			// 
 			// tsmiCut
 			// 
 			this.tsmiCut.Name = "tsmiCut";
 			this.tsmiCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-			this.tsmiCut.Size = new System.Drawing.Size(161, 22);
+			this.tsmiCut.Size = new System.Drawing.Size(180, 22);
 			this.tsmiCut.Text = "Cut";
 			this.tsmiCut.Click += new System.EventHandler(this.tsmiCut_Click);
 			// 
@@ -679,7 +819,7 @@ namespace PalEdit
 			// 
 			this.tsmiCopy.Name = "tsmiCopy";
 			this.tsmiCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-			this.tsmiCopy.Size = new System.Drawing.Size(161, 22);
+			this.tsmiCopy.Size = new System.Drawing.Size(180, 22);
 			this.tsmiCopy.Text = "Copy";
 			this.tsmiCopy.Click += new System.EventHandler(this.tsmiCopy_Click);
 			// 
@@ -687,7 +827,7 @@ namespace PalEdit
 			// 
 			this.tsmiPaste.Name = "tsmiPaste";
 			this.tsmiPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-			this.tsmiPaste.Size = new System.Drawing.Size(161, 22);
+			this.tsmiPaste.Size = new System.Drawing.Size(180, 22);
 			this.tsmiPaste.Text = "Paste";
 			this.tsmiPaste.Click += new System.EventHandler(this.tsmiPaste_Click);
 			// 
@@ -695,7 +835,7 @@ namespace PalEdit
 			// 
 			this.tsmiFill.Name = "tsmiFill";
 			this.tsmiFill.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-			this.tsmiFill.Size = new System.Drawing.Size(161, 22);
+			this.tsmiFill.Size = new System.Drawing.Size(180, 22);
 			this.tsmiFill.Text = "Fill";
 			this.tsmiFill.Click += new System.EventHandler(this.tsmiFill_Click);
 			// 
@@ -703,7 +843,7 @@ namespace PalEdit
 			// 
 			this.tsmiSwap.Name = "tsmiSwap";
 			this.tsmiSwap.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.tsmiSwap.Size = new System.Drawing.Size(161, 22);
+			this.tsmiSwap.Size = new System.Drawing.Size(180, 22);
 			this.tsmiSwap.Text = "Swap";
 			this.tsmiSwap.Click += new System.EventHandler(this.tsmiSwap_Click);
 			// 
@@ -711,34 +851,26 @@ namespace PalEdit
 			// 
 			this.tsmiMerge.Name = "tsmiMerge";
 			this.tsmiMerge.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-			this.tsmiMerge.Size = new System.Drawing.Size(161, 22);
+			this.tsmiMerge.Size = new System.Drawing.Size(180, 22);
 			this.tsmiMerge.Text = "Merge";
 			this.tsmiMerge.Click += new System.EventHandler(this.tsmiMerge_Click);
-			// 
-			// tsmiGradient
-			// 
-			this.tsmiGradient.Name = "tsmiGradient";
-			this.tsmiGradient.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-			this.tsmiGradient.Size = new System.Drawing.Size(161, 22);
-			this.tsmiGradient.Text = "Gradient";
-			this.tsmiGradient.Click += new System.EventHandler(this.tsmiGradient_Click);
 			// 
 			// toolStripMenuItem5
 			// 
 			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-			this.toolStripMenuItem5.Size = new System.Drawing.Size(158, 6);
+			this.toolStripMenuItem5.Size = new System.Drawing.Size(177, 6);
 			// 
-			// selectToolStripMenuItem
+			// tsmiSelect
 			// 
-			this.selectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.tsmiSelect.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiSelectAll,
             this.tsmiSelectNone,
             this.tsmiSelectInverse,
             this.tsmiSelectUsedColors,
             this.tsmiSelectMatchedColors});
-			this.selectToolStripMenuItem.Name = "selectToolStripMenuItem";
-			this.selectToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-			this.selectToolStripMenuItem.Text = "Select";
+			this.tsmiSelect.Name = "tsmiSelect";
+			this.tsmiSelect.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSelect.Text = "Select";
 			// 
 			// tsmiSelectAll
 			// 
@@ -780,34 +912,191 @@ namespace PalEdit
 			this.tsmiSelectMatchedColors.Text = "Matched Colors";
 			this.tsmiSelectMatchedColors.Click += new System.EventHandler(this.tsmiSelectMatchingColors_Click);
 			// 
+			// tsmiSort
+			// 
+			this.tsmiSort.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiSortSqrt,
+            this.tsmiSortHSB,
+            this.tsmiSortLAB});
+			this.tsmiSort.Name = "tsmiSort";
+			this.tsmiSort.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSort.Text = "Sort";
+			// 
+			// tsmiSortSqrt
+			// 
+			this.tsmiSortSqrt.Name = "tsmiSortSqrt";
+			this.tsmiSortSqrt.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSortSqrt.Text = "Sqrt Pow2";
+			this.tsmiSortSqrt.Click += new System.EventHandler(this.tsmiSortSqrt_Click);
+			// 
+			// tsmiSortHSB
+			// 
+			this.tsmiSortHSB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiSortHSB_,
+            this.tsmiSortHBS,
+            this.tsmiSortSHB,
+            this.tsmiSortSBH,
+            this.tsmiSortBHS,
+            this.tsmiSortBSH});
+			this.tsmiSortHSB.Name = "tsmiSortHSB";
+			this.tsmiSortHSB.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSortHSB.Text = "HSB";
+			// 
+			// tsmiSortHSB_
+			// 
+			this.tsmiSortHSB_.Name = "tsmiSortHSB_";
+			this.tsmiSortHSB_.Size = new System.Drawing.Size(124, 22);
+			this.tsmiSortHSB_.Text = "H > S > B";
+			this.tsmiSortHSB_.Click += new System.EventHandler(this.tsmiSortHSB_Click);
+			// 
+			// tsmiSortHBS
+			// 
+			this.tsmiSortHBS.Name = "tsmiSortHBS";
+			this.tsmiSortHBS.Size = new System.Drawing.Size(124, 22);
+			this.tsmiSortHBS.Text = "H > B > S";
+			this.tsmiSortHBS.Click += new System.EventHandler(this.tsmiSortHBS_Click);
+			// 
+			// tsmiSortSHB
+			// 
+			this.tsmiSortSHB.Name = "tsmiSortSHB";
+			this.tsmiSortSHB.Size = new System.Drawing.Size(124, 22);
+			this.tsmiSortSHB.Text = "S > H > B";
+			this.tsmiSortSHB.Click += new System.EventHandler(this.tsmiSortSHB_Click);
+			// 
+			// tsmiSortSBH
+			// 
+			this.tsmiSortSBH.Name = "tsmiSortSBH";
+			this.tsmiSortSBH.Size = new System.Drawing.Size(124, 22);
+			this.tsmiSortSBH.Text = "S > B > H";
+			this.tsmiSortSBH.Click += new System.EventHandler(this.tsmiSortSBH_Click);
+			// 
+			// tsmiSortBHS
+			// 
+			this.tsmiSortBHS.Name = "tsmiSortBHS";
+			this.tsmiSortBHS.Size = new System.Drawing.Size(124, 22);
+			this.tsmiSortBHS.Text = "B > H > S";
+			this.tsmiSortBHS.Click += new System.EventHandler(this.tsmiSortBHS_Click);
+			// 
+			// tsmiSortBSH
+			// 
+			this.tsmiSortBSH.Name = "tsmiSortBSH";
+			this.tsmiSortBSH.Size = new System.Drawing.Size(124, 22);
+			this.tsmiSortBSH.Text = "B > S > H";
+			this.tsmiSortBSH.Click += new System.EventHandler(this.tsmiSortBSH_Click);
+			// 
+			// tsmiSortLAB
+			// 
+			this.tsmiSortLAB.Name = "tsmiSortLAB";
+			this.tsmiSortLAB.Size = new System.Drawing.Size(180, 22);
+			this.tsmiSortLAB.Text = "LAB (CIEDE2000)";
+			this.tsmiSortLAB.Click += new System.EventHandler(this.tsmiSortLAB_Click);
+			// 
+			// tsmiOrder
+			// 
+			this.tsmiOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiRotateLeft,
+            this.tsmiRotateRight,
+            this.tsmiReverse});
+			this.tsmiOrder.Name = "tsmiOrder";
+			this.tsmiOrder.Size = new System.Drawing.Size(180, 22);
+			this.tsmiOrder.Text = "Order";
+			// 
+			// tsmiRotateLeft
+			// 
+			this.tsmiRotateLeft.Name = "tsmiRotateLeft";
+			this.tsmiRotateLeft.Size = new System.Drawing.Size(180, 22);
+			this.tsmiRotateLeft.Text = "Rotate Left";
+			this.tsmiRotateLeft.Click += new System.EventHandler(this.tsmiRotateLeft_Click);
+			// 
+			// tsmiRotateRight
+			// 
+			this.tsmiRotateRight.Name = "tsmiRotateRight";
+			this.tsmiRotateRight.Size = new System.Drawing.Size(180, 22);
+			this.tsmiRotateRight.Text = "Rotate Right";
+			this.tsmiRotateRight.Click += new System.EventHandler(this.tsmiRotateRight_Click);
+			// 
+			// tsmiReverse
+			// 
+			this.tsmiReverse.Name = "tsmiReverse";
+			this.tsmiReverse.Size = new System.Drawing.Size(180, 22);
+			this.tsmiReverse.Text = "Reverse";
+			this.tsmiReverse.Click += new System.EventHandler(this.tsmiReverse_Click);
+			// 
+			// tsmiRestrict
+			// 
+			this.tsmiRestrict.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiRGB332,
+            this.tsmiRGB333,
+            this.tsmiRGB444,
+            this.tsmiRGB555,
+            this.tsmiRGB565});
+			this.tsmiRestrict.Name = "tsmiRestrict";
+			this.tsmiRestrict.Size = new System.Drawing.Size(180, 22);
+			this.tsmiRestrict.Text = "Restrict";
+			// 
+			// tsmiRGB332
+			// 
+			this.tsmiRGB332.Name = "tsmiRGB332";
+			this.tsmiRGB332.Size = new System.Drawing.Size(114, 22);
+			this.tsmiRGB332.Text = "RGB332";
+			this.tsmiRGB332.Click += new System.EventHandler(this.tsmiRGB332_Click);
+			// 
+			// tsmiRGB333
+			// 
+			this.tsmiRGB333.Name = "tsmiRGB333";
+			this.tsmiRGB333.Size = new System.Drawing.Size(114, 22);
+			this.tsmiRGB333.Text = "RGB333";
+			this.tsmiRGB333.Click += new System.EventHandler(this.tsmiRGB333_Click);
+			// 
+			// tsmiRGB444
+			// 
+			this.tsmiRGB444.Name = "tsmiRGB444";
+			this.tsmiRGB444.Size = new System.Drawing.Size(114, 22);
+			this.tsmiRGB444.Text = "RGB444";
+			this.tsmiRGB444.Click += new System.EventHandler(this.tsmiRGB444_Click);
+			// 
+			// tsmiRGB555
+			// 
+			this.tsmiRGB555.Name = "tsmiRGB555";
+			this.tsmiRGB555.Size = new System.Drawing.Size(114, 22);
+			this.tsmiRGB555.Text = "RGB555";
+			this.tsmiRGB555.Click += new System.EventHandler(this.tsmiRGB555_Click);
+			// 
+			// tsmiRGB565
+			// 
+			this.tsmiRGB565.Name = "tsmiRGB565";
+			this.tsmiRGB565.Size = new System.Drawing.Size(114, 22);
+			this.tsmiRGB565.Text = "RGB565";
+			this.tsmiRGB565.Click += new System.EventHandler(this.tsmiRGB565_Click);
+			// 
 			// toolStripMenuItem7
 			// 
 			this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-			this.toolStripMenuItem7.Size = new System.Drawing.Size(158, 6);
+			this.toolStripMenuItem7.Size = new System.Drawing.Size(177, 6);
 			// 
 			// tsmiColor
 			// 
 			this.tsmiColor.Name = "tsmiColor";
-			this.tsmiColor.Size = new System.Drawing.Size(161, 22);
+			this.tsmiColor.Size = new System.Drawing.Size(180, 22);
 			this.tsmiColor.Text = "Color...";
 			this.tsmiColor.Click += new System.EventHandler(this.tsmiColor_Click);
+			// 
+			// tsmiGradient
+			// 
+			this.tsmiGradient.Name = "tsmiGradient";
+			this.tsmiGradient.Size = new System.Drawing.Size(180, 22);
+			this.tsmiGradient.Text = "Gradient...";
+			this.tsmiGradient.Click += new System.EventHandler(this.tsmiGradient_Click);
 			// 
 			// toolStripMenuItem8
 			// 
 			this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-			this.toolStripMenuItem8.Size = new System.Drawing.Size(158, 6);
-			// 
-			// tsmiSort
-			// 
-			this.tsmiSort.Name = "tsmiSort";
-			this.tsmiSort.Size = new System.Drawing.Size(161, 22);
-			this.tsmiSort.Text = "Sort";
-			this.tsmiSort.Click += new System.EventHandler(this.tsmiSort_Click);
+			this.toolStripMenuItem8.Size = new System.Drawing.Size(177, 6);
 			// 
 			// tsmiQuantize
 			// 
 			this.tsmiQuantize.Name = "tsmiQuantize";
-			this.tsmiQuantize.Size = new System.Drawing.Size(161, 22);
+			this.tsmiQuantize.Size = new System.Drawing.Size(180, 22);
 			this.tsmiQuantize.Text = "Quantize...";
 			this.tsmiQuantize.Click += new System.EventHandler(this.tsmiQuantize_Click);
 			// 
@@ -834,6 +1123,551 @@ namespace PalEdit
 			this.splitContainer1.Size = new System.Drawing.Size(784, 615);
 			this.splitContainer1.SplitterDistance = 589;
 			this.splitContainer1.TabIndex = 16;
+			// 
+			// panelNoScrollOnFocus2
+			// 
+			this.panelNoScrollOnFocus2.AutoScroll = true;
+			this.panelNoScrollOnFocus2.Controls.Add(this.mainPalette);
+			this.panelNoScrollOnFocus2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelNoScrollOnFocus2.Location = new System.Drawing.Point(0, 0);
+			this.panelNoScrollOnFocus2.Name = "panelNoScrollOnFocus2";
+			this.panelNoScrollOnFocus2.Size = new System.Drawing.Size(589, 615);
+			this.panelNoScrollOnFocus2.TabIndex = 1;
+			// 
+			// mainPalette
+			// 
+			this.mainPalette.AllowDrop = true;
+			this.mainPalette.AllowMultipleSelection = true;
+			this.mainPalette.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+			this.mainPalette.Bitmap = null;
+			this.mainPalette.ColorArray = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))))};
+			this.mainPalette.Columns = 16;
+			this.mainPalette.ContextMenuStrip = this.contextMenuStrip1;
+			this.mainPalette.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.mainPalette.Dock = System.Windows.Forms.DockStyle.Top;
+			this.mainPalette.Location = new System.Drawing.Point(0, 0);
+			this.mainPalette.Margin = new System.Windows.Forms.Padding(0);
+			this.mainPalette.Name = "mainPalette";
+			this.mainPalette.Offset = new System.Drawing.Point(4, 4);
+			this.mainPalette.PaletteClipboard = new PalEdit.PalNode[] {
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null};
+			this.mainPalette.PalUsed = 256;
+			this.mainPalette.SelectedColor = System.Drawing.Color.Empty;
+			this.mainPalette.SelectedIndex = -1;
+			this.mainPalette.Size = new System.Drawing.Size(584, 584);
+			this.mainPalette.TabIndex = 0;
+			this.mainPalette.DragEnter += new System.Windows.Forms.DragEventHandler(this.palControl_DragEnter);
 			// 
 			// tabControl1
 			// 
@@ -1148,7 +1982,7 @@ namespace PalEdit
 			// chkEyeDropper
 			// 
 			this.chkEyeDropper.Appearance = System.Windows.Forms.Appearance.Button;
-			this.chkEyeDropper.Image = global::PalEdit.Properties.Resources.EyeDropperAlpha;
+			this.chkEyeDropper.Image = ((System.Drawing.Image)(resources.GetObject("chkEyeDropper.Image")));
 			this.chkEyeDropper.Location = new System.Drawing.Point(10, 189);
 			this.chkEyeDropper.Name = "chkEyeDropper";
 			this.chkEyeDropper.Size = new System.Drawing.Size(32, 32);
@@ -1472,6 +2306,550 @@ namespace PalEdit
 			this.tabSwatches.Text = "Swatches";
 			this.tabSwatches.UseVisualStyleBackColor = true;
 			// 
+			// panelNoScrollOnFocus1
+			// 
+			this.panelNoScrollOnFocus1.AutoScroll = true;
+			this.panelNoScrollOnFocus1.Controls.Add(this.swatchesPalette);
+			this.panelNoScrollOnFocus1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelNoScrollOnFocus1.Location = new System.Drawing.Point(0, 46);
+			this.panelNoScrollOnFocus1.Name = "panelNoScrollOnFocus1";
+			this.panelNoScrollOnFocus1.Size = new System.Drawing.Size(183, 525);
+			this.panelNoScrollOnFocus1.TabIndex = 3;
+			// 
+			// swatchesPalette
+			// 
+			this.swatchesPalette.AllowMultipleSelection = true;
+			this.swatchesPalette.AutoSize = true;
+			this.swatchesPalette.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+			this.swatchesPalette.BackColor = System.Drawing.SystemColors.Control;
+			this.swatchesPalette.Bitmap = null;
+			this.swatchesPalette.ColorArray = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))))};
+			this.swatchesPalette.Columns = 8;
+			this.swatchesPalette.ContextMenuStrip = this.contextMenuStrip1;
+			this.swatchesPalette.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.swatchesPalette.Location = new System.Drawing.Point(0, 0);
+			this.swatchesPalette.Margin = new System.Windows.Forms.Padding(0);
+			this.swatchesPalette.Name = "swatchesPalette";
+			this.swatchesPalette.Offset = new System.Drawing.Point(4, 4);
+			this.swatchesPalette.PaletteClipboard = new PalEdit.PalNode[] {
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null};
+			this.swatchesPalette.PalUsed = 256;
+			this.swatchesPalette.SelectedColor = System.Drawing.Color.Empty;
+			this.swatchesPalette.SelectedIndex = -1;
+			this.swatchesPalette.Size = new System.Drawing.Size(168, 648);
+			this.swatchesPalette.TabIndex = 0;
+			// 
 			// toolStrip1
 			// 
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1479,20 +2857,22 @@ namespace PalEdit
             this.tsbLoadSwatches,
             this.tsbSwatchesReset,
             this.tsbSwatchesLock,
-            this.tsbSortColors,
+            this.tsbCopy,
+            this.tsbPaste,
+            this.toolStripDropDownButton1,
             this.tsbSelectMatchingColors,
             this.tsbSelectNonMatchingColors});
 			this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(183, 23);
+			this.toolStrip1.Size = new System.Drawing.Size(183, 46);
 			this.toolStrip1.TabIndex = 2;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
 			// tsddbSwatchesPalette
 			// 
 			this.tsddbSwatchesPalette.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsddbSwatchesPalette.Image = global::PalEdit.Properties.Resources.palette_48;
+			this.tsddbSwatchesPalette.Image = ((System.Drawing.Image)(resources.GetObject("tsddbSwatchesPalette.Image")));
 			this.tsddbSwatchesPalette.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsddbSwatchesPalette.Name = "tsddbSwatchesPalette";
 			this.tsddbSwatchesPalette.Size = new System.Drawing.Size(29, 20);
@@ -1512,7 +2892,7 @@ namespace PalEdit
 			// tsbSwatchesReset
 			// 
 			this.tsbSwatchesReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbSwatchesReset.Image = global::PalEdit.Properties.Resources.reload_48;
+			this.tsbSwatchesReset.Image = ((System.Drawing.Image)(resources.GetObject("tsbSwatchesReset.Image")));
 			this.tsbSwatchesReset.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbSwatchesReset.Name = "tsbSwatchesReset";
 			this.tsbSwatchesReset.Size = new System.Drawing.Size(23, 20);
@@ -1523,28 +2903,122 @@ namespace PalEdit
 			// 
 			this.tsbSwatchesLock.CheckOnClick = true;
 			this.tsbSwatchesLock.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbSwatchesLock.Image = global::PalEdit.Properties.Resources._lock;
+			this.tsbSwatchesLock.Image = ((System.Drawing.Image)(resources.GetObject("tsbSwatchesLock.Image")));
 			this.tsbSwatchesLock.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbSwatchesLock.Name = "tsbSwatchesLock";
 			this.tsbSwatchesLock.Size = new System.Drawing.Size(23, 20);
 			this.tsbSwatchesLock.ToolTipText = "Lock Palette";
 			this.tsbSwatchesLock.Click += new System.EventHandler(this.tsbSwatchesLock_Click);
 			// 
-			// tsbSortColors
+			// tsbCopy
 			// 
-			this.tsbSortColors.CheckOnClick = true;
-			this.tsbSortColors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbSortColors.Image = global::PalEdit.Properties.Resources.sort_desccending;
-			this.tsbSortColors.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tsbSortColors.Name = "tsbSortColors";
-			this.tsbSortColors.Size = new System.Drawing.Size(23, 20);
-			this.tsbSortColors.ToolTipText = "Sort Colors";
-			this.tsbSortColors.Click += new System.EventHandler(this.tsbSortColors_Click);
+			this.tsbCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbCopy.Image = ((System.Drawing.Image)(resources.GetObject("tsbCopy.Image")));
+			this.tsbCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbCopy.Name = "tsbCopy";
+			this.tsbCopy.Size = new System.Drawing.Size(23, 20);
+			this.tsbCopy.Text = "toolStripButton1";
+			this.tsbCopy.ToolTipText = "Copy";
+			this.tsbCopy.Click += new System.EventHandler(this.tsbCopy_Click);
+			// 
+			// tsbPaste
+			// 
+			this.tsbPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbPaste.Image = ((System.Drawing.Image)(resources.GetObject("tsbPaste.Image")));
+			this.tsbPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbPaste.Name = "tsbPaste";
+			this.tsbPaste.Size = new System.Drawing.Size(23, 20);
+			this.tsbPaste.Text = "toolStripButton1";
+			this.tsbPaste.ToolTipText = "Paste";
+			this.tsbPaste.Click += new System.EventHandler(this.tsbPaste_Click);
+			// 
+			// toolStripDropDownButton1
+			// 
+			this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbSortSqrt,
+            this.tsbSortHSB,
+            this.tsbSortLAB});
+			this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+			this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+			this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 20);
+			this.toolStripDropDownButton1.Text = "tsbSortColors";
+			this.toolStripDropDownButton1.ToolTipText = "Sort";
+			// 
+			// tsbSortSqrt
+			// 
+			this.tsbSortSqrt.Name = "tsbSortSqrt";
+			this.tsbSortSqrt.Size = new System.Drawing.Size(161, 22);
+			this.tsbSortSqrt.Text = "Sqrt Pow2";
+			this.tsbSortSqrt.Click += new System.EventHandler(this.tsbSortSqrt_Click);
+			// 
+			// tsbSortHSB
+			// 
+			this.tsbSortHSB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbSortHSB_,
+            this.tsbSortHBS,
+            this.tsbSortSHB,
+            this.tsbSortSBH,
+            this.tsbSortBHS,
+            this.tsbSortBSH});
+			this.tsbSortHSB.Name = "tsbSortHSB";
+			this.tsbSortHSB.Size = new System.Drawing.Size(161, 22);
+			this.tsbSortHSB.Text = "HSB";
+			// 
+			// tsbSortHSB_
+			// 
+			this.tsbSortHSB_.Name = "tsbSortHSB_";
+			this.tsbSortHSB_.Size = new System.Drawing.Size(124, 22);
+			this.tsbSortHSB_.Text = "H > S > B";
+			this.tsbSortHSB_.Click += new System.EventHandler(this.tsbSortHSB_Click);
+			// 
+			// tsbSortHBS
+			// 
+			this.tsbSortHBS.Name = "tsbSortHBS";
+			this.tsbSortHBS.Size = new System.Drawing.Size(124, 22);
+			this.tsbSortHBS.Text = "H > B > S";
+			this.tsbSortHBS.Click += new System.EventHandler(this.tsbSortHBS_Click);
+			// 
+			// tsbSortSHB
+			// 
+			this.tsbSortSHB.Name = "tsbSortSHB";
+			this.tsbSortSHB.Size = new System.Drawing.Size(124, 22);
+			this.tsbSortSHB.Text = "S > H > B";
+			this.tsbSortSHB.Click += new System.EventHandler(this.tsbSortSHB_Click);
+			// 
+			// tsbSortSBH
+			// 
+			this.tsbSortSBH.Name = "tsbSortSBH";
+			this.tsbSortSBH.Size = new System.Drawing.Size(124, 22);
+			this.tsbSortSBH.Text = "S > B > H";
+			this.tsbSortSBH.Click += new System.EventHandler(this.tsbSortSBH_Click);
+			// 
+			// tsbSortBHS
+			// 
+			this.tsbSortBHS.Name = "tsbSortBHS";
+			this.tsbSortBHS.Size = new System.Drawing.Size(124, 22);
+			this.tsbSortBHS.Text = "B > H > S";
+			this.tsbSortBHS.Click += new System.EventHandler(this.tsbSortBHS_Click);
+			// 
+			// tsbSortBSH
+			// 
+			this.tsbSortBSH.Name = "tsbSortBSH";
+			this.tsbSortBSH.Size = new System.Drawing.Size(124, 22);
+			this.tsbSortBSH.Text = "B > S > H";
+			this.tsbSortBSH.Click += new System.EventHandler(this.tsbSortBSH_Click);
+			// 
+			// tsbSortLAB
+			// 
+			this.tsbSortLAB.Name = "tsbSortLAB";
+			this.tsbSortLAB.Size = new System.Drawing.Size(161, 22);
+			this.tsbSortLAB.Text = "LAB (CIEDE2000)";
+			this.tsbSortLAB.Click += new System.EventHandler(this.tsbSortLAB_Click);
 			// 
 			// tsbSelectMatchingColors
 			// 
 			this.tsbSelectMatchingColors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbSelectMatchingColors.Image = global::PalEdit.Properties.Resources.checkmark_48;
+			this.tsbSelectMatchingColors.Image = ((System.Drawing.Image)(resources.GetObject("tsbSelectMatchingColors.Image")));
 			this.tsbSelectMatchingColors.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbSelectMatchingColors.Name = "tsbSelectMatchingColors";
 			this.tsbSelectMatchingColors.Size = new System.Drawing.Size(23, 20);
@@ -1554,640 +3028,12 @@ namespace PalEdit
 			// tsbSelectNonMatchingColors
 			// 
 			this.tsbSelectNonMatchingColors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbSelectNonMatchingColors.Image = global::PalEdit.Properties.Resources.cross_48;
+			this.tsbSelectNonMatchingColors.Image = ((System.Drawing.Image)(resources.GetObject("tsbSelectNonMatchingColors.Image")));
 			this.tsbSelectNonMatchingColors.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbSelectNonMatchingColors.Name = "tsbSelectNonMatchingColors";
 			this.tsbSelectNonMatchingColors.Size = new System.Drawing.Size(23, 20);
 			this.tsbSelectNonMatchingColors.ToolTipText = "Select Non-Matching Colors";
 			this.tsbSelectNonMatchingColors.Click += new System.EventHandler(this.tsbSelectNonMatchingColors_Click);
-			// 
-			// mnuLABSort
-			// 
-			this.mnuLABSort.Name = "mnuLABSort";
-			this.mnuLABSort.Size = new System.Drawing.Size(143, 22);
-			this.mnuLABSort.Text = "LAB Distance";
-			this.mnuLABSort.Click += new System.EventHandler(this.mnuSortLAB_Click);
-			// 
-			// mnuRestrict
-			// 
-			this.mnuRestrict.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuRGB332,
-            this.mnuRGB333,
-            this.mnuRGB444,
-            this.mnuRGB555,
-            this.mnuRGB565});
-			this.mnuRestrict.Name = "mnuRestrict";
-			this.mnuRestrict.Size = new System.Drawing.Size(180, 22);
-			this.mnuRestrict.Text = "Restrict";
-			// 
-			// mnuRGB444
-			// 
-			this.mnuRGB444.Name = "mnuRGB444";
-			this.mnuRGB444.Size = new System.Drawing.Size(180, 22);
-			this.mnuRGB444.Text = "RGB444";
-			this.mnuRGB444.Click += new System.EventHandler(this.mnuRGB444_Click);
-			// 
-			// mnuRGB332
-			// 
-			this.mnuRGB332.Name = "mnuRGB332";
-			this.mnuRGB332.Size = new System.Drawing.Size(180, 22);
-			this.mnuRGB332.Text = "RGB332";
-			this.mnuRGB332.Click += new System.EventHandler(this.mnuRGB332_Click);
-			// 
-			// mnuRGB333
-			// 
-			this.mnuRGB333.Name = "mnuRGB333";
-			this.mnuRGB333.Size = new System.Drawing.Size(180, 22);
-			this.mnuRGB333.Text = "RGB333";
-			this.mnuRGB333.Click += new System.EventHandler(this.mnuRGB333_Click);
-			// 
-			// mnuRGB555
-			// 
-			this.mnuRGB555.Name = "mnuRGB555";
-			this.mnuRGB555.Size = new System.Drawing.Size(180, 22);
-			this.mnuRGB555.Text = "RGB555";
-			this.mnuRGB555.Click += new System.EventHandler(this.mnuRGB555_Click);
-			// 
-			// mnuRGB565
-			// 
-			this.mnuRGB565.Name = "mnuRGB565";
-			this.mnuRGB565.Size = new System.Drawing.Size(180, 22);
-			this.mnuRGB565.Text = "RGB565";
-			this.mnuRGB565.Click += new System.EventHandler(this.mnuRGB565_Click);
-			// 
-			// panelNoScrollOnFocus2
-			// 
-			this.panelNoScrollOnFocus2.AutoScroll = true;
-			this.panelNoScrollOnFocus2.Controls.Add(this.palControl);
-			this.panelNoScrollOnFocus2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelNoScrollOnFocus2.Location = new System.Drawing.Point(0, 0);
-			this.panelNoScrollOnFocus2.Name = "panelNoScrollOnFocus2";
-			this.panelNoScrollOnFocus2.Size = new System.Drawing.Size(589, 615);
-			this.panelNoScrollOnFocus2.TabIndex = 1;
-			// 
-			// palControl
-			// 
-			this.palControl.AllowDrop = true;
-			this.palControl.AllowMultipleSelection = true;
-			this.palControl.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-			this.palControl.Bitmap = null;
-			this.palControl.ColorArray = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))))};
-			this.palControl.Columns = 16;
-			this.palControl.ContextMenuStrip = this.contextMenuStrip1;
-			this.palControl.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.palControl.Dock = System.Windows.Forms.DockStyle.Top;
-			this.palControl.Location = new System.Drawing.Point(0, 0);
-			this.palControl.Margin = new System.Windows.Forms.Padding(0);
-			this.palControl.Name = "palControl";
-			this.palControl.Offset = new System.Drawing.Point(4, 4);
-			this.palControl.PalUsed = 256;
-			this.palControl.SelectedColor = System.Drawing.Color.Empty;
-			this.palControl.SelectedIndex = -1;
-			this.palControl.Size = new System.Drawing.Size(584, 584);
-			this.palControl.TabIndex = 0;
-			this.palControl.DragEnter += new System.Windows.Forms.DragEventHandler(this.palControl_DragEnter);
-			// 
-			// panelNoScrollOnFocus1
-			// 
-			this.panelNoScrollOnFocus1.AutoScroll = true;
-			this.panelNoScrollOnFocus1.Controls.Add(this.palSwatches);
-			this.panelNoScrollOnFocus1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelNoScrollOnFocus1.Location = new System.Drawing.Point(0, 23);
-			this.panelNoScrollOnFocus1.Name = "panelNoScrollOnFocus1";
-			this.panelNoScrollOnFocus1.Size = new System.Drawing.Size(183, 548);
-			this.panelNoScrollOnFocus1.TabIndex = 3;
-			// 
-			// palSwatches
-			// 
-			this.palSwatches.AllowMultipleSelection = true;
-			this.palSwatches.AutoSize = true;
-			this.palSwatches.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-			this.palSwatches.BackColor = System.Drawing.SystemColors.Control;
-			this.palSwatches.Bitmap = null;
-			this.palSwatches.ColorArray = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))))};
-			this.palSwatches.Columns = 8;
-			this.palSwatches.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.palSwatches.Location = new System.Drawing.Point(0, 0);
-			this.palSwatches.Margin = new System.Windows.Forms.Padding(0);
-			this.palSwatches.Name = "palSwatches";
-			this.palSwatches.Offset = new System.Drawing.Point(4, 4);
-			this.palSwatches.PalUsed = 256;
-			this.palSwatches.SelectedColor = System.Drawing.Color.Empty;
-			this.palSwatches.SelectedIndex = -1;
-			this.palSwatches.Size = new System.Drawing.Size(168, 648);
-			this.palSwatches.TabIndex = 0;
 			// 
 			// frmMain
 			// 
@@ -2216,6 +3062,7 @@ namespace PalEdit
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
+			this.panelNoScrollOnFocus2.ResumeLayout(false);
 			this.tabControl1.ResumeLayout(false);
 			this.tabInfo.ResumeLayout(false);
 			this.tabInfo.PerformLayout();
@@ -2242,11 +3089,10 @@ namespace PalEdit
 			((System.ComponentModel.ISupportInitialize)(this.picComplement)).EndInit();
 			this.tabSwatches.ResumeLayout(false);
 			this.tabSwatches.PerformLayout();
-			this.toolStrip1.ResumeLayout(false);
-			this.toolStrip1.PerformLayout();
-			this.panelNoScrollOnFocus2.ResumeLayout(false);
 			this.panelNoScrollOnFocus1.ResumeLayout(false);
 			this.panelNoScrollOnFocus1.PerformLayout();
+			this.toolStrip1.ResumeLayout(false);
+			this.toolStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2273,7 +3119,7 @@ namespace PalEdit
         private System.Windows.Forms.ToolStripMenuItem mnuPaste;
         private System.Windows.Forms.ToolStripMenuItem mnuSwap;
         private System.Windows.Forms.ToolStripMenuItem mnuSaveAs;
-        private PaletteControl palControl;
+        private PaletteControl mainPalette;
         private System.Windows.Forms.ToolStripMenuItem mnuImport;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem mnuExport;
@@ -2287,7 +3133,7 @@ namespace PalEdit
         private System.Windows.Forms.ToolStripMenuItem mnuColor;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem selectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiSelect;
         private System.Windows.Forms.ToolStripMenuItem tsmiSelectInverse;
         private System.Windows.Forms.ToolStripMenuItem tsmiSelectUsedColors;
         private System.Windows.Forms.ToolStripMenuItem tsmiSelectAll;
@@ -2295,7 +3141,7 @@ namespace PalEdit
         private System.Windows.Forms.ToolStripMenuItem mnuQuantize;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem selectiomnuNew;
+        private System.Windows.Forms.ToolStripMenuItem mnuSelect;
         private System.Windows.Forms.ToolStripMenuItem mnuSelectAll;
         private System.Windows.Forms.ToolStripMenuItem mnuSelectNone;
         private System.Windows.Forms.ToolStripMenuItem mnuSelectInverse;
@@ -2310,7 +3156,6 @@ namespace PalEdit
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem tsmiColor;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
-        private System.Windows.Forms.ToolStripMenuItem tsmiSort;
         private System.Windows.Forms.ToolStripMenuItem tsmiQuantize;
         private System.Windows.Forms.ToolStripMenuItem mnuPalette;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
@@ -2357,7 +3202,7 @@ namespace PalEdit
         private System.Windows.Forms.Button butReset;
         private System.Windows.Forms.TrackBar trkHue;
         private System.Windows.Forms.TabPage tabSwatches;
-        private PaletteControl palSwatches;
+        private PaletteControl swatchesPalette;
         private Controls.PanelNoScrollOnFocus panelNoScrollOnFocus1;
         private Controls.PanelNoScrollOnFocus panelNoScrollOnFocus2;
         private System.Windows.Forms.CheckBox chkEyeDropper;
@@ -2393,7 +3238,6 @@ namespace PalEdit
 		private System.Windows.Forms.ToolStripDropDownButton tsddbSwatchesPalette;
 		private System.Windows.Forms.ToolStripButton tsbLoadSwatches;
 		private System.Windows.Forms.ToolStripButton tsbSwatchesLock;
-		private System.Windows.Forms.ToolStripButton tsbSortColors;
 		private System.Windows.Forms.ToolStripButton tsbSelectMatchingColors;
 		private System.Windows.Forms.ToolStripButton tsbSelectNonMatchingColors;
 		private System.Windows.Forms.ToolStripButton tsbSwatchesReset;
@@ -2404,7 +3248,7 @@ namespace PalEdit
 		private System.Windows.Forms.ToolStripMenuItem mnuRotateRight;
 		private System.Windows.Forms.ToolStripMenuItem mnuReverse;
 		private System.Windows.Forms.ToolStripMenuItem mnuSqrtSort;
-		private System.Windows.Forms.ToolStripMenuItem mnuHSLSort;
+		private System.Windows.Forms.ToolStripMenuItem mnuHSBSort;
 		private System.Windows.Forms.ToolStripMenuItem mnuLABSort;
 		private System.Windows.Forms.ToolStripMenuItem mnuRestrict;
 		private System.Windows.Forms.ToolStripMenuItem mnuRGB444;
@@ -2412,6 +3256,44 @@ namespace PalEdit
 		private System.Windows.Forms.ToolStripMenuItem mnuRGB333;
 		private System.Windows.Forms.ToolStripMenuItem mnuRGB555;
 		private System.Windows.Forms.ToolStripMenuItem mnuRGB565;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+		private System.Windows.Forms.ToolStripMenuItem tsbSortSqrt;
+		private System.Windows.Forms.ToolStripMenuItem tsbSortHSB;
+		private System.Windows.Forms.ToolStripMenuItem tsbSortLAB;
+		private System.Windows.Forms.ToolStripMenuItem tsmiOrder;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSort;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSortSqrt;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSortHSB;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSortLAB;
+		private System.Windows.Forms.ToolStripMenuItem tsmiRotateLeft;
+		private System.Windows.Forms.ToolStripMenuItem tsmiRotateRight;
+		private System.Windows.Forms.ToolStripMenuItem tsmiReverse;
+		private System.Windows.Forms.ToolStripMenuItem tsmiRestrict;
+		private System.Windows.Forms.ToolStripMenuItem tsmiRGB332;
+		private System.Windows.Forms.ToolStripMenuItem tsmiRGB333;
+		private System.Windows.Forms.ToolStripMenuItem tsmiRGB444;
+		private System.Windows.Forms.ToolStripMenuItem tsmiRGB555;
+		private System.Windows.Forms.ToolStripMenuItem tsmiRGB565;
+		private System.Windows.Forms.ToolStripButton tsbCopy;
+		private System.Windows.Forms.ToolStripButton tsbPaste;
+		private System.Windows.Forms.ToolStripMenuItem mnuSortHSB;
+		private System.Windows.Forms.ToolStripMenuItem mnuSortHBS;
+		private System.Windows.Forms.ToolStripMenuItem mnuSortSHB;
+		private System.Windows.Forms.ToolStripMenuItem mnuSortSBH;
+		private System.Windows.Forms.ToolStripMenuItem mnuSortBHS;
+		private System.Windows.Forms.ToolStripMenuItem mnuSortBSH;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSortHSB_;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSortHBS;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSortSHB;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSortSBH;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSortBHS;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSortBSH;
+		private System.Windows.Forms.ToolStripMenuItem tsbSortHSB_;
+		private System.Windows.Forms.ToolStripMenuItem tsbSortHBS;
+		private System.Windows.Forms.ToolStripMenuItem tsbSortSHB;
+		private System.Windows.Forms.ToolStripMenuItem tsbSortSBH;
+		private System.Windows.Forms.ToolStripMenuItem tsbSortBHS;
+		private System.Windows.Forms.ToolStripMenuItem tsbSortBSH;
 	}
 }
 

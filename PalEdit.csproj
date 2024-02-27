@@ -279,6 +279,7 @@
     <Compile Include="Helpers\Pixels\NonIndexed\PixelDataRgb8888.cs" />
     <Compile Include="Helpers\PixelTransform.cs" />
     <Compile Include="Helpers\QuantizationHelper.cs" />
+    <Compile Include="HSB.cs" />
     <Compile Include="ImageHeader.cs" />
     <Compile Include="IniFile.cs" />
     <Compile Include="Lab.cs" />
@@ -287,7 +288,6 @@
     </Compile>
     <Compile Include="Palette.cs" />
     <Compile Include="Globals.cs" />
-    <Compile Include="HSL.cs" />
     <Compile Include="Controls\PaletteControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -443,6 +443,8 @@
     <Content Include="ControlsEx\ColorManagement\ColorModels\Selection\Cursors\EyeDropper.png" />
     <Content Include="ControlsEx\ColorManagement\ColorModels\Selection\dice_color.png" />
     <Content Include="ControlsEx\ColorManagement\ColorModels\Selection\dice_grayscale.png" />
+    <None Include="Controls\Icons\copy_48.png" />
+    <None Include="Controls\Icons\paste_48.png" />
     <Content Include="Graphics\Bitcoin_Logo.png" />
     <Content Include="Graphics\Ethereum_Logo.png" />
     <None Include="Graphics\Ravencoin_Logo.png" />

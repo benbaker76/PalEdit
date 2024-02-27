@@ -42,6 +42,7 @@ PalEdit is a palette editor which can edit and manipulate various different pale
 
 | Date | Description |
 |---|---|
+| 26-02-2024 | v3.0 - Swatch control multi-selection, full context menu and more |
 | 22-02-2024 | v2.8 - Sort Sqrt, H > S > L, Lab Distance, Order Rotate Left, Rotate Right, Reverse, Restrict RGB332, RGB333, RGB444, RGB555, RGB565 |
 | 21-12-2021 | v2.7 - Add RVN |
 | 20-11-2021 | v2.6 - Improved Swatches Palette selection dropdown, add donation window |

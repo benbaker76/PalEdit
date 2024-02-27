@@ -8,7 +8,7 @@ namespace PalEdit
 {
     public class Globals
     {
-        public static string Version = "v2.8";
+        public static string Version = "v3.0";
 
         public class Folders
         {

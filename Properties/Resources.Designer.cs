@@ -103,6 +103,16 @@ namespace PalEdit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap copy_48 {
+            get {
+                object obj = ResourceManager.GetObject("copy_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cross_48 {
             get {
                 object obj = ResourceManager.GetObject("cross_48", resourceCulture);
@@ -156,6 +166,16 @@ namespace PalEdit.Properties {
         internal static System.Drawing.Bitmap palette_48 {
             get {
                 object obj = ResourceManager.GetObject("palette_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paste_48 {
+            get {
+                object obj = ResourceManager.GetObject("paste_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

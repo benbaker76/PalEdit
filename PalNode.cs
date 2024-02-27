@@ -39,7 +39,7 @@ namespace PalEdit
             m_tint = tint;
         }
 
-        private void ResetHSL()
+        private void ResetHSB()
         {
             m_hue = 1;
             m_saturation = 1;
@@ -47,30 +47,30 @@ namespace PalEdit
             m_tint = 0;
         }
 
-        private HSL GetProcessedHSL()
+        private HSB GetProcessedHSB()
         {
             Color color = Color.FromArgb(m_color.A, m_color.R, m_color.G, (int)Math.Min(m_color.B + Tint * 255.0, 255));
 
-            return new HSL(color.GetHue() * Hue, color.GetSaturation() * Saturation, color.GetBrightness() * Brightness);
+            return new HSB(color.GetHue() * Hue, color.GetSaturation() * Saturation, color.GetBrightness() * Brightness);
         }
 
         private Color GetProcessedColor()
         {
-            HSL hsl = GetProcessedHSL();
+            HSB hsb = GetProcessedHSB();
 
-            return Color.FromArgb(m_color.A, hsl.RGB);
+            return Color.FromArgb(m_color.A, hsb.RGB);
         }
 
-        public HSL HSL
+        public HSB HSB
         {
-            get { return GetProcessedHSL(); }
-            set { m_color = value.RGB; ResetHSL();  }
+            get { return GetProcessedHSB(); }
+            set { m_color = value.RGB; ResetHSB();  }
         }
 
         public Color Color
         {
             get { return GetProcessedColor(); }
-            set { m_color = value; ResetHSL();  }
+            set { m_color = value; ResetHSB();  }
         }
 
         public int Alpha

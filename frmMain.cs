@@ -24,6 +24,8 @@ namespace PalEdit
         private string m_swatchesPaletteFileName = null;
         private frmBitmap m_frmBitmap = null;
 
+		private PaletteControl m_paletteControl = null;
+
         private char[] m_decimalChars = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
         public frmMain()
@@ -56,21 +58,24 @@ namespace PalEdit
 
             ReadConfig(Globals.FileNames.Ini);
 
-            palControl.OnPaletteSelect += OnPaletteSelect;
-            palControl.OnResetControl += OnResetControl;
-            palControl.OnUpdateBitmap += OnUpdateBitmap;
-            palControl.OnCloseBitmap += OnCloseBitmap;
-            palControl.OnSetBitmap += OnSetBitmap;
+            mainPalette.PaletteSelect += OnPaletteSelect;
+            mainPalette.ResetControl += OnResetControl;
+            mainPalette.UpdateBitmap += OnUpdateBitmap;
+            mainPalette.CloseBitmap += OnCloseBitmap;
+            mainPalette.SetBitmap += OnSetBitmap;
+			mainPalette.MouseEnter += OnMouseEnter;
 
-            palSwatches.AllowMultipleSelection = false;
-            palSwatches.OnPaletteSelect += OnSwatchPaletteSelect;
+			swatchesPalette.PaletteSelect += OnPaletteSelect;
+			swatchesPalette.MouseEnter += OnMouseEnter;
 
-            picMagnify.Image = new Bitmap(picMagnify.Width, picMagnify.Height);
+			m_paletteControl = mainPalette;
+
+			picMagnify.Image = new Bitmap(picMagnify.Width, picMagnify.Height);
 
             ResetSlidersNoEvent();
 		}
 
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+		private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             WriteConfig(Globals.FileNames.Ini);
         }
@@ -89,7 +94,7 @@ namespace PalEdit
 
                 // Swatches
                 tsbSwatchesLock.Checked = iniFile.Read<bool>("Swatches", "Lock", false);
-                tsbSortColors.Checked = iniFile.Read<bool>("Swatches", "SortColors", false);
+                //tsbSortColors.Checked = iniFile.Read<bool>("Swatches", "SortColors", false);
                 m_swatchesPaletteIndex = iniFile.Read<int>("Swatches", "Palette", 0);
                 m_swatchesPaletteFileName = iniFile.Read("Swatches", "PaletteFileName");
             }
@@ -102,7 +107,7 @@ namespace PalEdit
             }
             else
             {
-                palSwatches.SetColorPalette(GetSwatchesPalette(), true);
+                swatchesPalette.SetColorPalette(GetSwatchesPalette(), true);
             }
         }
 
@@ -120,7 +125,7 @@ namespace PalEdit
 
                 // Swatches
                 iniFile.Write<bool>("Swatches", "Lock", tsbSwatchesLock.Checked);
-                iniFile.Write<bool>("Swatches", "SortColors", tsbSortColors.Checked);
+                //iniFile.Write<bool>("Swatches", "SortColors", tsbSortColors.Checked);
                 iniFile.Write<int>("Swatches", "Palette", m_swatchesPaletteIndex);
                 iniFile.Write("Swatches", "PaletteFileName", m_swatchesPaletteFileName);
             }
@@ -166,15 +171,6 @@ namespace PalEdit
 
             Colors.DescriptionColorArray = colorList.ToArray();
             Colors.DescriptionTextArray = nameList.ToArray();
-        }
-
-        private void OnSwatchPaletteSelect(object sender, ColorEventArgs e)
-        {
-            //palSwatches.SelectNone();
-            //palSwatches.DrawPalette();
-
-            if (e.Index != -1)
-                palControl.SetAllSelectedColor(e.Color);
         }
 
         /* private void LoadPalettes()
@@ -226,14 +222,14 @@ namespace PalEdit
             {
                 m_fileName = fileName;
                 toolStripStatusLabel1.Text = Path.GetFileName(m_fileName);
-                palControl.OpenPaletteFile(m_fileName);
+                mainPalette.OpenPaletteFile(m_fileName);
                 ApplySwatchesPalette();
             }
             else if (paletteType == Colors.PaletteType.BitmapFile)
             {
                 m_fileName = fileName;
                 toolStripStatusLabel1.Text = Path.GetFileName(m_fileName);
-                palControl.OpenBitmapFile(m_fileName);
+                mainPalette.OpenBitmapFile(m_fileName);
                 ApplySwatchesPalette();
             }
         }
@@ -253,40 +249,46 @@ namespace PalEdit
             if (paletteType == Colors.PaletteType.PaletteFile)
             {
                 m_swatchesPaletteFileName = fileName;
-                palSwatches.OpenPaletteFile(m_swatchesPaletteFileName);
-                Colors.PaletteArray[0] = palSwatches.ColorArray;
+                swatchesPalette.OpenPaletteFile(m_swatchesPaletteFileName);
+                Colors.PaletteArray[0] = swatchesPalette.ColorArray;
                 m_swatchesPaletteIndex = 0;
             }
             else if (paletteType == Colors.PaletteType.BitmapFile)
             {
                 m_swatchesPaletteFileName = fileName;
-                palSwatches.OpenBitmapFile(m_swatchesPaletteFileName);
-                Colors.PaletteArray[0] = palSwatches.ColorArray;
+                swatchesPalette.OpenBitmapFile(m_swatchesPaletteFileName);
+                Colors.PaletteArray[0] = swatchesPalette.ColorArray;
 				m_swatchesPaletteIndex = 0;
             }
         }
 
-        private void OnPaletteSelect(object sender, ColorEventArgs e)
+		private void OnPaletteSelect(object sender, ColorEventArgs e)
         {
-            UpdatePalette();
+			m_paletteControl = (PaletteControl)sender;
+
+			UpdatePalette((PaletteControl)sender);
         }
 
-        private void UpdatePalette()
-        {
-            if (palControl.SelectedIndex == -1)
-                return;
+		private void OnMouseEnter(object sender, EventArgs e)
+		{
+			m_paletteControl = (PaletteControl)sender;
+		}
 
-			if (Colors.DescriptionTextArray.Length == 0)
-				return;
+		private void UpdatePalette(PaletteControl paletteControl)
+        {
+            if (paletteControl.SelectedIndex == -1)
+                return;
 
 			ApplySwatchesPalette();
 
-            Color selectedColor = palControl.SelectedColor;
-            int selectedIndex = palControl.SelectedIndex;
-            int colorIndex = 0;
+            Color selectedColor = paletteControl.SelectedColor;
+            int selectedIndex = paletteControl.SelectedIndex;
+			int lastSelectedIndex = paletteControl.LastSelectedIndex;
+			string lastSelectedIndexString = (lastSelectedIndex != -1 ? String.Format("-{0}", lastSelectedIndex) : "");
+			int colorIndex = 0;
             float leastDistance = 0.0f;
             Color nearestColor = Colors.GetNearestColorSqrt(selectedColor, Colors.DescriptionColorArray, out colorIndex, out leastDistance);
-            string colorName = Colors.DescriptionTextArray[colorIndex];
+            string colorName = (Colors.DescriptionTextArray.Length == 0 ? "" : Colors.DescriptionTextArray[colorIndex]);
 
             txtR.Text = String.Format("{0}", selectedColor.R);
             txtG.Text = String.Format("{0}", selectedColor.G);
@@ -299,7 +301,7 @@ namespace PalEdit
             txtWeb.Text = String.Format("#{0:X6}", selectedColor.ToArgb() & 0xFFFFFF);
             txtRGB.Text = String.Format("{0}, {1}, {2}", selectedColor.R, selectedColor.G, selectedColor.B);
             txtRGBNormalized.Text = String.Format("{0:0.###}, {1:0.###}, {2:0.###}", selectedColor.R / 255f, selectedColor.G / 255f, selectedColor.B / 255f);
-            toolStripStatusLabel2.Text = String.Format("Index {0}, {1} Selected.", selectedIndex, palControl.SelectedIndices.Length);
+            toolStripStatusLabel2.Text = String.Format("Index {0}{1}, {2} Selected.", selectedIndex, lastSelectedIndexString, paletteControl.SelectedIndices.Length);
 
             picComplement.BackColor = Colors.GetComplement(selectedColor);
             picSplitComplement0.BackColor = Colors.GetSplitComplement0(selectedColor);
@@ -316,7 +318,7 @@ namespace PalEdit
             pbGradient.Invalidate();
         }
 
-        private void OnResetControl()
+		private void OnResetControl()
         {
             ResetSlidersNoEvent();
         }
@@ -342,7 +344,7 @@ namespace PalEdit
                 m_frmBitmap.SetBitmap(bitmap);
         }
 
-        private void SetMagnifyColor(Color color)
+		private void SetMagnifyColor(Color color)
         {
             using (Graphics g = Graphics.FromImage(picMagnify.Image))
                 g.Clear(color);
@@ -368,7 +370,7 @@ namespace PalEdit
 
                 for (int x = 0; x < 8; x++)
                 {
-                    lineOutput += String.Format("0x{0:x4}", Convert.ColorToX1B5G5R5(palControl.Palette[x + y * 8].Color));
+                    lineOutput += String.Format("0x{0:x4}", Convert.ColorToX1B5G5R5(mainPalette.Palette[x + y * 8].Color));
 
                     if (x + y * 8 != 255)
                         lineOutput += ",";
@@ -404,7 +406,7 @@ namespace PalEdit
 
                 for (int x = 0; x < 8; x++)
                 {
-                    lineOutput += String.Format("0x{0:x4}", Convert.ColorToX1B5G5R5(palControl.Palette[x + y * 8].Color));
+                    lineOutput += String.Format("0x{0:x4}", Convert.ColorToX1B5G5R5(mainPalette.Palette[x + y * 8].Color));
 
                     if (x < 7)
                         lineOutput += ",";
@@ -423,7 +425,7 @@ namespace PalEdit
         {
             Byte[] colorPalette;
 
-            Colors.CreateNextPalette(palControl.ColorArray, Colors.ColorMode.Distance, out colorPalette);
+            Colors.CreateNextPalette(mainPalette.ColorArray, Colors.ColorMode.Distance, out colorPalette);
 
             File.WriteAllBytes(fileName, colorPalette);
         }
@@ -432,7 +434,7 @@ namespace PalEdit
         {
             Byte[] colorPalette;
 
-            Colors.CreateNextPalette(palControl.ColorArray, Colors.ColorMode.Distance, out colorPalette);
+            Colors.CreateNextPalette(mainPalette.ColorArray, Colors.ColorMode.Distance, out colorPalette);
 
             List<string> fileOutput = new List<string>();
 
@@ -470,7 +472,7 @@ namespace PalEdit
         {
             Byte[] colorPalette;
 
-            Colors.CreateNextPalette(palControl.ColorArray, Colors.ColorMode.Distance, out colorPalette);
+            Colors.CreateNextPalette(mainPalette.ColorArray, Colors.ColorMode.Distance, out colorPalette);
 
             List<string> fileOutput = new List<string>();
 
@@ -547,26 +549,26 @@ namespace PalEdit
             txtBrightness.Text = trkBrightness.Value.ToString();
             txtTint.Text = trkTint.Value.ToString();
 
-            palControl.SetHue(trkHue.Value, trkHue.Maximum);
-            palControl.SetSaturation(trkSaturation.Value, trkSaturation.Maximum);
-            palControl.SetBrightness(trkBrightness.Value, trkBrightness.Maximum);
-            palControl.SetTint(trkTint.Value, trkTint.Maximum);
+            mainPalette.SetHue(trkHue.Value, trkHue.Maximum);
+            mainPalette.SetSaturation(trkSaturation.Value, trkSaturation.Maximum);
+            mainPalette.SetBrightness(trkBrightness.Value, trkBrightness.Maximum);
+            mainPalette.SetTint(trkTint.Value, trkTint.Maximum);
         }
 
         private void Quantize()
         {
-            if (palControl.Bitmap == null)
+            if (mainPalette.Bitmap == null)
                 return;
 
             int[] colorIndices;
 
-            Colors.GetColorIndices(palControl.Bitmap, out colorIndices);
+            Colors.GetColorIndices(mainPalette.Bitmap, out colorIndices);
 
             using (frmQuantize frmQuantize = new frmQuantize(colorIndices.Length))
             {
                 if (frmQuantize.ShowDialog(this) == DialogResult.OK)
                 {
-                    palControl.QuantizeBitmap(frmQuantize.ColorOffset, frmQuantize.ColorCount);
+                    mainPalette.QuantizeBitmap(frmQuantize.ColorOffset, frmQuantize.ColorCount);
                 }
             }
         }
@@ -578,25 +580,25 @@ namespace PalEdit
 
         private void trkHue_Scroll(object sender, EventArgs e)
         {
-            palControl.SetHue(trkHue.Value, trkHue.Maximum);
+            mainPalette.SetHue(trkHue.Value, trkHue.Maximum);
             txtHue.Text = trkHue.Value.ToString();
         }
 
         private void trkSaturation_Scroll(object sender, EventArgs e)
         {
-            palControl.SetSaturation(trkSaturation.Value, trkSaturation.Maximum);
+            mainPalette.SetSaturation(trkSaturation.Value, trkSaturation.Maximum);
             txtSaturation.Text = trkSaturation.Value.ToString();
         }
 
         private void trkBrightness_Scroll(object sender, EventArgs e)
         {
-            palControl.SetBrightness(trkBrightness.Value, trkBrightness.Maximum);
+            mainPalette.SetBrightness(trkBrightness.Value, trkBrightness.Maximum);
             txtBrightness.Text = trkBrightness.Value.ToString();
         }
 
         private void trkTint_Scroll(object sender, EventArgs e)
         {
-            palControl.SetTint(trkTint.Value, trkTint.Maximum);
+            mainPalette.SetTint(trkTint.Value, trkTint.Maximum);
             txtTint.Text = trkTint.Value.ToString();
         }
 
@@ -607,7 +609,7 @@ namespace PalEdit
             if (Int32.TryParse(txtHue.Text, out value))
             {
                 trkHue.Value = Math.Min(100, value);
-                palControl.SetHue(trkHue.Value, trkHue.Maximum);
+                mainPalette.SetHue(trkHue.Value, trkHue.Maximum);
             }
         }
 
@@ -618,7 +620,7 @@ namespace PalEdit
             if (Int32.TryParse(txtSaturation.Text, out value))
             {
                 trkSaturation.Value = Math.Min(100, value);
-                palControl.SetSaturation(trkSaturation.Value, trkSaturation.Maximum);
+                mainPalette.SetSaturation(trkSaturation.Value, trkSaturation.Maximum);
             }
         }
 
@@ -629,7 +631,7 @@ namespace PalEdit
             if (Int32.TryParse(txtBrightness.Text, out value))
             {
                 trkBrightness.Value = Math.Min(100, value);
-                palControl.SetBrightness(trkBrightness.Value, trkBrightness.Maximum);
+                mainPalette.SetBrightness(trkBrightness.Value, trkBrightness.Maximum);
             }
         }
 
@@ -640,13 +642,13 @@ namespace PalEdit
             if (Int32.TryParse(txtTint.Text, out value))
             {
                 trkTint.Value = Math.Min(100, value);
-                palControl.SetTint(trkTint.Value, trkTint.Maximum);
+                mainPalette.SetTint(trkTint.Value, trkTint.Maximum);
             }
         }
 
         private void chkEyeDropper_CheckedChanged(object sender, EventArgs e)
         {
-            palControl.EyeDropper = chkEyeDropper.Checked;
+            mainPalette.EyeDropper = chkEyeDropper.Checked;
         }
 
         private void butReset_Click(object sender, EventArgs e)
@@ -670,11 +672,11 @@ namespace PalEdit
 
                         bitmap.Palette = colorPalette;
 
-                        palControl.SetBitmap(bitmap);
+                        mainPalette.SetPaletteBitmap(bitmap);
                     }
                     else
                     {
-                        palControl.NewPalette(256);
+                        mainPalette.NewPalette(256);
                     }
                 }
             }
@@ -699,40 +701,40 @@ namespace PalEdit
                 switch (fileExtension)
                 {
                     case ".act":
-                        palControl.SavePaletteFile(m_fileName, PaletteFormat.Act);
+                        mainPalette.SavePaletteFile(m_fileName, PaletteFormat.Act);
                         break;
                     case ".pal":
                         //palControl.SavePaletteFile(m_fileName, PaletteFormat.MSPal);
-                        palControl.SavePaletteFile(m_fileName, PaletteFormat.JASC);
+                        mainPalette.SavePaletteFile(m_fileName, PaletteFormat.JASC);
                         break;
                     case ".gpl":
-                        palControl.SavePaletteFile(m_fileName, PaletteFormat.GIMP);
+                        mainPalette.SavePaletteFile(m_fileName, PaletteFormat.GIMP);
                         break;
                     case ".txt":
-                        palControl.SavePaletteFile(m_fileName, PaletteFormat.PaintNET);
+                        mainPalette.SavePaletteFile(m_fileName, PaletteFormat.PaintNET);
                         break;
                     case ".bmp":
-                        palControl.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_BMP);
+                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_BMP);
                         //palControl.SaveBitmapFile(m_fileName, ImageFormat.Bmp);
                         break;
                     case ".gif":
-                        palControl.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_GIF);
+                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_GIF);
                         //palControl.SaveBitmapFile(m_fileName, ImageFormat.Gif);
                         break;
                     case ".png":
-                        palControl.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_PNG);
+                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_PNG);
                         //palControl.SaveBitmapFile(m_fileName, ImageFormat.Png);
                         break;
                     case ".jpg":
-                        palControl.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_JPEG);
+                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_JPEG);
                         //palControl.SaveBitmapFile(m_fileName, ImageFormat.Jpeg);
                         break;
                     case ".pcx":
-                        palControl.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_PCX);
+                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_PCX);
                         //palControl.SaveBitmapFile(m_fileName, ImageFormat.Pcx);
                         break;
                     case ".tif":
-                        palControl.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_TIFF);
+                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_TIFF);
                         //palControl.SaveBitmapFile(m_fileName, ImageFormat.Tiff);
                         break;
                 }
@@ -759,8 +761,8 @@ namespace PalEdit
 
                             if (frmImport.ShowDialog(this) == DialogResult.OK)
                             {
-                                palControl.SetClipboardPalette(frmImport.Palette, false);
-                                palControl.PastePalette();
+                                mainPalette.SetClipboardPalette(frmImport.Palette, false);
+                                mainPalette.PastePalette();
                             }
                         }
                         break;
@@ -776,8 +778,8 @@ namespace PalEdit
 
                             if (frmImport.ShowDialog(this) == DialogResult.OK)
                             {
-                                palControl.SetClipboardPalette(frmImport.Palette, false);
-                                palControl.PastePalette();
+                                mainPalette.SetClipboardPalette(frmImport.Palette, false);
+                                mainPalette.PastePalette();
                             }
                         }
                         break;
@@ -843,158 +845,230 @@ namespace PalEdit
 
         private void mnuCut_Click(object sender, EventArgs e)
         {
-            palControl.CutPalette();
+            mainPalette.CutPalette();
         }
 
         private void mnuCopy_Click(object sender, EventArgs e)
         {
-            palControl.CopyPalette();
+			swatchesPalette.SetClipboardPalette(mainPalette.Palette, false);
+			mainPalette.CopyPalette();
         }
 
         private void mnuPaste_Click(object sender, EventArgs e)
         {
-            palControl.PastePalette();
+            mainPalette.PastePalette();
         }
 
         private void mnuFill_Click(object sender, EventArgs e)
         {
-            palControl.FillPalette();
+            mainPalette.FillPalette();
         }
 
         private void mnuSwap_Click(object sender, EventArgs e)
         {
-            palControl.SwapPalette();
+            mainPalette.SwapPalette();
         }
 
         private void mnuMerge_Click(object sender, EventArgs e)
         {
-            palControl.MergePalette();
+            mainPalette.MergePalette();
         }
 
         private void mnuGradient_Click(object sender, EventArgs e)
         {
-            palControl.ShowGradientPicker(chkStartAndEndOnly.Checked);
+            mainPalette.ShowGradientPicker(chkStartAndEndOnly.Checked);
         }
 
-        private void chkStartAndEndOnly_CheckedChanged(object sender, EventArgs e)
+		private void mnuQuantize_Click(object sender, EventArgs e)
+		{
+			Quantize();
+		}
+
+		private void chkStartAndEndOnly_CheckedChanged(object sender, EventArgs e)
         {
             pbGradient.Invalidate();
         }
 
         private void mnuSelectAll_Click(object sender, EventArgs e)
         {
-            palControl.SelectAll();
+            mainPalette.SelectAll();
         }
 
         private void mnuSelectNone_Click(object sender, EventArgs e)
         {
-            palControl.SelectNone();
+            mainPalette.SelectNone();
         }
 
         private void mnuSelectInverse_Click(object sender, EventArgs e)
         {
-            palControl.SelectInverse();
+            mainPalette.SelectInverse();
         }
 
         private void mnuSelectUsedColors_Click(object sender, EventArgs e)
         {
-            palControl.SelectUsedColors(!IsShiftDown());
+            mainPalette.SelectUsedColors(!IsShiftDown());
 
-            OnPaletteSelect(this, new ColorEventArgs(palControl.SelectedIndex, palControl.SelectedColor));
+            OnPaletteSelect(mainPalette, new ColorEventArgs(mainPalette.SelectedIndex, mainPalette.SelectedColor));
         }
 
         private void mnuSelectMatchingColors_Click(object sender, EventArgs e)
         {
-            palControl.SelectMatchingColors();
+            mainPalette.SelectMatchingColors();
 
-            OnPaletteSelect(this, new ColorEventArgs(palControl.SelectedIndex, palControl.SelectedColor));
+            OnPaletteSelect(mainPalette, new ColorEventArgs(mainPalette.SelectedIndex, mainPalette.SelectedColor));
         }
 
         private void mnuColor_Click(object sender, EventArgs e)
         {
-            palControl.ShowColorPicker();
+            mainPalette.ShowColorPicker();
         }
 		
 		private void mnuSortSqrt_Click(object sender, EventArgs e)
 		{
-			palControl.SortSelectedPalette(Colors.SortColorMode.Sqrt);
+			mainPalette.SortSelectedPalette(Colors.SortColorMode.Sqrt);
 		}
 
-		private void mnuSortHSL_Click(object sender, EventArgs e)
+		private void mnuSortHSB_Click(object sender, EventArgs e)
 		{
-			palControl.SortSelectedPalette(Colors.SortColorMode.HSB);
+			mainPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.HSB);
 		}
+
+		private void mnuSortHBS_Click(object sender, EventArgs e)
+		{
+			mainPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.HBS);
+		}
+
+		private void mnuSortSHB_Click(object sender, EventArgs e)
+		{
+			mainPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.SHB);
+		}
+
+		private void mnuSortSBH_Click(object sender, EventArgs e)
+		{
+			mainPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.SBH);
+		}
+
+		private void mnuSortBHS_Click(object sender, EventArgs e)
+		{
+			mainPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.BHS);
+		}
+
+		private void mnuSortBSH_Click(object sender, EventArgs e)
+		{
+			mainPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.BSH);
+		}
+
 		private void mnuSortLAB_Click(object sender, EventArgs e)
 		{
-			palControl.SortSelectedPalette(Colors.SortColorMode.Lab);
+			mainPalette.SortSelectedPalette(Colors.SortColorMode.Lab);
+		}
+
+		private void tsbSortSqrt_Click(object sender, EventArgs e)
+		{
+			swatchesPalette.SortSelectedPalette(Colors.SortColorMode.Sqrt);
+		}
+
+		private void tsbSortHSB_Click(object sender, EventArgs e)
+		{
+			swatchesPalette.SortSelectedPalette(Colors.SortColorMode.HSB);
+		}
+
+		private void tsbSortHBS_Click(object sender, EventArgs e)
+		{
+			swatchesPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.HBS);
+		}
+
+		private void tsbSortSHB_Click(object sender, EventArgs e)
+		{
+			swatchesPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.SHB);
+		}
+
+		private void tsbSortSBH_Click(object sender, EventArgs e)
+		{
+			swatchesPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.SBH);
+		}
+
+		private void tsbSortBHS_Click(object sender, EventArgs e)
+		{
+			swatchesPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.BHS);
+		}
+
+		private void tsbSortBSH_Click(object sender, EventArgs e)
+		{
+			swatchesPalette.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.BSH);
+		}
+
+		private void tsbSortLAB_Click(object sender, EventArgs e)
+		{
+			swatchesPalette.SortSelectedPalette(Colors.SortColorMode.Lab);
 		}
 
 		private void mnuRotateLeft_Click(object sender, EventArgs e)
 		{
-			palControl.RotateLeftSelectedPalette();
+			mainPalette.RotateLeftSelectedPalette();
 		}
 
 		private void mnuRotateRight_Click(object sender, EventArgs e)
 		{
-			palControl.RotateRightSelectedPalette();
+			mainPalette.RotateRightSelectedPalette();
 		}
 
 		private void mnuReverse_Click(object sender, EventArgs e)
 		{
-			palControl.ReverseSelectedPalette();
+			mainPalette.ReverseSelectedPalette();
 		}
 
 		private void mnuRGB332_Click(object sender, EventArgs e)
 		{
-			palControl.RestrictSelectedPaletteToRGB332();
+			mainPalette.RestrictSelectedPaletteToRGB332();
 		}
 
 		private void mnuRGB333_Click(object sender, EventArgs e)
 		{
-			palControl.RestrictSelectedPaletteToRGB333();
+			mainPalette.RestrictSelectedPaletteToRGB333();
 		}
 
 		private void mnuRGB444_Click(object sender, EventArgs e)
 		{
-			palControl.RestrictSelectedPaletteToRGB444();
+			mainPalette.RestrictSelectedPaletteToRGB444();
 		}
 
 		private void mnuRGB555_Click(object sender, EventArgs e)
 		{
-			palControl.RestrictSelectedPaletteToRGB555();
+			mainPalette.RestrictSelectedPaletteToRGB555();
 		}
 
 		private void mnuRGB565_Click(object sender, EventArgs e)
 		{
-			palControl.RestrictSelectedPaletteToRGB565();
+			mainPalette.RestrictSelectedPaletteToRGB565();
 		}
 
 		private void mnuBitmap_Click(object sender, EventArgs e)
         {
-            if (palControl.Bitmap != null && m_frmBitmap == null)
+            if (mainPalette.Bitmap != null && m_frmBitmap == null)
             {
-                m_frmBitmap = new frmBitmap(palControl, picMagnify, palControl.GetTransparentColor(), trkZoom.Value);
+                m_frmBitmap = new frmBitmap(mainPalette, picMagnify, mainPalette.GetTransparentColor(), trkZoom.Value);
                 m_frmBitmap.OnPixelSelect += m_frmBitmap_OnPixelSelect;
                 m_frmBitmap.OnRectangleSelect += m_frmBitmap_OnRectangleSelect;
                 m_frmBitmap.Disposed += m_frmBitmap_Disposed;
                 m_frmBitmap.Show();
 
-                palControl.DrawPalette();
+                mainPalette.DrawPalette();
             }
         }
 
         private void m_frmBitmap_OnPixelSelect(int index)
         {
-            Color color = palControl.SetSelectedIndex(index);
+            Color color = mainPalette.SetSelectedIndex(index);
 
-            OnPaletteSelect(this, new ColorEventArgs(index, color));
+            OnPaletteSelect(mainPalette, new ColorEventArgs(index, color));
         }
 
         private void m_frmBitmap_OnRectangleSelect(Rectangle rectangleSelect)
         {
-            palControl.SelectUsedColors(rectangleSelect, !IsShiftDown());
+            mainPalette.SelectUsedColors(rectangleSelect, !IsShiftDown());
 
-            OnPaletteSelect(this, new ColorEventArgs(palControl.SelectedIndex, palControl.SelectedColor));
+            OnPaletteSelect(mainPalette, new ColorEventArgs(mainPalette.SelectedIndex, mainPalette.SelectedColor));
         }
 
         private void m_frmBitmap_Disposed(object sender, EventArgs e)
@@ -1019,112 +1093,192 @@ namespace PalEdit
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
+			PaletteControl paletteControl = m_paletteControl;
+
+			if (paletteControl == null)
+				return;
+
             if (e.Control && e.KeyCode == Keys.X) // Cut
-                palControl.CutPalette();
+				paletteControl.CutPalette();
             if (e.Control && e.KeyCode == Keys.C) // Copy
-                palControl.CopyPalette();
+				paletteControl.CopyPalette();
             if (e.Control && e.KeyCode == Keys.V) // Paste
-                palControl.PastePalette();
+				paletteControl.PastePalette();
             if (e.Control && e.KeyCode == Keys.F) // Fill
-                palControl.FillPalette();
+				paletteControl.FillPalette();
             if (e.Control && e.KeyCode == Keys.S) // Swap
-                palControl.SwapPalette();
+				paletteControl.SwapPalette();
             if (e.Control && e.KeyCode == Keys.G) // Gradient
-                palControl.ShowGradientPicker(chkStartAndEndOnly.Checked);
+				paletteControl.ShowGradientPicker(chkStartAndEndOnly.Checked);
             if (e.Control && e.KeyCode == Keys.A) // Select All
-                palControl.SelectAll();
+				paletteControl.SelectAll();
             if (e.Control && e.KeyCode == Keys.N) // Select None
-                palControl.SelectNone();
+				paletteControl.SelectNone();
             if (e.Control && e.KeyCode == Keys.I) // Select Inverse
-                palControl.SelectInverse();
+				paletteControl.SelectInverse();
             if (e.Control && e.KeyCode == Keys.U) // Select Used Colors
             {
-                palControl.SelectUsedColors(!IsShiftDown());
+				paletteControl.SelectUsedColors(!IsShiftDown());
 
-                OnPaletteSelect(this, new ColorEventArgs(palControl.SelectedIndex, palControl.SelectedColor));
+                OnPaletteSelect(paletteControl, new ColorEventArgs(paletteControl.SelectedIndex, paletteControl.SelectedColor));
             }
         }
 
         private void tsmiCut_Click(object sender, EventArgs e)
         {
-            palControl.CutPalette();
+			m_paletteControl.CutPalette();
         }
 
         private void tsmiCopy_Click(object sender, EventArgs e)
         {
-            palControl.CopyPalette();
-        }
+			if (m_paletteControl == mainPalette)
+				swatchesPalette.SetClipboardPalette(mainPalette.Palette, false);
+			else if (m_paletteControl == swatchesPalette)
+				mainPalette.SetClipboardPalette(swatchesPalette.Palette, false);
+
+			m_paletteControl.CopyPalette();
+		}
 
         private void tsmiPaste_Click(object sender, EventArgs e)
         {
-            palControl.PastePalette();
+			m_paletteControl.PastePalette();
         }
 
         private void tsmiFill_Click(object sender, EventArgs e)
         {
-            palControl.FillPalette();
+			m_paletteControl.FillPalette();
         }
 
         private void tsmiSwap_Click(object sender, EventArgs e)
         {
-            palControl.SwapPalette();
+			m_paletteControl.SwapPalette();
         }
 
         private void tsmiMerge_Click(object sender, EventArgs e)
         {
-            palControl.MergePalette();
+			m_paletteControl.MergePalette();
         }
 
         private void tsmiGradient_Click(object sender, EventArgs e)
         {
-            palControl.ShowGradientPicker(chkStartAndEndOnly.Checked);
+			m_paletteControl.ShowGradientPicker(chkStartAndEndOnly.Checked);
         }
 
         private void tsmiSelectAll_Click(object sender, EventArgs e)
         {
-            palControl.SelectAll();
+			m_paletteControl.SelectAll();
         }
 
         private void tsmiSelectNone_Click(object sender, EventArgs e)
         {
-            palControl.SelectNone();
+			m_paletteControl.SelectNone();
         }
 
         private void tsmiSelectInverse_Click(object sender, EventArgs e)
         {
-            palControl.SelectInverse();
+			m_paletteControl.SelectInverse();
         }
 
         private void tsmiSelectUsedColors_Click(object sender, EventArgs e)
         {
-            palControl.SelectUsedColors(!IsShiftDown());
+			m_paletteControl.SelectUsedColors(!IsShiftDown());
 
-            OnPaletteSelect(this, new ColorEventArgs(palControl.SelectedIndex, palControl.SelectedColor));
+            OnPaletteSelect(sender, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
         }
 
         private void tsmiSelectMatchingColors_Click(object sender, EventArgs e)
         {
-            palControl.SelectMatchingColors();
+			m_paletteControl.SelectMatchingColors();
 
-            OnPaletteSelect(this, new ColorEventArgs(palControl.SelectedIndex, palControl.SelectedColor));
-        }
-
-        private void mnuQuantize_Click(object sender, EventArgs e)
-        {
-            Quantize();
+            OnPaletteSelect(sender, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
         }
 
         private void tsmiColor_Click(object sender, EventArgs e)
         {
-            palControl.ShowColorPicker();
+			m_paletteControl.ShowColorPicker();
         }
 
-        private void tsmiSort_Click(object sender, EventArgs e)
-        {
-            palControl.SortSelectedPalette(Colors.SortColorMode.Sqrt);
-        }
+		private void tsmiSortSqrt_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.SortSelectedPalette(Colors.SortColorMode.Sqrt);
+		}
 
-        private void tsmiQuantize_Click(object sender, EventArgs e)
+		private void tsmiSortHSB_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.SortSelectedPalette(Colors.SortColorMode.HSB);
+		}
+
+		private void tsmiSortHBS_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.HBS);
+		}
+
+		private void tsmiSortSHB_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.SHB);
+		}
+
+		private void tsmiSortSBH_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.SBH);
+		}
+
+		private void tsmiSortBHS_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.BHS);
+		}
+
+		private void tsmiSortBSH_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.SortSelectedPalette(Colors.SortColorMode.HSB, Colors.HSBSortMode.BSH);
+		}
+
+		private void tsmiSortLAB_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.SortSelectedPalette(Colors.SortColorMode.Lab);
+		}
+
+		private void tsmiRotateLeft_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.RotateLeftSelectedPalette();
+		}
+
+		private void tsmiRotateRight_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.RotateRightSelectedPalette();
+		}
+
+		private void tsmiReverse_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.ReverseSelectedPalette();
+		}
+
+		private void tsmiRGB332_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.RestrictSelectedPaletteToRGB332();
+		}
+
+		private void tsmiRGB333_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.RestrictSelectedPaletteToRGB333();
+		}
+
+		private void tsmiRGB444_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.RestrictSelectedPaletteToRGB444();
+		}
+
+		private void tsmiRGB555_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.RestrictSelectedPaletteToRGB555();
+		}
+
+		private void tsmiRGB565_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.RestrictSelectedPaletteToRGB565();
+		}
+
+		private void tsmiQuantize_Click(object sender, EventArgs e)
         {
             Quantize();
         }
@@ -1146,7 +1300,7 @@ namespace PalEdit
 
             if (Int32.TryParse(tag, out result))
             {
-                palControl.SetBitmapColorPalette(Colors.PaletteArray[result], Colors.NearestColorMode.Sqrt, true);
+                mainPalette.SetBitmapColorPalette(Colors.PaletteArray[result], Colors.NearestColorMode.Sqrt, true);
             }
         }
 
@@ -1157,7 +1311,7 @@ namespace PalEdit
 
 			if (Int32.TryParse(tag, out m_swatchesPaletteIndex))
 			{
-				palSwatches.SetColorPalette(GetSwatchesPalette(), true);
+				swatchesPalette.SetColorPalette(GetSwatchesPalette(), true);
 			}
 		}
 
@@ -1171,7 +1325,7 @@ namespace PalEdit
 
         private void OnRGBLostFocus(object sender, EventArgs e)
         {
-            if (palControl.SelectedColor == null)
+            if (mainPalette.SelectedColor == null)
                 return;
 
             TextBox textBox = (TextBox)sender;
@@ -1182,13 +1336,13 @@ namespace PalEdit
                 switch(textBox.Name)
                 {
                     case "txtR":
-                        palControl.SetAllSelectedColor(Color.FromArgb(palControl.SelectedColor.A, Convert.Clamp(value, 0, 255), palControl.SelectedColor.G, palControl.SelectedColor.B));
+                        mainPalette.SetAllSelectedColor(Color.FromArgb(mainPalette.SelectedColor.A, Convert.Clamp(value, 0, 255), mainPalette.SelectedColor.G, mainPalette.SelectedColor.B));
                         break;
                     case "txtG":
-                        palControl.SetAllSelectedColor(Color.FromArgb(palControl.SelectedColor.A, palControl.SelectedColor.R, Convert.Clamp(value, 0, 255), palControl.SelectedColor.B));
+                        mainPalette.SetAllSelectedColor(Color.FromArgb(mainPalette.SelectedColor.A, mainPalette.SelectedColor.R, Convert.Clamp(value, 0, 255), mainPalette.SelectedColor.B));
                         break;
                     case "txtB":
-                        palControl.SetAllSelectedColor(Color.FromArgb(palControl.SelectedColor.A, palControl.SelectedColor.R, palControl.SelectedColor.G, Convert.Clamp(value, 0, 255)));
+                        mainPalette.SetAllSelectedColor(Color.FromArgb(mainPalette.SelectedColor.A, mainPalette.SelectedColor.R, mainPalette.SelectedColor.G, Convert.Clamp(value, 0, 255)));
                         break;
                 }
             }
@@ -1196,12 +1350,12 @@ namespace PalEdit
 
         private void OnHSVLostFocus(object sender, EventArgs e)
         {
-            if (palControl.SelectedColor == null)
+            if (mainPalette.SelectedColor == null)
                 return;
 
             TextBox textBox = (TextBox)sender;
             int value = 0;
-            ControlsEx.ColorManagement.ColorModels.HSV hsv = ControlsEx.ColorManagement.ColorModels.HSV.FromRGB(palControl.SelectedColor);
+            ControlsEx.ColorManagement.ColorModels.HSV hsv = ControlsEx.ColorManagement.ColorModels.HSV.FromRGB(mainPalette.SelectedColor);
 
             if (Int32.TryParse(textBox.Text, NumberStyles.Integer, null, out value))
             {
@@ -1209,15 +1363,15 @@ namespace PalEdit
                 {
                     case "txtH":
                         hsv.H = value / 360f;
-                        palControl.SetAllSelectedColor(hsv.ToRGB());
+                        mainPalette.SetAllSelectedColor(hsv.ToRGB());
                         break;
                     case "txtS":
                         hsv.S = value / 100f;
-                        palControl.SetAllSelectedColor(hsv.ToRGB());
+                        mainPalette.SetAllSelectedColor(hsv.ToRGB());
                         break;
                     case "txtV":
                         hsv.V = value / 100f;
-                        palControl.SetAllSelectedColor(hsv.ToRGB());
+                        mainPalette.SetAllSelectedColor(hsv.ToRGB());
                         break;
                 }
             }
@@ -1255,7 +1409,7 @@ namespace PalEdit
         {
             if (tsbSwatchesLock.Checked)
             {
-                palControl.SetBitmapColorPalette(GetSwatchesPalette(), Colors.NearestColorMode.Sqrt, false);
+                mainPalette.SetBitmapColorPalette(GetSwatchesPalette(), Colors.NearestColorMode.Sqrt, false);
             }
         }
 
@@ -1266,23 +1420,12 @@ namespace PalEdit
 
         private Color[] GetSwatchesPalette()
         {
-            Color[] srcColorPalette = Colors.PaletteArray[m_swatchesPaletteIndex];
-
-            if (!tsbSortColors.Checked)
-                return srcColorPalette;
-
-            Color[] dstColorPalette = new Color[srcColorPalette.Length];
-
-            srcColorPalette.CopyTo(dstColorPalette, 0);
-
-            Array.Sort(dstColorPalette, new ColorSorter());
-
-            return dstColorPalette;
+            return Colors.PaletteArray[m_swatchesPaletteIndex];
         }
 
 		private void tsbSwatchesReload_Click(object sender, EventArgs e)
 		{
-			palSwatches.SetColorPalette(GetSwatchesPalette(), true);
+			swatchesPalette.SetColorPalette(GetSwatchesPalette(), true);
 		}
 
 		private void tsbSwatchesLock_Click(object sender, EventArgs e)
@@ -1290,24 +1433,35 @@ namespace PalEdit
             ApplySwatchesPalette();
         }
 
-        private void tsbSelectMatchingColors_Click(object sender, EventArgs e)
+		private void tsbCopy_Click(object sender, EventArgs e)
+		{
+			mainPalette.SetClipboardPalette(swatchesPalette.Palette, false);
+			swatchesPalette.CopyPalette();
+		}
+
+		private void tsbPaste_Click(object sender, EventArgs e)
+		{
+			swatchesPalette.PastePalette();
+		}
+
+		private void tsbSelectMatchingColors_Click(object sender, EventArgs e)
         {
-            palControl.SelectMatchingColors(GetSwatchesPalette());
+            mainPalette.SelectMatchingColors(GetSwatchesPalette());
         }
 
         private void tsbSelectNonMatchingColors_Click(object sender, EventArgs e)
         {
-            palControl.SelectNonMatchingColors(GetSwatchesPalette());
+            mainPalette.SelectNonMatchingColors(GetSwatchesPalette());
         }
 
         private void tsbSortColors_Click(object sender, EventArgs e)
         {
-            palSwatches.SetColorPalette(GetSwatchesPalette(), true);
+            swatchesPalette.SetColorPalette(GetSwatchesPalette(), true);
         }
 
         private void pbGradient_Click(object sender, EventArgs e)
         {
-            palControl.ShowGradientPicker(chkStartAndEndOnly.Checked);
+            mainPalette.ShowGradientPicker(chkStartAndEndOnly.Checked);
             pbGradient.Invalidate();
         }
 
@@ -1315,7 +1469,7 @@ namespace PalEdit
         {
             Gradient gradient = null;
 
-            int colorCount = palControl.TryGetGradient(chkStartAndEndOnly.Checked, out gradient);
+            int colorCount = mainPalette.TryGetGradient(chkStartAndEndOnly.Checked, out gradient);
 
             using (LinearGradientBrush linearGradientBrush = new LinearGradientBrush(new Point(0, 0), new Point(Math.Max(1, pbGradient.Width), 0), Color.Transparent, Color.Black))
             {
@@ -1326,14 +1480,14 @@ namespace PalEdit
 
         private void picMagnify_Click(object sender, EventArgs e)
         {
-            palControl.ShowColorPicker();
+            mainPalette.ShowColorPicker();
         }
 
         private void picScheme_Click(object sender, EventArgs e)
         {
             PictureBox pictureBox = (PictureBox)sender;
 
-            palControl.SetAllSelectedColor(pictureBox.BackColor);
+            mainPalette.SetAllSelectedColor(pictureBox.BackColor);
         }
 
         private bool TryGetFileName(out string fileName, DragEventArgs e)
@@ -1367,5 +1521,12 @@ namespace PalEdit
                 LoadPalette(fileName);
             }
         }
+
+		private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+		{
+			ContextMenuStrip contextMenuStrip = (ContextMenuStrip)sender;
+
+			m_paletteControl = (PaletteControl)contextMenuStrip.SourceControl;
+		}
 	}
 }

@@ -44,6 +44,16 @@ namespace PalEdit
 			Lab
 		}
 
+		public enum HSBSortMode
+		{
+			HSB,
+			HBS,
+			SHB,
+			SBH,
+			BHS,
+			BSH,
+		}
+
 		public static Color[] NextPalette332
         {
             get { return GetNextPalette(false); }
@@ -606,7 +616,7 @@ namespace PalEdit
             bitmap.UnlockBits(bmpData);
         }
 
-		public static void SortColorList(List<ColorNode> colorList, SortColorMode sortColorMode, int transparentIndex)
+		public static void SortColorList(List<ColorNode> colorList, SortColorMode sortColorMode, Colors.HSBSortMode hsbSortMode = Colors.HSBSortMode.HSB, int transparentIndex = -1)
 		{
 			switch (sortColorMode)
 			{
@@ -614,7 +624,7 @@ namespace PalEdit
 					colorList.Sort(new SqrtSorter(transparentIndex));
 					break;
 				case SortColorMode.HSB:
-					colorList.Sort(new HSLSorter(transparentIndex));
+					colorList.Sort(new HSBSorter(hsbSortMode, transparentIndex));
 					break;
 				case SortColorMode.Lab:
 					colorList.Sort(new LabSorter(transparentIndex));
@@ -622,12 +632,12 @@ namespace PalEdit
 			}
 		}
 
-		public static void SortColorList(List<ColorNode> colorList, SortColorMode sortColorMode)
+		public static void SortColorList(List<ColorNode> colorList, SortColorMode sortColorMode, Colors.HSBSortMode hsbSortMode = Colors.HSBSortMode.HSB)
 		{
-			SortColorList(colorList, sortColorMode, -1);
+			SortColorList(colorList, sortColorMode, hsbSortMode, -1);
 		}
 
-		public static void SortPalette(Bitmap bitmap, SortColorMode sortColorMode)
+		public static void SortPalette(Bitmap bitmap, SortColorMode sortColorMode, HSBSortMode hsbSortMode)
         {
             ColorPalette colorPalette = bitmap.Palette;
             List<ColorNode> colorList = new List<ColorNode>();
@@ -635,7 +645,7 @@ namespace PalEdit
             for (int i = 0; i < colorPalette.Entries.Length; i++)
                 colorList.Add(new ColorNode(i, colorPalette.Entries[i]));
 
-			SortColorList(colorList, sortColorMode);
+			SortColorList(colorList, sortColorMode, hsbSortMode);
 
 			int count = 0;
             int[] colorIndices = new int[colorPalette.Entries.Length];
@@ -840,9 +850,7 @@ namespace PalEdit
                 Color paletteColor = colorPalette[i];
                 CIELab paletteLabColor = Lab.RGBtoLab(paletteColor);
 
-                float distance1 = (float)Lab.GetDeltaE_CIEDE2000(labColor, paletteLabColor);
-                float distance2 = (float)Lab.GetDeltaE_CMC(labColor, paletteLabColor);
-                float distance = (distance1 + distance2) / 2.0f;
+				float distance = (float)Lab.GetDeltaE_CIEDE2000(labColor, paletteLabColor);
 
                 if (distance < leastDistance)
                 {
@@ -1094,7 +1102,7 @@ namespace PalEdit
             return colorList.ToArray();
         }
 
-        public static void SortBitmapPalette(Bitmap bitmap, SortColorMode sortColorMode, int transparentIndex)
+        public static void SortBitmapPalette(Bitmap bitmap, SortColorMode sortColorMode, HSBSortMode hsbSortMode = HSBSortMode.HSB, int transparentIndex = -1)
         {
             ColorPalette colorPalette = bitmap.Palette;
             int[] indices = new int[colorPalette.Entries.Length];
@@ -1105,7 +1113,7 @@ namespace PalEdit
                 colorList.Add(new ColorNode(i, colorPalette.Entries[i]));
             }
 
-			SortColorList(colorList, sortColorMode, transparentIndex);
+			SortColorList(colorList, sortColorMode, hsbSortMode, transparentIndex);
 
             for (int i = 0; i < colorList.Count; i++)
             {
@@ -1545,7 +1553,7 @@ namespace PalEdit
 
                     if (settings.SortColors)
                     {
-                        SortBitmapPalette(image.Bitmap, SortColorMode.Sqrt, settings.TransparentIndex);
+                        SortBitmapPalette(image.Bitmap, SortColorMode.Sqrt, HSBSortMode.HSB, settings.TransparentIndex);
                         palette = image.Bitmap.Palette;
                     }
                 }
@@ -1805,9 +1813,9 @@ namespace PalEdit
 
         public static Color WithHueOffset(Color color, float offset)
         {
-            HSL hsl = HSL.FromRGB(color);
-            hsl.Hue = (hsl.Hue + offset) % 360;
-            return hsl.RGB;
+            HSB hsb = HSB.FromRGB(color);
+            hsb.Hue = (hsb.Hue + offset) % 360;
+            return hsb.RGB;
         }
     }
 
@@ -1856,16 +1864,23 @@ namespace PalEdit
         #endregion
     }
 
-	class HSLSorter : IComparer<ColorNode>
+	class HSBSorter : IComparer<ColorNode>
 	{
 		private int m_transparentIndex = -1;
+		private Colors.HSBSortMode m_sortMode = Colors.HSBSortMode.HSB;
 
-		public HSLSorter()
+		public HSBSorter()
 		{
 		}
 
-		public HSLSorter(int transparentIndex)
+		public HSBSorter(Colors.HSBSortMode sortMode)
 		{
+			m_sortMode = sortMode;
+		}
+
+		public HSBSorter(Colors.HSBSortMode sortMode, int transparentIndex)
+		{
+			m_sortMode = sortMode;
 			m_transparentIndex = transparentIndex;
 		}
 
@@ -1882,20 +1897,63 @@ namespace PalEdit
 				}
 			}
 
-			HSL hslX = HSL.FromRGB(cnx.Color.R, cnx.Color.G, cnx.Color.B);
-			HSL hslY = HSL.FromRGB(cny.Color.R, cny.Color.G, cny.Color.B);
+			HSB hsbX = HSB.FromRGB(cnx.Color.R, cnx.Color.G, cnx.Color.B);
+			HSB hsbY = HSB.FromRGB(cny.Color.R, cny.Color.G, cny.Color.B);
 
-			if (hslX.Hue < hslY.Hue || (hslX.Hue == hslY.Hue && hslX.Saturation < hslY.Saturation) || (hslX.Hue == hslY.Hue && hslX.Saturation == hslY.Saturation && hslX.Luminance < hslY.Luminance))
+			int result = 0;
+
+			switch (m_sortMode)
 			{
-				return -1;
-			}
-			else if (hslX.Hue == hslY.Hue && hslX.Saturation == hslY.Saturation && hslX.Luminance == hslY.Luminance)
-			{
-				return 0;
-			}
-			else
-			{
-				return 1;
+				case Colors.HSBSortMode.HSB:
+					result = hsbX.Hue.CompareTo(hsbY.Hue);
+					if (result == 0)
+						result = hsbX.Saturation.CompareTo(hsbY.Saturation);
+					if (result == 0)
+						result = hsbX.Brightness.CompareTo(hsbY.Brightness);
+					return result;
+
+				case Colors.HSBSortMode.HBS:
+					result = hsbX.Hue.CompareTo(hsbY.Hue);
+					if (result == 0)
+						result = hsbX.Brightness.CompareTo(hsbY.Brightness);
+					if (result == 0)
+						result = hsbX.Saturation.CompareTo(hsbY.Saturation);
+					return result;
+
+				case Colors.HSBSortMode.SHB:
+					result = hsbX.Saturation.CompareTo(hsbY.Saturation);
+					if (result == 0)
+						result = hsbX.Hue.CompareTo(hsbY.Hue);
+					if (result == 0)
+						result = hsbX.Brightness.CompareTo(hsbY.Brightness);
+					return result;
+
+				case Colors.HSBSortMode.SBH:
+					result = hsbX.Saturation.CompareTo(hsbY.Saturation);
+					if (result == 0)
+						result = hsbX.Brightness.CompareTo(hsbY.Brightness);
+					if (result == 0)
+						result = hsbX.Hue.CompareTo(hsbY.Hue);
+					return result;
+
+				case Colors.HSBSortMode.BHS:
+					result = hsbX.Brightness.CompareTo(hsbY.Brightness);
+					if (result == 0)
+						result = hsbX.Hue.CompareTo(hsbY.Hue);
+					if (result == 0)
+						result = hsbX.Saturation.CompareTo(hsbY.Saturation);
+					return result;
+
+				case Colors.HSBSortMode.BSH:
+					result = hsbX.Brightness.CompareTo(hsbY.Brightness);
+					if (result == 0)
+						result = hsbX.Saturation.CompareTo(hsbY.Saturation);
+					if (result == 0)
+						result = hsbX.Hue.CompareTo(hsbY.Hue);
+					return result;
+
+				default:
+					throw new ArgumentOutOfRangeException();
 			}
 		}
 	}
@@ -1932,13 +1990,8 @@ namespace PalEdit
 			CIELab vy = Lab.RGBtoLab(cny.Color);
 			CIELab vz = Lab.RGBtoLab(Color.Empty);
 
-			double vxd1 = Lab.GetDeltaE_CIEDE2000(vx, vz);
-			double vxd2 = Lab.GetDeltaE_CMC(vx, vz);
-			double vxd = (vxd1 + vxd2) / 2.0;
-
-			double vyd1 = Lab.GetDeltaE_CIEDE2000(vy, vz);
-			double vyd2 = Lab.GetDeltaE_CMC(vy, vz);
-			double vyd = (vyd1 + vyd2) / 2.0;
+			double vxd = Lab.GetDeltaE_CIEDE2000(vx, vz);
+			double vyd = Lab.GetDeltaE_CIEDE2000(vy, vz);
 
 			if (vxd.Equals(vyd))
 			{

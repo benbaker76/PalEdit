@@ -47,13 +47,13 @@ namespace PalEdit
         public delegate void CloseBitmapDelegate();
         public delegate void SetBitmapDelegate(Bitmap bitmap);
 
-        public EventHandler<ColorEventArgs> OnPaletteSelect = null;
-        public event ResetControlDelegate OnResetControl = null;
-        public event UpdateBitmapDelegate OnUpdateBitmap = null;
-        public event CloseBitmapDelegate OnCloseBitmap = null;
-        public event SetBitmapDelegate OnSetBitmap = null;
+        public EventHandler<ColorEventArgs> PaletteSelect = null;
+        public event ResetControlDelegate ResetControl = null;
+        public event UpdateBitmapDelegate UpdateBitmap = null;
+        public event CloseBitmapDelegate CloseBitmap = null;
+        public event SetBitmapDelegate SetBitmap = null;
 
-        public PaletteControl()
+		public PaletteControl()
         {
             string gradientsPath = Path.Combine(Application.StartupPath, "Gradients");
             string gradientsFile = Path.Combine(gradientsPath, "default.grdx");
@@ -182,7 +182,7 @@ namespace PalEdit
 
             m_bitmap.Palette = colorPalette;
 
-            OnUpdateBitmap?.Invoke(transparentColor);
+            UpdateBitmap?.Invoke(transparentColor);
         }
 
         public void NewPalette(int palCount)
@@ -192,7 +192,7 @@ namespace PalEdit
             ResetPalette(palCount);
             ResizePalette();
             DrawPalette();
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         private void ResetPalette(int palCount)
@@ -250,7 +250,7 @@ namespace PalEdit
             Selected.IsSelected = true;
 
             DrawPalette();
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
 
             return SelectedColor;
         }
@@ -274,13 +274,15 @@ namespace PalEdit
                         if (!Palette[i].IsSelected)
                             Palette[i].IsSelected = true;
 
-                        if (Selected == null)
-                        {
-                            Selected = Palette[i];
+						if (Selected == null)
+						{
+							Selected = Palette[i];
 
-                            OnPaletteSelect?.Invoke(this, new ColorEventArgs(i, Selected.Color));
-                        }
-                    }
+							PaletteSelect?.Invoke(this, new ColorEventArgs(i, Selected.Color));
+						}
+
+						LastSelected = Palette[i];
+					}
                     else
                     {
                         if (Palette[i].IsSelected && !ctrlDown)
@@ -294,17 +296,15 @@ namespace PalEdit
                 {
                     if (Palette[i].Rectangle.Contains(m_endPoint))
                     {
-                        //if (!Palette[i].IsSelected)
-                        {
-                            SetIsSelected(false);
-                            Selected = Palette[i];
-                            Palette[i].IsSelected = true;
+						SetIsSelected(false);
+						Selected = Palette[i];
+						LastSelected = Palette[i];
+						Palette[i].IsSelected = true;
 
-                            OnPaletteSelect?.Invoke(this, new ColorEventArgs(i, Selected.Color));
+						PaletteSelect?.Invoke(this, new ColorEventArgs(i, Selected.Color));
 
-                            break;
-                        }
-                    }
+						break;
+					}
                 }
             }
 
@@ -330,6 +330,7 @@ namespace PalEdit
             m_endPoint = Point.Empty;
             m_mouseDown = false;
             Selected = null;
+			LastSelected = null;
             SetIsSelected(false);
             DrawPalette();
         }
@@ -382,7 +383,7 @@ namespace PalEdit
             }
 
             DrawPalette();
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SelectMatchingColors()
@@ -403,7 +404,7 @@ namespace PalEdit
             }
 
             DrawPalette();
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SelectMatchingColors(Color[] colorPalette)
@@ -422,7 +423,7 @@ namespace PalEdit
             }
 
             DrawPalette();
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SelectNonMatchingColors(Color[] colorPalette)
@@ -441,7 +442,7 @@ namespace PalEdit
             }
 
             DrawPalette();
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SetFirstSelectedColor(Color color)
@@ -450,7 +451,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SetNearestSelectedColor(Color color)
@@ -458,7 +459,7 @@ namespace PalEdit
             SetSelectedIndex(Colors.GetNearestColorIndex(color, ColorArray, Colors.NearestColorMode.Sqrt));
 
             DrawPalette();
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SetAllSelectedColor(Color color)
@@ -472,7 +473,7 @@ namespace PalEdit
             }
 
             DrawPalette();
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SetPalette(Color[] colorPalette)
@@ -498,7 +499,7 @@ namespace PalEdit
                 SetPaletteWithAlpha(colorPalette, 0xFF);
                 ResizePalette();
                 DrawPalette();
-                OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+                PaletteSelect?.Invoke(this, new ColorEventArgs());
             }
             else
             {
@@ -508,7 +509,7 @@ namespace PalEdit
                 SetPaletteWithAlpha(colorPalette, 0xFF);
                 ResizePalette();
                 DrawPalette();
-                OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+                PaletteSelect?.Invoke(this, new ColorEventArgs());
             }
         }
 
@@ -572,23 +573,23 @@ namespace PalEdit
                 Palette[i].Color = (i < colorPalette.Entries.Length ? colorPalette.Entries[i] : Color.Black);
         }
 
-        public void SetBitmap(Bitmap bitmap)
+        public void SetPaletteBitmap(Bitmap bitmap)
         {
             DestroyBitmap();
 
             m_bitmap = bitmap;
             PalUsed = m_bitmap.Palette.Entries.Length;
 
-            OnSetBitmap?.Invoke(m_bitmap);
+            SetBitmap?.Invoke(m_bitmap);
 
             ResetPalette(256);
             SetBitmapPalette(m_bitmap);
             ResizePalette();
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
 
-            OnResetControl?.Invoke();
+            ResetControl?.Invoke();
         }
 
         public void DestroyBitmap()
@@ -599,7 +600,7 @@ namespace PalEdit
                 m_bitmap = null;
             }
 
-            OnCloseBitmap?.Invoke();
+            CloseBitmap?.Invoke();
         }
 
         public void OpenBitmapFile(string fileName)
@@ -658,9 +659,9 @@ namespace PalEdit
             ResizePalette();
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
 
-            OnResetControl?.Invoke();
+            ResetControl?.Invoke();
         }
 
         public void SetPaletteSelected(Color[] palette)
@@ -711,7 +712,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         private void PasteBitmap()
@@ -755,7 +756,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SavePaletteFile(string fileName, PaletteFormat paletteFormat)
@@ -775,7 +776,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SaveBitmapFile(string fileName, FREE_IMAGE_FORMAT imageFormat)
@@ -815,7 +816,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SetSaturation(int value, int maxValue)
@@ -833,7 +834,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SetBrightness(int value, int maxValue)
@@ -851,7 +852,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SetTint(int value, int maxValue)
@@ -869,7 +870,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void CutPalette()
@@ -931,7 +932,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void FillPalette()
@@ -979,7 +980,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         public void SetEyeDropper(bool eyeDropper)
@@ -1037,19 +1038,19 @@ namespace PalEdit
 
 			DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
         private Color InterpolateColors(Color startColor, Color endColor, double mix)
         {
-            HSL startHSL = new HSL(startColor.GetHue(), startColor.GetSaturation(), startColor.GetBrightness());
-            HSL endHSL = new HSL(endColor.GetHue(), endColor.GetSaturation(), endColor.GetBrightness());
+            HSB startHSB = new HSB(startColor.GetHue(), startColor.GetSaturation(), startColor.GetBrightness());
+            HSB endHSB = new HSB(endColor.GetHue(), endColor.GetSaturation(), endColor.GetBrightness());
             double alt = 1.0 - mix;
-            double h = mix * startHSL.Hue + alt * endHSL.Hue;
-            double s = mix * startHSL.Saturation + alt * endHSL.Saturation;
-            double l = mix * startHSL.Luminance + alt * endHSL.Luminance;
-            HSL hsl = new HSL((float)h, (float)s, (float)l);
-            return hsl.RGB;
+            double h = mix * startHSB.Hue + alt * endHSB.Hue;
+            double s = mix * startHSB.Saturation + alt * endHSB.Saturation;
+            double l = mix * startHSB.Brightness + alt * endHSB.Brightness;
+            HSB hsb = new HSB((float)h, (float)s, (float)l);
+            return hsb.RGB;
         }
 
         public int TryGetGradient(bool startAndEndOnly, out Gradient gradient)
@@ -1134,7 +1135,7 @@ namespace PalEdit
 
             DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
 		private List<ColorNode> CreateColorList()
@@ -1227,30 +1228,30 @@ namespace PalEdit
 			return selectedIndices;
 		}
 
-		public void SortPalette(Colors.SortColorMode sortColorMode)
+		public void SortPalette(Colors.SortColorMode sortColorMode, Colors.HSBSortMode hsbSortMode)
         {
 			List<ColorNode> colorList = CreateColorList();
 
-			Colors.SortColorList(colorList, sortColorMode);
+			Colors.SortColorList(colorList, sortColorMode, hsbSortMode);
 
 			UpdateIndices(colorList);
 
 			DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
-        public void SortSelectedPalette(Colors.SortColorMode sortColorMode)
+        public void SortSelectedPalette(Colors.SortColorMode sortColorMode, Colors.HSBSortMode hsbSortMode = Colors.HSBSortMode.HSB)
 		{
 			List<ColorNode> colorList = CreateSelectedColorList();
 
-			Colors.SortColorList(colorList, sortColorMode);
+			Colors.SortColorList(colorList, sortColorMode, hsbSortMode);
 
 			UpdateSelectedIndices(colorList);
 
 			DrawPalette();
 
-            OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
 		public void RotateLeftSelectedPalette()
@@ -1271,7 +1272,7 @@ namespace PalEdit
 
 			DrawPalette();
 
-			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+			PaletteSelect?.Invoke(this, new ColorEventArgs());
 		}
 
 		public void RotateRightSelectedPalette()
@@ -1292,7 +1293,7 @@ namespace PalEdit
 
 			DrawPalette();
 
-			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+			PaletteSelect?.Invoke(this, new ColorEventArgs());
 		}
 
 
@@ -1314,7 +1315,7 @@ namespace PalEdit
 
 			DrawPalette();
 
-			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+			PaletteSelect?.Invoke(this, new ColorEventArgs());
 		}
 
 		public void RestrictSelectedPaletteToRGB332()
@@ -1329,7 +1330,7 @@ namespace PalEdit
 
 			DrawPalette();
 
-			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+			PaletteSelect?.Invoke(this, new ColorEventArgs());
 		}
 
 		public void RestrictSelectedPaletteToRGB333()
@@ -1344,7 +1345,7 @@ namespace PalEdit
 
 			DrawPalette();
 
-			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+			PaletteSelect?.Invoke(this, new ColorEventArgs());
 		}
 
 		public void RestrictSelectedPaletteToRGB444()
@@ -1359,7 +1360,7 @@ namespace PalEdit
 
 			DrawPalette();
 
-			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+			PaletteSelect?.Invoke(this, new ColorEventArgs());
 		}
 
 		public void RestrictSelectedPaletteToRGB555()
@@ -1374,7 +1375,7 @@ namespace PalEdit
 
 			DrawPalette();
 
-			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+			PaletteSelect?.Invoke(this, new ColorEventArgs());
 		}
 
 		public void RestrictSelectedPaletteToRGB565()
@@ -1389,7 +1390,7 @@ namespace PalEdit
 
 			DrawPalette();
 
-			OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+			PaletteSelect?.Invoke(this, new ColorEventArgs());
 		}
 
 		public void ShowColorPicker()
@@ -1434,7 +1435,7 @@ namespace PalEdit
             m_modifierKeys = e.Modifiers;
         }
 
-        private void PaletteControl_MouseDown(object sender, MouseEventArgs e)
+		private void PaletteControl_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
                 return;
@@ -1473,7 +1474,7 @@ namespace PalEdit
             m_endPoint = new Point(e.X, e.Y);
             m_mouseDown = false;
 
-            OnResetControl?.Invoke();
+            ResetControl?.Invoke();
 
             if (m_eyeDropper)
             {
@@ -1485,7 +1486,7 @@ namespace PalEdit
 
                     DrawPalette();
 
-                    OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+                    PaletteSelect?.Invoke(this, new ColorEventArgs());
                 }
             }
             else
@@ -1511,7 +1512,7 @@ namespace PalEdit
 
                     DrawPalette();
 
-                    OnPaletteSelect?.Invoke(this, new ColorEventArgs());
+                    PaletteSelect?.Invoke(this, new ColorEventArgs());
                 }
             }
         }
@@ -1532,6 +1533,8 @@ namespace PalEdit
 
         public PalNode[] Palette { get; private set; } = null;
 
+		public PalNode[] PaletteClipboard { get { return m_palClipboard; } set { m_palClipboard = value; } }
+
         public Size SwatchSize { get { int swatchWidth = (this.ClientSize.Width - (Offset.X * 2)) / Columns; return SnapToGrid(new SizeF(swatchWidth, swatchWidth), 2f); } }
 
         public int PalUsed { get; set; } = 256;
@@ -1546,9 +1549,16 @@ namespace PalEdit
             set { SetSelectedIndex(value); }
         }
 
-        public PalNode Selected { get; private set; } = null;
+		public int LastSelectedIndex
+		{
+			get { return (LastSelected == null ? -1 : Array.IndexOf(Palette, LastSelected)); }
+		}
 
-        public Color SelectedColor
+		public PalNode Selected { get; private set; } = null;
+
+		public PalNode LastSelected { get; private set; } = null;
+
+		public Color SelectedColor
         {
             get { return (Selected == null ? Color.Empty : Selected.Color); }
             set { if (Selected != null) { Selected.Color = value; DrawPalette(); } }
@@ -1594,9 +1604,9 @@ namespace PalEdit
                     Palette[i].Color = value[i];
             }
         }
-    }
+	}
 
-    public class ColorEventArgs : EventArgs
+	public class ColorEventArgs : EventArgs
     {
         public int Index;
         public Color Color;

@@ -28,26 +28,26 @@ namespace PalEdit
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // PaletteControl
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "PaletteControl";
-            this.Size = new System.Drawing.Size(256, 256);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.PaletteControl_Paint);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PaletteControl_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PaletteControl_KeyUp);
-            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PaletteControl_MouseDoubleClick);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PaletteControl_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PaletteControl_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PaletteControl_MouseUp);
-            this.Resize += new System.EventHandler(this.PaletteControl_Resize);
-            this.ResumeLayout(false);
+			this.SuspendLayout();
+			// 
+			// PaletteControl
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+			this.DoubleBuffered = true;
+			this.Margin = new System.Windows.Forms.Padding(0);
+			this.Name = "PaletteControl";
+			this.Size = new System.Drawing.Size(256, 256);
+			this.Paint += new System.Windows.Forms.PaintEventHandler(this.PaletteControl_Paint);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PaletteControl_KeyDown);
+			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PaletteControl_KeyUp);
+			this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PaletteControl_MouseDoubleClick);
+			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PaletteControl_MouseDown);
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PaletteControl_MouseMove);
+			this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PaletteControl_MouseUp);
+			this.Resize += new System.EventHandler(this.PaletteControl_Resize);
+			this.ResumeLayout(false);
 
         }
 
