@@ -935,7 +935,14 @@ namespace PalEdit
             OnPaletteSelect(m_paletteControl, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
         }
 
-        private void mnuColor_Click(object sender, EventArgs e)
+		private void mnuSelectUniqueColors_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.SelectUniqueColors();
+
+			OnPaletteSelect(m_paletteControl, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
+		}
+
+		private void mnuColor_Click(object sender, EventArgs e)
         {
             mainPalette.ShowColorPicker();
         }
@@ -1172,7 +1179,14 @@ namespace PalEdit
             OnPaletteSelect(m_paletteControl, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
         }
 
-        private void tsmiColor_Click(object sender, EventArgs e)
+		private void tsmiSelectUniqueColors_Click(object sender, EventArgs e)
+		{
+			m_paletteControl.SelectUniqueColors();
+
+			OnPaletteSelect(m_paletteControl, new ColorEventArgs(m_paletteControl.SelectedIndex, m_paletteControl.SelectedColor));
+		}
+
+		private void tsmiColor_Click(object sender, EventArgs e)
         {
 			m_paletteControl.ShowColorPicker();
         }

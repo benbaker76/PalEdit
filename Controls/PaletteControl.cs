@@ -449,7 +449,25 @@ namespace PalEdit
             PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
-        public void SetFirstSelectedColor(Color color)
+		public void SelectUniqueColors()
+		{
+			for (int i = 0; i < Palette.Length; i++)
+			{
+				if (Palette[i].IsSelected)
+				{
+					for (int j = i + 1; j < Palette.Length; j++)
+					{
+						if (Palette[i].Color.Equals(Palette[j].Color))
+							Palette[j].IsSelected = false;
+					}
+				}
+			}
+
+			DrawPalette();
+			PaletteSelect?.Invoke(this, new ColorEventArgs());
+		}
+
+		public void SetFirstSelectedColor(Color color)
         {
             Selected.Color = color;
 
