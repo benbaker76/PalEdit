@@ -1037,7 +1037,17 @@ namespace PalEdit
 			mainPalette.RotateRightSelectedPalette();
 		}
 
-		private void mnuReverse_Click(object sender, EventArgs e)
+        private void mnuRotateCW_Click(object sender, EventArgs e)
+        {
+            mainPalette.RotateCWSelectedPalette();
+        }
+
+        private void mnuRotateCCW_Click(object sender, EventArgs e)
+        {
+            mainPalette.RotateCCWSelectedPalette();
+        }
+
+        private void mnuReverse_Click(object sender, EventArgs e)
 		{
 			mainPalette.ReverseSelectedPalette();
 		}
@@ -1241,7 +1251,17 @@ namespace PalEdit
 			m_paletteControl.RotateRightSelectedPalette();
 		}
 
-		private void tsmiReverse_Click(object sender, EventArgs e)
+        private void tsmiRotateCW_Click(object sender, EventArgs e)
+        {
+            mainPalette.RotateCWSelectedPalette();
+        }
+
+        private void tsmiRotateCCW_Click(object sender, EventArgs e)
+        {
+            mainPalette.RotateCCWSelectedPalette();
+        }
+
+        private void tsmiReverse_Click(object sender, EventArgs e)
 		{
 			m_paletteControl.ReverseSelectedPalette();
 		}
@@ -1508,5 +1528,5 @@ namespace PalEdit
                 LoadPalette(fileName);
             }
         }
-	}
+    }
 }

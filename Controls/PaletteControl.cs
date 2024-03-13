@@ -1366,8 +1366,67 @@ namespace PalEdit
 			PaletteSelect?.Invoke(this, new ColorEventArgs());
 		}
 
+        public void RotateCWSelectedPalette()
+        {
+            List<ColorNode> colorList = GetSelectedColorList();
+            int[] colorIndices = GetColorIndices();
+            List<int> selectedIndices = GetSelectedIndices();
+            int columns = Columns;
+            int rows = Rows;
 
-		public void ReverseSelectedPalette()
+            for (int i = 0; i < selectedIndices.Count; i++)
+            {
+                int rowIndex = i / columns;
+                int colIndex = i % columns;
+
+                int index = selectedIndices[i];
+                int newIndex = (columns - colIndex - 1) * rows + rowIndex;
+
+                if (newIndex >= colorList.Count)
+                    continue;
+
+                Palette[index].Color = colorList[newIndex].Color;
+                colorIndices[colorList[newIndex].Index] = index;
+            }
+
+            Colors.SetColorIndices(m_bitmap, colorIndices);
+
+            DrawPalette();
+
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
+        }
+
+        public void RotateCCWSelectedPalette()
+        {
+            List<ColorNode> colorList = GetSelectedColorList();
+            int[] colorIndices = GetColorIndices();
+            List<int> selectedIndices = GetSelectedIndices();
+            int columns = Columns;
+            int rows = Rows;
+
+            for (int i = 0; i < selectedIndices.Count; i++)
+            {
+                int rowIndex = i / columns;
+                int colIndex = i % columns;
+
+                int index = selectedIndices[i];
+                int newIndex = colIndex * rows + (rows - rowIndex - 1);
+
+                if (newIndex >= colorList.Count)
+                    continue;
+
+                Palette[index].Color = colorList[newIndex].Color;
+                colorIndices[colorList[newIndex].Index] = index;
+            }
+
+            Colors.SetColorIndices(m_bitmap, colorIndices);
+
+            DrawPalette();
+
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
+        }
+
+        public void ReverseSelectedPalette()
 		{
 			List<ColorNode> colorList = GetSelectedColorList();
 			int[] colorIndices = GetColorIndices();
