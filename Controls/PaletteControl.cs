@@ -1324,7 +1324,57 @@ namespace PalEdit
             PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
-		public void RotateLeftSelectedPalette()
+        public void RotateUpSelectedPalette()
+        {
+            List<ColorNode> colorList = GetSelectedColorList();
+            int[] colorIndices = GetColorIndices();
+            List<int> selectedIndices = GetSelectedIndices();
+
+            for (int i = 0; i < selectedIndices.Count; i++)
+            {
+                int index = selectedIndices[i];
+                int newIndex = index + Columns;
+
+                if (newIndex >= colorList.Count)
+                    newIndex -= Rows * Columns;
+
+                Palette[index].Color = colorList[newIndex].Color;
+                colorIndices[colorList[newIndex].Index] = index;
+            }
+
+            Colors.SetColorIndices(m_bitmap, colorIndices);
+
+            DrawPalette();
+
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
+        }
+
+        public void RotateDownSelectedPalette()
+        {
+            List<ColorNode> colorList = GetSelectedColorList();
+            int[] colorIndices = GetColorIndices();
+            List<int> selectedIndices = GetSelectedIndices();
+
+            for (int i = 0; i < selectedIndices.Count; i++)
+            {
+                int index = selectedIndices[i];
+                int newIndex = index - Columns;
+
+                if (newIndex < 0)
+                    newIndex += Rows * Columns;
+
+                Palette[index].Color = colorList[newIndex].Color;
+                colorIndices[colorList[newIndex].Index] = index;
+            }
+
+            Colors.SetColorIndices(m_bitmap, colorIndices);
+
+            DrawPalette();
+
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
+        }
+
+        public void RotateLeftSelectedPalette()
 		{
 			List<ColorNode> colorList = GetSelectedColorList();
 			int[] colorIndices = GetColorIndices();
@@ -1334,7 +1384,7 @@ namespace PalEdit
 			{
 				int index = selectedIndices[i];
 				int newIndex = (i == selectedIndices.Count - 1 ? 0 : i + 1);
-				Palette[index].Color = colorList[newIndex].Color;
+                Palette[index].Color = colorList[newIndex].Color;
 				colorIndices[colorList[newIndex].Index] = index;
 			}
 

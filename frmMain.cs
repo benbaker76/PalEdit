@@ -1027,7 +1027,17 @@ namespace PalEdit
 			swatchesPalette.SortSelectedPalette(Colors.SortColorMode.Lab);
 		}
 
-		private void mnuRotateLeft_Click(object sender, EventArgs e)
+        private void mnuRotateUp_Click(object sender, EventArgs e)
+        {
+            m_paletteControl.RotateUpSelectedPalette();
+        }
+
+        private void mnuRotateDown_Click(object sender, EventArgs e)
+        {
+            m_paletteControl.RotateDownSelectedPalette();
+        }
+
+        private void mnuRotateLeft_Click(object sender, EventArgs e)
 		{
 			mainPalette.RotateLeftSelectedPalette();
 		}
@@ -1241,7 +1251,17 @@ namespace PalEdit
 			m_paletteControl.SortSelectedPalette(Colors.SortColorMode.Lab);
 		}
 
-		private void tsmiRotateLeft_Click(object sender, EventArgs e)
+        private void tsmiRotateUp_Click(object sender, EventArgs e)
+        {
+            m_paletteControl.RotateUpSelectedPalette();
+        }
+
+        private void tsmiRotateDown_Click(object sender, EventArgs e)
+        {
+            m_paletteControl.RotateDownSelectedPalette();
+        }
+
+        private void tsmiRotateLeft_Click(object sender, EventArgs e)
 		{
 			m_paletteControl.RotateLeftSelectedPalette();
 		}

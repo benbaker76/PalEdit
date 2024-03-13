@@ -76,6 +76,8 @@ namespace PalEdit
             this.mnuOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRotateLeft = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRotateRight = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRotateCW = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRotateCCW = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReverse = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRestrict = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRGB332 = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,6 +127,8 @@ namespace PalEdit
             this.tsmiOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRotateLeft = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRotateRight = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRotateCW = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRotateCCW = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiReverse = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRestrict = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRGB332 = new System.Windows.Forms.ToolStripMenuItem();
@@ -221,10 +225,10 @@ namespace PalEdit
             this.tsbSortLAB = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbSelectMatchingColors = new System.Windows.Forms.ToolStripButton();
             this.tsbSelectNonMatchingColors = new System.Windows.Forms.ToolStripButton();
-            this.mnuRotateCW = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuRotateCCW = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiRotateCW = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiRotateCCW = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRotateUp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRotateDown = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRotateUp = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRotateDown = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -623,6 +627,8 @@ namespace PalEdit
             // mnuOrder
             // 
             this.mnuOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRotateUp,
+            this.mnuRotateDown,
             this.mnuRotateLeft,
             this.mnuRotateRight,
             this.mnuRotateCW,
@@ -645,6 +651,20 @@ namespace PalEdit
             this.mnuRotateRight.Size = new System.Drawing.Size(180, 22);
             this.mnuRotateRight.Text = "Rotate Right";
             this.mnuRotateRight.Click += new System.EventHandler(this.mnuRotateRight_Click);
+            // 
+            // mnuRotateCW
+            // 
+            this.mnuRotateCW.Name = "mnuRotateCW";
+            this.mnuRotateCW.Size = new System.Drawing.Size(180, 22);
+            this.mnuRotateCW.Text = "Rotate CW";
+            this.mnuRotateCW.Click += new System.EventHandler(this.mnuRotateCW_Click);
+            // 
+            // mnuRotateCCW
+            // 
+            this.mnuRotateCCW.Name = "mnuRotateCCW";
+            this.mnuRotateCCW.Size = new System.Drawing.Size(180, 22);
+            this.mnuRotateCCW.Text = "Rotate CCW";
+            this.mnuRotateCCW.Click += new System.EventHandler(this.mnuRotateCCW_Click);
             // 
             // mnuReverse
             // 
@@ -1012,6 +1032,8 @@ namespace PalEdit
             // tsmiOrder
             // 
             this.tsmiOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiRotateUp,
+            this.tsmiRotateDown,
             this.tsmiRotateLeft,
             this.tsmiRotateRight,
             this.tsmiRotateCW,
@@ -1035,6 +1057,20 @@ namespace PalEdit
             this.tsmiRotateRight.Text = "Rotate Right";
             this.tsmiRotateRight.Click += new System.EventHandler(this.tsmiRotateRight_Click);
             // 
+            // tsmiRotateCW
+            // 
+            this.tsmiRotateCW.Name = "tsmiRotateCW";
+            this.tsmiRotateCW.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRotateCW.Text = "Rotate CW";
+            this.tsmiRotateCW.Click += new System.EventHandler(this.tsmiRotateCW_Click);
+            // 
+            // tsmiRotateCCW
+            // 
+            this.tsmiRotateCCW.Name = "tsmiRotateCCW";
+            this.tsmiRotateCCW.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRotateCCW.Text = "Rotate CCW";
+            this.tsmiRotateCCW.Click += new System.EventHandler(this.tsmiRotateCCW_Click);
+            // 
             // tsmiReverse
             // 
             this.tsmiReverse.Name = "tsmiReverse";
@@ -1057,35 +1093,35 @@ namespace PalEdit
             // tsmiRGB332
             // 
             this.tsmiRGB332.Name = "tsmiRGB332";
-            this.tsmiRGB332.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRGB332.Size = new System.Drawing.Size(114, 22);
             this.tsmiRGB332.Text = "RGB332";
             this.tsmiRGB332.Click += new System.EventHandler(this.tsmiRGB332_Click);
             // 
             // tsmiRGB333
             // 
             this.tsmiRGB333.Name = "tsmiRGB333";
-            this.tsmiRGB333.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRGB333.Size = new System.Drawing.Size(114, 22);
             this.tsmiRGB333.Text = "RGB333";
             this.tsmiRGB333.Click += new System.EventHandler(this.tsmiRGB333_Click);
             // 
             // tsmiRGB444
             // 
             this.tsmiRGB444.Name = "tsmiRGB444";
-            this.tsmiRGB444.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRGB444.Size = new System.Drawing.Size(114, 22);
             this.tsmiRGB444.Text = "RGB444";
             this.tsmiRGB444.Click += new System.EventHandler(this.tsmiRGB444_Click);
             // 
             // tsmiRGB555
             // 
             this.tsmiRGB555.Name = "tsmiRGB555";
-            this.tsmiRGB555.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRGB555.Size = new System.Drawing.Size(114, 22);
             this.tsmiRGB555.Text = "RGB555";
             this.tsmiRGB555.Click += new System.EventHandler(this.tsmiRGB555_Click);
             // 
             // tsmiRGB565
             // 
             this.tsmiRGB565.Name = "tsmiRGB565";
-            this.tsmiRGB565.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRGB565.Size = new System.Drawing.Size(114, 22);
             this.tsmiRGB565.Text = "RGB565";
             this.tsmiRGB565.Click += new System.EventHandler(this.tsmiRGB565_Click);
             // 
@@ -2541,33 +2577,33 @@ namespace PalEdit
             this.tsbSelectNonMatchingColors.ToolTipText = "Select Non-Matching Colors";
             this.tsbSelectNonMatchingColors.Click += new System.EventHandler(this.tsbSelectNonMatchingColors_Click);
             // 
-            // mnuRotateCW
+            // mnuRotateUp
             // 
-            this.mnuRotateCW.Name = "mnuRotateCW";
-            this.mnuRotateCW.Size = new System.Drawing.Size(180, 22);
-            this.mnuRotateCW.Text = "Rotate CW";
-            this.mnuRotateCW.Click += new System.EventHandler(this.mnuRotateCW_Click);
+            this.mnuRotateUp.Name = "mnuRotateUp";
+            this.mnuRotateUp.Size = new System.Drawing.Size(180, 22);
+            this.mnuRotateUp.Text = "Rotate Up";
+            this.mnuRotateUp.Click += new System.EventHandler(this.mnuRotateUp_Click);
             // 
-            // mnuRotateCCW
+            // mnuRotateDown
             // 
-            this.mnuRotateCCW.Name = "mnuRotateCCW";
-            this.mnuRotateCCW.Size = new System.Drawing.Size(180, 22);
-            this.mnuRotateCCW.Text = "Rotate CCW";
-            this.mnuRotateCCW.Click += new System.EventHandler(this.mnuRotateCCW_Click);
+            this.mnuRotateDown.Name = "mnuRotateDown";
+            this.mnuRotateDown.Size = new System.Drawing.Size(180, 22);
+            this.mnuRotateDown.Text = "Rotate Down";
+            this.mnuRotateDown.Click += new System.EventHandler(this.mnuRotateDown_Click);
             // 
-            // tsmiRotateCW
+            // tsmiRotateUp
             // 
-            this.tsmiRotateCW.Name = "tsmiRotateCW";
-            this.tsmiRotateCW.Size = new System.Drawing.Size(180, 22);
-            this.tsmiRotateCW.Text = "Rotate CW";
-            this.tsmiRotateCW.Click += new System.EventHandler(this.tsmiRotateCW_Click);
+            this.tsmiRotateUp.Name = "tsmiRotateUp";
+            this.tsmiRotateUp.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRotateUp.Text = "Rotate Up";
+            this.tsmiRotateUp.Click += new System.EventHandler(this.tsmiRotateUp_Click);
             // 
-            // tsmiRotateCCW
+            // tsmiRotateDown
             // 
-            this.tsmiRotateCCW.Name = "tsmiRotateCCW";
-            this.tsmiRotateCCW.Size = new System.Drawing.Size(180, 22);
-            this.tsmiRotateCCW.Text = "Rotate CCW";
-            this.tsmiRotateCCW.Click += new System.EventHandler(this.tsmiRotateCCW_Click);
+            this.tsmiRotateDown.Name = "tsmiRotateDown";
+            this.tsmiRotateDown.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRotateDown.Text = "Rotate Down";
+            this.tsmiRotateDown.Click += new System.EventHandler(this.tsmiRotateDown_Click);
             // 
             // frmMain
             // 
@@ -2833,6 +2869,10 @@ namespace PalEdit
         private System.Windows.Forms.ToolStripMenuItem mnuRotateCCW;
         private System.Windows.Forms.ToolStripMenuItem tsmiRotateCW;
         private System.Windows.Forms.ToolStripMenuItem tsmiRotateCCW;
+        private System.Windows.Forms.ToolStripMenuItem mnuRotateUp;
+        private System.Windows.Forms.ToolStripMenuItem mnuRotateDown;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRotateUp;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRotateDown;
     }
 }
 
