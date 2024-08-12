@@ -15,7 +15,7 @@ namespace PalEdit
             InitializeComponent();
 
             nudColorCount.Value = colorCount;
-            nudColorCount.Maximum = colorCount;
+            nudColorCount.Maximum = 255;
         }
 
         private void butOK_Click(object sender, EventArgs e)

@@ -14,6 +14,10 @@ using FreeImageAPI;
 
 using ControlsEx.ColorManagement.Gradients;
 using System.Drawing.Drawing2D;
+using SimplePaletteQuantizer.Quantizers.DistinctSelection;
+using SimplePaletteQuantizer.Quantizers;
+using static SimplePaletteQuantizer.Helpers.ImageBuffer;
+using SimplePaletteQuantizer.Helpers;
 
 namespace PalEdit
 {
@@ -22,6 +26,7 @@ namespace PalEdit
         private string m_fileName = null;
 		private int m_swatchesPaletteIndex = 0;
         private string m_swatchesPaletteFileName = null;
+        private Bitmap m_bitmap = null;
         private frmBitmap m_frmBitmap = null;
 
 		private PaletteControl m_paletteControl = null;
@@ -73,7 +78,9 @@ namespace PalEdit
 			picMagnify.Image = new Bitmap(picMagnify.Width, picMagnify.Height);
 
             ResetSlidersNoEvent();
-		}
+
+  
+        }
 
 		private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {

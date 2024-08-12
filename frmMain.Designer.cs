@@ -74,6 +74,8 @@ namespace PalEdit
             this.mnuSortBSH = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuLABSort = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuOrder = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRotateUp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRotateDown = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRotateLeft = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRotateRight = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRotateCW = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,6 +127,8 @@ namespace PalEdit
             this.tsmiSortBSH = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSortLAB = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiOrder = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRotateUp = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRotateDown = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRotateLeft = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRotateRight = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRotateCW = new System.Windows.Forms.ToolStripMenuItem();
@@ -225,10 +229,6 @@ namespace PalEdit
             this.tsbSortLAB = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbSelectMatchingColors = new System.Windows.Forms.ToolStripButton();
             this.tsbSelectNonMatchingColors = new System.Windows.Forms.ToolStripButton();
-            this.mnuRotateUp = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuRotateDown = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiRotateUp = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiRotateDown = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -436,7 +436,7 @@ namespace PalEdit
             // 
             this.mnuCut.Name = "mnuCut";
             this.mnuCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.mnuCut.Size = new System.Drawing.Size(180, 22);
+            this.mnuCut.Size = new System.Drawing.Size(148, 22);
             this.mnuCut.Text = "Cut";
             this.mnuCut.Click += new System.EventHandler(this.mnuCut_Click);
             // 
@@ -444,7 +444,7 @@ namespace PalEdit
             // 
             this.mnuCopy.Name = "mnuCopy";
             this.mnuCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.mnuCopy.Size = new System.Drawing.Size(180, 22);
+            this.mnuCopy.Size = new System.Drawing.Size(148, 22);
             this.mnuCopy.Text = "Copy";
             this.mnuCopy.Click += new System.EventHandler(this.mnuCopy_Click);
             // 
@@ -452,7 +452,7 @@ namespace PalEdit
             // 
             this.mnuPaste.Name = "mnuPaste";
             this.mnuPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.mnuPaste.Size = new System.Drawing.Size(180, 22);
+            this.mnuPaste.Size = new System.Drawing.Size(148, 22);
             this.mnuPaste.Text = "Paste";
             this.mnuPaste.Click += new System.EventHandler(this.mnuPaste_Click);
             // 
@@ -460,7 +460,7 @@ namespace PalEdit
             // 
             this.mnuFill.Name = "mnuFill";
             this.mnuFill.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.mnuFill.Size = new System.Drawing.Size(180, 22);
+            this.mnuFill.Size = new System.Drawing.Size(148, 22);
             this.mnuFill.Text = "Fill";
             this.mnuFill.Click += new System.EventHandler(this.mnuFill_Click);
             // 
@@ -468,7 +468,7 @@ namespace PalEdit
             // 
             this.mnuSwap.Name = "mnuSwap";
             this.mnuSwap.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mnuSwap.Size = new System.Drawing.Size(180, 22);
+            this.mnuSwap.Size = new System.Drawing.Size(148, 22);
             this.mnuSwap.Text = "Swap";
             this.mnuSwap.Click += new System.EventHandler(this.mnuSwap_Click);
             // 
@@ -476,14 +476,14 @@ namespace PalEdit
             // 
             this.mnuMerge.Name = "mnuMerge";
             this.mnuMerge.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.mnuMerge.Size = new System.Drawing.Size(180, 22);
+            this.mnuMerge.Size = new System.Drawing.Size(148, 22);
             this.mnuMerge.Text = "Merge";
             this.mnuMerge.Click += new System.EventHandler(this.mnuMerge_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(145, 6);
             // 
             // mnuSelect
             // 
@@ -495,7 +495,7 @@ namespace PalEdit
             this.mnuSelectMatchingColors,
             this.mnuSelectUniqueColors});
             this.mnuSelect.Name = "mnuSelect";
-            this.mnuSelect.Size = new System.Drawing.Size(180, 22);
+            this.mnuSelect.Size = new System.Drawing.Size(148, 22);
             this.mnuSelect.Text = "Select";
             // 
             // mnuSelectAll
@@ -552,7 +552,7 @@ namespace PalEdit
             this.mnuHSBSort,
             this.mnuLABSort});
             this.mnuSort.Name = "mnuSort";
-            this.mnuSort.Size = new System.Drawing.Size(180, 22);
+            this.mnuSort.Size = new System.Drawing.Size(148, 22);
             this.mnuSort.Text = "Sort";
             // 
             // mnuSqrtSort
@@ -635,41 +635,55 @@ namespace PalEdit
             this.mnuRotateCCW,
             this.mnuReverse});
             this.mnuOrder.Name = "mnuOrder";
-            this.mnuOrder.Size = new System.Drawing.Size(180, 22);
+            this.mnuOrder.Size = new System.Drawing.Size(148, 22);
             this.mnuOrder.Text = "Order";
+            // 
+            // mnuRotateUp
+            // 
+            this.mnuRotateUp.Name = "mnuRotateUp";
+            this.mnuRotateUp.Size = new System.Drawing.Size(142, 22);
+            this.mnuRotateUp.Text = "Rotate Up";
+            this.mnuRotateUp.Click += new System.EventHandler(this.mnuRotateUp_Click);
+            // 
+            // mnuRotateDown
+            // 
+            this.mnuRotateDown.Name = "mnuRotateDown";
+            this.mnuRotateDown.Size = new System.Drawing.Size(142, 22);
+            this.mnuRotateDown.Text = "Rotate Down";
+            this.mnuRotateDown.Click += new System.EventHandler(this.mnuRotateDown_Click);
             // 
             // mnuRotateLeft
             // 
             this.mnuRotateLeft.Name = "mnuRotateLeft";
-            this.mnuRotateLeft.Size = new System.Drawing.Size(180, 22);
+            this.mnuRotateLeft.Size = new System.Drawing.Size(142, 22);
             this.mnuRotateLeft.Text = "Rotate Left";
             this.mnuRotateLeft.Click += new System.EventHandler(this.mnuRotateLeft_Click);
             // 
             // mnuRotateRight
             // 
             this.mnuRotateRight.Name = "mnuRotateRight";
-            this.mnuRotateRight.Size = new System.Drawing.Size(180, 22);
+            this.mnuRotateRight.Size = new System.Drawing.Size(142, 22);
             this.mnuRotateRight.Text = "Rotate Right";
             this.mnuRotateRight.Click += new System.EventHandler(this.mnuRotateRight_Click);
             // 
             // mnuRotateCW
             // 
             this.mnuRotateCW.Name = "mnuRotateCW";
-            this.mnuRotateCW.Size = new System.Drawing.Size(180, 22);
+            this.mnuRotateCW.Size = new System.Drawing.Size(142, 22);
             this.mnuRotateCW.Text = "Rotate CW";
             this.mnuRotateCW.Click += new System.EventHandler(this.mnuRotateCW_Click);
             // 
             // mnuRotateCCW
             // 
             this.mnuRotateCCW.Name = "mnuRotateCCW";
-            this.mnuRotateCCW.Size = new System.Drawing.Size(180, 22);
+            this.mnuRotateCCW.Size = new System.Drawing.Size(142, 22);
             this.mnuRotateCCW.Text = "Rotate CCW";
             this.mnuRotateCCW.Click += new System.EventHandler(this.mnuRotateCCW_Click);
             // 
             // mnuReverse
             // 
             this.mnuReverse.Name = "mnuReverse";
-            this.mnuReverse.Size = new System.Drawing.Size(180, 22);
+            this.mnuReverse.Size = new System.Drawing.Size(142, 22);
             this.mnuReverse.Text = "Reverse";
             this.mnuReverse.Click += new System.EventHandler(this.mnuReverse_Click);
             // 
@@ -682,7 +696,7 @@ namespace PalEdit
             this.mnuRGB555,
             this.mnuRGB565});
             this.mnuRestrict.Name = "mnuRestrict";
-            this.mnuRestrict.Size = new System.Drawing.Size(180, 22);
+            this.mnuRestrict.Size = new System.Drawing.Size(148, 22);
             this.mnuRestrict.Text = "Restrict";
             // 
             // mnuRGB332
@@ -723,37 +737,37 @@ namespace PalEdit
             // mnuPalette
             // 
             this.mnuPalette.Name = "mnuPalette";
-            this.mnuPalette.Size = new System.Drawing.Size(180, 22);
+            this.mnuPalette.Size = new System.Drawing.Size(148, 22);
             this.mnuPalette.Text = "Palette";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(145, 6);
             // 
             // mnuColor
             // 
             this.mnuColor.Name = "mnuColor";
-            this.mnuColor.Size = new System.Drawing.Size(180, 22);
+            this.mnuColor.Size = new System.Drawing.Size(148, 22);
             this.mnuColor.Text = "Color...";
             this.mnuColor.Click += new System.EventHandler(this.mnuColor_Click);
             // 
             // mnuGradient
             // 
             this.mnuGradient.Name = "mnuGradient";
-            this.mnuGradient.Size = new System.Drawing.Size(180, 22);
+            this.mnuGradient.Size = new System.Drawing.Size(148, 22);
             this.mnuGradient.Text = "Gradient...";
             this.mnuGradient.Click += new System.EventHandler(this.mnuGradient_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(145, 6);
             // 
             // mnuQuantize
             // 
             this.mnuQuantize.Name = "mnuQuantize";
-            this.mnuQuantize.Size = new System.Drawing.Size(180, 22);
+            this.mnuQuantize.Size = new System.Drawing.Size(148, 22);
             this.mnuQuantize.Text = "Quantize...";
             this.mnuQuantize.Click += new System.EventHandler(this.mnuQuantize_Click);
             // 
@@ -840,7 +854,7 @@ namespace PalEdit
             this.toolStripMenuItem8,
             this.tsmiQuantize});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 330);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(131, 308);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // tsmiCut
@@ -1040,41 +1054,55 @@ namespace PalEdit
             this.tsmiRotateCCW,
             this.tsmiReverse});
             this.tsmiOrder.Name = "tsmiOrder";
-            this.tsmiOrder.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOrder.Size = new System.Drawing.Size(130, 22);
             this.tsmiOrder.Text = "Order";
+            // 
+            // tsmiRotateUp
+            // 
+            this.tsmiRotateUp.Name = "tsmiRotateUp";
+            this.tsmiRotateUp.Size = new System.Drawing.Size(142, 22);
+            this.tsmiRotateUp.Text = "Rotate Up";
+            this.tsmiRotateUp.Click += new System.EventHandler(this.tsmiRotateUp_Click);
+            // 
+            // tsmiRotateDown
+            // 
+            this.tsmiRotateDown.Name = "tsmiRotateDown";
+            this.tsmiRotateDown.Size = new System.Drawing.Size(142, 22);
+            this.tsmiRotateDown.Text = "Rotate Down";
+            this.tsmiRotateDown.Click += new System.EventHandler(this.tsmiRotateDown_Click);
             // 
             // tsmiRotateLeft
             // 
             this.tsmiRotateLeft.Name = "tsmiRotateLeft";
-            this.tsmiRotateLeft.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRotateLeft.Size = new System.Drawing.Size(142, 22);
             this.tsmiRotateLeft.Text = "Rotate Left";
             this.tsmiRotateLeft.Click += new System.EventHandler(this.tsmiRotateLeft_Click);
             // 
             // tsmiRotateRight
             // 
             this.tsmiRotateRight.Name = "tsmiRotateRight";
-            this.tsmiRotateRight.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRotateRight.Size = new System.Drawing.Size(142, 22);
             this.tsmiRotateRight.Text = "Rotate Right";
             this.tsmiRotateRight.Click += new System.EventHandler(this.tsmiRotateRight_Click);
             // 
             // tsmiRotateCW
             // 
             this.tsmiRotateCW.Name = "tsmiRotateCW";
-            this.tsmiRotateCW.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRotateCW.Size = new System.Drawing.Size(142, 22);
             this.tsmiRotateCW.Text = "Rotate CW";
             this.tsmiRotateCW.Click += new System.EventHandler(this.tsmiRotateCW_Click);
             // 
             // tsmiRotateCCW
             // 
             this.tsmiRotateCCW.Name = "tsmiRotateCCW";
-            this.tsmiRotateCCW.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRotateCCW.Size = new System.Drawing.Size(142, 22);
             this.tsmiRotateCCW.Text = "Rotate CCW";
             this.tsmiRotateCCW.Click += new System.EventHandler(this.tsmiRotateCCW_Click);
             // 
             // tsmiReverse
             // 
             this.tsmiReverse.Name = "tsmiReverse";
-            this.tsmiReverse.Size = new System.Drawing.Size(180, 22);
+            this.tsmiReverse.Size = new System.Drawing.Size(142, 22);
             this.tsmiReverse.Text = "Reverse";
             this.tsmiReverse.Click += new System.EventHandler(this.tsmiReverse_Click);
             // 
@@ -2576,34 +2604,6 @@ namespace PalEdit
             this.tsbSelectNonMatchingColors.Size = new System.Drawing.Size(23, 20);
             this.tsbSelectNonMatchingColors.ToolTipText = "Select Non-Matching Colors";
             this.tsbSelectNonMatchingColors.Click += new System.EventHandler(this.tsbSelectNonMatchingColors_Click);
-            // 
-            // mnuRotateUp
-            // 
-            this.mnuRotateUp.Name = "mnuRotateUp";
-            this.mnuRotateUp.Size = new System.Drawing.Size(180, 22);
-            this.mnuRotateUp.Text = "Rotate Up";
-            this.mnuRotateUp.Click += new System.EventHandler(this.mnuRotateUp_Click);
-            // 
-            // mnuRotateDown
-            // 
-            this.mnuRotateDown.Name = "mnuRotateDown";
-            this.mnuRotateDown.Size = new System.Drawing.Size(180, 22);
-            this.mnuRotateDown.Text = "Rotate Down";
-            this.mnuRotateDown.Click += new System.EventHandler(this.mnuRotateDown_Click);
-            // 
-            // tsmiRotateUp
-            // 
-            this.tsmiRotateUp.Name = "tsmiRotateUp";
-            this.tsmiRotateUp.Size = new System.Drawing.Size(180, 22);
-            this.tsmiRotateUp.Text = "Rotate Up";
-            this.tsmiRotateUp.Click += new System.EventHandler(this.tsmiRotateUp_Click);
-            // 
-            // tsmiRotateDown
-            // 
-            this.tsmiRotateDown.Name = "tsmiRotateDown";
-            this.tsmiRotateDown.Size = new System.Drawing.Size(180, 22);
-            this.tsmiRotateDown.Text = "Rotate Down";
-            this.tsmiRotateDown.Click += new System.EventHandler(this.tsmiRotateDown_Click);
             // 
             // frmMain
             // 

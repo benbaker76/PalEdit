@@ -609,6 +609,7 @@ namespace PalEdit
 
             newBitmap.Palette = newPalette;
 
+            SetBitmapPalette(newBitmap);
             SetBitmap(newBitmap);
         }
 
@@ -685,6 +686,7 @@ namespace PalEdit
                 }
             }
 
+            SetPaletteBitmap(bitmap);
             SetBitmap(bitmap);
         }
 

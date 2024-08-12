@@ -10,6 +10,7 @@ using System.IO;
 
 using SimplePaletteQuantizer.Helpers;
 using SimplePaletteQuantizer.Quantizers.XiaolinWu;
+using System.Diagnostics;
 
 namespace PalEdit
 {
@@ -1284,29 +1285,9 @@ namespace PalEdit
             settings.TransparentIndex = iniFile.Read<int>("General", "TransparentIndex", 0);
 			settings.AutoPosition = iniFile.Read<bool>("General", "AutoPosition", true);
 
-			if (!String.IsNullOrEmpty(sourceDirectory))
-            {
-                if (!Path.IsPathRooted(sourceDirectory))
-                {
-                    sourceDirectory = Path.GetFullPath(Path.Combine(workingPath, sourceDirectory));
-                }
-            }
-
-            if (!String.IsNullOrEmpty(destinationDirectory))
-            {
-                if (!Path.IsPathRooted(destinationDirectory))
-                {
-                    destinationDirectory = Path.GetFullPath(Path.Combine(workingPath, destinationDirectory));
-                }
-            }
-
-            if (!String.IsNullOrEmpty(outputFileName))
-            {
-                if (!Path.IsPathRooted(outputFileName))
-                {
-                    outputFileName = Path.GetFullPath(Path.Combine(workingPath, outputFileName));
-                }
-            }
+            GetFullPath(workingPath, ref sourceDirectory);
+            GetFullPath(workingPath, ref destinationDirectory);
+            GetFullPath(workingPath, ref outputFileName);
 
             if (!Directory.Exists(sourceDirectory))
             {
@@ -1324,7 +1305,7 @@ namespace PalEdit
                     break;
 
                 Point position = iniFile.Read<Point>(sectionName, "Position", Point.Empty);
-                int paletteIndex = iniFile.Read<int>(sectionName, "PaletteIndex", -1);
+                int paletteIndex = iniFile.Read<int>(sectionName, "PaletteSlot", -1);
                 string path = Path.Combine(sourceDirectory, name);
 
                 imageList.Add(new ImageNode(i, path, position, paletteIndex));
@@ -1352,6 +1333,17 @@ namespace PalEdit
             settings.ColorPalette = customPalette;
 
             BatchProcessFolder(imageList, sliceList, settings);
+        }
+
+        public static void GetFullPath(string path1, ref string path2)
+        {
+            if (String.IsNullOrEmpty(path2))
+                return;
+
+            if (Path.IsPathRooted(path2))
+                return;
+
+            path2 = Path.GetFullPath(Path.Combine(path1, path2));
         }
 
         public static void BatchProcessFolder(Form parent, BatchSettings settings)
@@ -1440,9 +1432,7 @@ namespace PalEdit
                 colorList.AddRange(image.Palette);
 
                 for (int j = 0; j < 16 - image.Palette.Length; j++)
-                {
                     colorList.Add(Color.Empty);
-                }
             }
 
             for (int i = 0; i < imageList.Count; i++)
@@ -2097,7 +2087,7 @@ namespace PalEdit
             ImageHeader.TryGetDimensions(fileName, out Size);
         }
 
-        #region IComparer<ImageAtlasNode> Members
+        #region IComparer<ImageNode> Members
 
         public int Compare(ImageNode x, ImageNode y)
         {
@@ -2125,13 +2115,10 @@ namespace PalEdit
     {
         public int Compare(ImageNode x, ImageNode y)
         {
-            int width = -(x.Size.Width).CompareTo(y.Size.Width);
-            int height = -(x.Size.Height).CompareTo(y.Size.Height);
+            int areaX = x.Size.Width * x.Size.Height;
+            int areaY = y.Size.Width * y.Size.Height;
 
-            if (width == 0 && height == 0)
-                return x.Index.CompareTo(y.Index);
-
-            return (width != 0 ? width : height);
+            return areaX.CompareTo(areaY);
         }
     }
 
