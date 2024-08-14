@@ -611,6 +611,7 @@ namespace PalEdit
 
             SetBitmapPalette(newBitmap);
             SetBitmap(newBitmap);
+            DrawPalette();
         }
 
         public void SetBitmapPalette(Bitmap bitmap)
