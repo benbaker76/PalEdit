@@ -18,6 +18,7 @@ using ControlsEx.ColorManagement.Gradients;
 
 using SimplePaletteQuantizer.Helpers;
 using SimplePaletteQuantizer.Quantizers.XiaolinWu;
+using System.Linq;
 
 namespace PalEdit
 {
@@ -738,31 +739,29 @@ namespace PalEdit
             m_cutClipboard = cutClipboard;
         }
 
-        private void PastePalette(bool swap)
+        public void PastePalette()
         {
             if (m_palClipboard.Count == 0)
                 return;
+
+            if (m_cutClipboard)
+            {
+                if (m_bitmap != null)
+                    PasteBitmap();
+            }
 
             int count = 0;
 
             for (int i = 0; i < Palette.Length; i++)
             {
-				PalNode color = m_palClipboard[count];
+                PalNode color = m_palClipboard[count];
 
                 if (Palette[i].IsSelected)
                 {
                     Palette[i].Color = color.Color;
 
-					if (swap)
-					{
-						if (count < Palette.Length && Palette[count].Tag == this && i < m_palClipboard.Count)
-						{
-							Palette[count].Color = m_palClipboard[i].Color;
-						}
-					}
-
-					if (++count == m_palClipboard.Count)
-						break;
+                    if (++count == m_palClipboard.Count)
+                        break;
                 }
             }
 
@@ -935,87 +934,6 @@ namespace PalEdit
             SetClipboardPalette(SelectedPalette, false);
         }
 
-        public void PastePalette()
-        {
-			if (m_palClipboard.Count == 0)
-				return;
-
-            if (m_cutClipboard)
-            {
-                if (m_bitmap != null)
-                {
-                    PasteBitmap();
-                    PastePalette(false);
-                }
-                else
-                {
-                    PastePalette(false);
-                }
-            }
-            else
-            {
-				
-				int count = 0;
-
-                for (int i = 0; i < Palette.Length; i++)
-                {
-					PalNode palNode = m_palClipboard[count];
-
-                    if (Palette[i].IsSelected)
-                    {
-                        Palette[i].Color = Color.FromArgb(255, palNode.Color);
-
-						if (++count == m_palClipboard.Count)
-							break;
-                    }
-                }
-            }
-
-            DrawPalette();
-
-            PaletteSelect?.Invoke(this, new ColorEventArgs());
-        }
-
-        public void FillPalette()
-        {
-            if (m_palClipboard.Count == 0)
-                return;
-
-            if (m_cutClipboard)
-            {
-                if (m_bitmap != null)
-                {
-                    PasteBitmap();
-                    PastePalette(false);
-                }
-                else
-                {
-                    PastePalette(false);
-                }
-            }
-            else
-            {
-                int count = 0;
-
-                for (int i = 0; i < Palette.Length; i++)
-                {
-					PalNode palNode = m_palClipboard[count];
-
-                    if (Palette[i].IsSelected)
-                    {
-                        Palette[i].Color = Color.FromArgb(255, palNode.Color);
-
-						if (++count == m_palClipboard.Count)
-							break;
-					}
-                }
-            }
-
-            DrawPalette();
-
-            PaletteSelect?.Invoke(this, new ColorEventArgs());
-        }
-
         public void SetEyeDropper(bool eyeDropper)
         {
             m_eyeDropper = eyeDropper;
@@ -1029,45 +947,55 @@ namespace PalEdit
                 this.Cursor = Cursors.Default;
         }
 
-        public void SwapPalette()
+        public void FillPalette()
         {
-            if (m_bitmap != null)
-            {
-                PasteBitmap();
-                PastePalette(true);
-            }
-            else
-            {
-                PastePalette(true);
-            }
-        }
-
-        public void MergePalette()
-        {
-            List<ColorNode> colorList = new List<ColorNode>();
-
-            for (int i = 0; i < Palette.Length; i++)
-            {
-                if (Palette[i].IsSelected)
-                    colorList.Add(new ColorNode(i, Palette[i].Color));
-            }
+            if (m_palClipboard.Count == 0)
+                return;
 
             int count = 0;
-            int[] colorIndices = new int[Palette.Length];
+            int[] colorIndices = GetColorIndices();
 
             for (int i = 0; i < Palette.Length; i++)
             {
                 if (Palette[i].IsSelected)
                 {
-                    Palette[i].Color = colorList[count].Color;
-                    colorIndices[colorList[count].Index] = SelectedIndex;
-                    count++;
+                    Palette[i].Color = m_palClipboard[count].Color;
+
+                    if (++count == m_palClipboard.Count)
+                        count = 0;
                 }
-                else
-                    colorIndices[i] = i;
             }
 
-			Colors.SetColorIndices(m_bitmap, colorIndices);
+            DrawPalette();
+
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
+        }
+
+        public void SwapPalette()
+        {
+            int[] selectedIndices = GetSelectedIndices();
+
+            if (selectedIndices.Length != 2)
+                return;
+
+            Color tempColor = Palette[selectedIndices[0]].Color;
+            Palette[selectedIndices[0]].Color = Palette[selectedIndices[1]].Color;
+            Palette[selectedIndices[1]].Color = tempColor;
+
+            DrawPalette();
+
+            PaletteSelect?.Invoke(this, new ColorEventArgs());
+        }
+
+        public void MergePalette()
+        {
+            List<ColorNode> colorList = GetSelectedColorList();
+
+            for (int i = 0; i < Palette.Length; i++)
+            {
+                if (Palette[i].IsSelected)
+                    Palette[i].Color = SelectedColor;
+            }
 
 			DrawPalette();
 
@@ -1171,17 +1099,12 @@ namespace PalEdit
             PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
 
-		private List<ColorNode> CreateColorList()
+		private List<ColorNode> GetColorList()
 		{
 			List<ColorNode> colorList = new List<ColorNode>();
 
 			for (int i = 0; i < Palette.Length; i++)
-			{
-				if (!Palette[i].IsSelected)
-					continue;
-
 				colorList.Add(new ColorNode(i, Palette[i].Color));
-			}
 
 			return colorList;
 		}
@@ -1226,7 +1149,7 @@ namespace PalEdit
 			return palList.ToArray();
 		}
 
-		private Color[] GetSelectedColorArray()
+        private Color[] GetSelectedColorArray()
 		{
 			List<Color> colorList = new List<Color>();
 
@@ -1244,9 +1167,9 @@ namespace PalEdit
 		private void UpdateIndices(List<ColorNode> colorList)
 		{
 			int count = 0;
-			int[] colorIndices = new int[Palette.Length];
+            int[] colorIndices = GetColorIndices();
 
-			for (int i = 0; i < Palette.Length; i++)
+            for (int i = 0; i < Palette.Length; i++)
 			{
 				Palette[i].Color = colorList[count].Color;
 				colorIndices[colorList[count].Index] = i;
@@ -1259,9 +1182,9 @@ namespace PalEdit
 		private void UpdateSelectedIndices(List<ColorNode> colorList)
 		{
 			int count = 0;
-			int[] colorIndices = new int[Palette.Length];
+            int[] colorIndices = GetColorIndices();
 
-			for (int i = 0; i < Palette.Length; i++)
+            for (int i = 0; i < Palette.Length; i++)
 			{
 				if (Palette[i].IsSelected)
 				{
@@ -1269,8 +1192,6 @@ namespace PalEdit
 					colorIndices[colorList[count].Index] = i;
 					count++;
 				}
-				else
-					colorIndices[i] = i;
 			}
 
 			Colors.SetColorIndices(m_bitmap, colorIndices);
@@ -1286,24 +1207,22 @@ namespace PalEdit
 			return colorIndices;
 		}
 
-		private List<int> GetSelectedIndices()
+		private int[] GetSelectedIndices()
 		{
 			List<int> selectedIndices = new List<int>();
 
 			for (int i = 0; i < Palette.Length; i++)
 			{
 				if (Palette[i].IsSelected)
-				{
 					selectedIndices.Add(i);
-				}
 			}
 
-			return selectedIndices;
+			return selectedIndices.ToArray();
 		}
 
 		public void SortPalette(Colors.SortColorMode sortColorMode, Colors.HSBSortMode hsbSortMode)
         {
-			List<ColorNode> colorList = CreateColorList();
+			List<ColorNode> colorList = GetColorList();
 
 			Colors.SortColorList(colorList, sortColorMode, hsbSortMode);
 
@@ -1331,9 +1250,9 @@ namespace PalEdit
         {
             List<ColorNode> colorList = GetSelectedColorList();
             int[] colorIndices = GetColorIndices();
-            List<int> selectedIndices = GetSelectedIndices();
+            int[] selectedIndices = GetSelectedIndices();
 
-            for (int i = 0; i < selectedIndices.Count; i++)
+            for (int i = 0; i < selectedIndices.Length; i++)
             {
                 int index = selectedIndices[i];
                 int newIndex = index + Columns;
@@ -1356,9 +1275,9 @@ namespace PalEdit
         {
             List<ColorNode> colorList = GetSelectedColorList();
             int[] colorIndices = GetColorIndices();
-            List<int> selectedIndices = GetSelectedIndices();
+            int[] selectedIndices = GetSelectedIndices();
 
-            for (int i = 0; i < selectedIndices.Count; i++)
+            for (int i = 0; i < selectedIndices.Length; i++)
             {
                 int index = selectedIndices[i];
                 int newIndex = index - Columns;
@@ -1381,12 +1300,12 @@ namespace PalEdit
 		{
 			List<ColorNode> colorList = GetSelectedColorList();
 			int[] colorIndices = GetColorIndices();
-			List<int> selectedIndices = GetSelectedIndices();
+            int[] selectedIndices = GetSelectedIndices();
 
-			for (int i = 0; i < selectedIndices.Count; i++)
+			for (int i = 0; i < selectedIndices.Length; i++)
 			{
 				int index = selectedIndices[i];
-				int newIndex = (i == selectedIndices.Count - 1 ? 0 : i + 1);
+				int newIndex = (i == selectedIndices.Length - 1 ? 0 : i + 1);
                 Palette[index].Color = colorList[newIndex].Color;
 				colorIndices[colorList[newIndex].Index] = index;
 			}
@@ -1402,12 +1321,12 @@ namespace PalEdit
 		{
 			List<ColorNode> colorList = GetSelectedColorList();
 			int[] colorIndices = GetColorIndices();
-			List<int> selectedIndices = GetSelectedIndices();
+            int[] selectedIndices = GetSelectedIndices();
 
-			for (int i = 0; i < selectedIndices.Count; i++)
+			for (int i = 0; i < selectedIndices.Length; i++)
 			{
 				int index = selectedIndices[i];
-				int newIndex = (i == 0 ? selectedIndices.Count - 1 : i - 1);
+				int newIndex = (i == 0 ? selectedIndices.Length - 1 : i - 1);
 				Palette[index].Color = colorList[newIndex].Color;
 				colorIndices[colorList[newIndex].Index] = index;
 			}
@@ -1423,11 +1342,11 @@ namespace PalEdit
         {
             List<ColorNode> colorList = GetSelectedColorList();
             int[] colorIndices = GetColorIndices();
-            List<int> selectedIndices = GetSelectedIndices();
+            int[] selectedIndices = GetSelectedIndices();
             int columns = Columns;
             int rows = Rows;
 
-            for (int i = 0; i < selectedIndices.Count; i++)
+            for (int i = 0; i < selectedIndices.Length; i++)
             {
                 int rowIndex = i / columns;
                 int colIndex = i % columns;
@@ -1453,11 +1372,11 @@ namespace PalEdit
         {
             List<ColorNode> colorList = GetSelectedColorList();
             int[] colorIndices = GetColorIndices();
-            List<int> selectedIndices = GetSelectedIndices();
+            int[] selectedIndices = GetSelectedIndices();
             int columns = Columns;
             int rows = Rows;
 
-            for (int i = 0; i < selectedIndices.Count; i++)
+            for (int i = 0; i < selectedIndices.Length; i++)
             {
                 int rowIndex = i / columns;
                 int colIndex = i % columns;
@@ -1483,12 +1402,12 @@ namespace PalEdit
 		{
 			List<ColorNode> colorList = GetSelectedColorList();
 			int[] colorIndices = GetColorIndices();
-			List<int> selectedIndices = GetSelectedIndices();
+			int[] selectedIndices = GetSelectedIndices();
 
-			for (int i = 0; i < selectedIndices.Count; i++)
+			for (int i = 0; i < selectedIndices.Length; i++)
 			{
 				int index = selectedIndices[i];
-				int newIndex = selectedIndices.Count - 1 - i;
+				int newIndex = selectedIndices.Length - 1 - i;
 				Palette[index].Color = colorList[newIndex].Color;
 				colorIndices[colorList[newIndex].Index] = index;
 			}
@@ -1737,7 +1656,7 @@ namespace PalEdit
 
 		public PalNode[] SelectedPalette { get { return GetSelectedPalette(); } }
 
-		public PalNode[] PaletteClipboard { get { return m_palClipboard.ToArray(); } }
+        public PalNode[] PaletteClipboard { get { return m_palClipboard.ToArray(); } }
 
         public Size SwatchSize { get { int swatchWidth = (this.ClientSize.Width - (Offset.X * 2)) / Columns; return SnapToGrid(new SizeF(swatchWidth, swatchWidth), 2f); } }
 
@@ -1746,6 +1665,8 @@ namespace PalEdit
         public int Columns { get; set; } = 16;
 
         public int Rows { get { return (Palette == null ? 0 : (int)Math.Ceiling((float)Palette.Length / Columns)); } }
+
+        public int SelectedCount { get { return SelectedPalette.Length; } }
 
         public int SelectedIndex
         {

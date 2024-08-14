@@ -78,8 +78,6 @@ namespace PalEdit
 			picMagnify.Image = new Bitmap(picMagnify.Width, picMagnify.Height);
 
             ResetSlidersNoEvent();
-
-  
         }
 
 		private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
