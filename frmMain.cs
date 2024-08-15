@@ -714,54 +714,15 @@ namespace PalEdit
             LoadPalette(fileName);
         }
 
+        private void mnuSave_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
         private void mnuSaveAs_Click(object sender, EventArgs e)
         {
             if (FileIO.TrySaveFile(this, null, m_fileName, "Palette Files", new string[] { ".act", ".pal", ".gpl", ".txt", ".bmp", ".gif", ".png", ".jpg", ".pcx", ".tif" }, out m_fileName))
-            {
-                string fileExtension = Path.GetExtension(m_fileName);
-                toolStripStatusLabel1.Text = Path.GetFileName(m_fileName);
-
-                switch (fileExtension)
-                {
-                    case ".act":
-                        mainPalette.SavePaletteFile(m_fileName, PaletteFormat.Act);
-                        break;
-                    case ".pal":
-                        //palControl.SavePaletteFile(m_fileName, PaletteFormat.MSPal);
-                        mainPalette.SavePaletteFile(m_fileName, PaletteFormat.JASC);
-                        break;
-                    case ".gpl":
-                        mainPalette.SavePaletteFile(m_fileName, PaletteFormat.GIMP);
-                        break;
-                    case ".txt":
-                        mainPalette.SavePaletteFile(m_fileName, PaletteFormat.PaintNET);
-                        break;
-                    case ".bmp":
-                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_BMP);
-                        //palControl.SaveBitmapFile(m_fileName, ImageFormat.Bmp);
-                        break;
-                    case ".gif":
-                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_GIF);
-                        //palControl.SaveBitmapFile(m_fileName, ImageFormat.Gif);
-                        break;
-                    case ".png":
-                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_PNG);
-                        //palControl.SaveBitmapFile(m_fileName, ImageFormat.Png);
-                        break;
-                    case ".jpg":
-                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_JPEG);
-                        //palControl.SaveBitmapFile(m_fileName, ImageFormat.Jpeg);
-                        break;
-                    case ".pcx":
-                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_PCX);
-                        //palControl.SaveBitmapFile(m_fileName, ImageFormat.Pcx);
-                        break;
-                    case ".tif":
-                        mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_TIFF);
-                        //palControl.SaveBitmapFile(m_fileName, ImageFormat.Tiff);
-                        break;
-                }
-            }
+                Save();
         }
 
         private void mnuImport_Click(object sender, EventArgs e)
@@ -1551,6 +1512,53 @@ namespace PalEdit
             if (TryGetFileName(out fileName, e))
             {
                 LoadPalette(fileName);
+            }
+        }
+
+        private void Save()
+        {
+            string fileExtension = Path.GetExtension(m_fileName);
+            toolStripStatusLabel1.Text = Path.GetFileName(m_fileName);
+
+            switch (fileExtension)
+            {
+                case ".act":
+                    mainPalette.SavePaletteFile(m_fileName, PaletteFormat.Act);
+                    break;
+                case ".pal":
+                    //palControl.SavePaletteFile(m_fileName, PaletteFormat.MSPal);
+                    mainPalette.SavePaletteFile(m_fileName, PaletteFormat.JASC);
+                    break;
+                case ".gpl":
+                    mainPalette.SavePaletteFile(m_fileName, PaletteFormat.GIMP);
+                    break;
+                case ".txt":
+                    mainPalette.SavePaletteFile(m_fileName, PaletteFormat.PaintNET);
+                    break;
+                case ".bmp":
+                    mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_BMP);
+                    //palControl.SaveBitmapFile(m_fileName, ImageFormat.Bmp);
+                    break;
+                case ".gif":
+                    mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_GIF);
+                    //palControl.SaveBitmapFile(m_fileName, ImageFormat.Gif);
+                    break;
+                case ".png":
+                    mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_PNG);
+                    //palControl.SaveBitmapFile(m_fileName, ImageFormat.Png);
+                    break;
+                case ".jpg":
+                    mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_JPEG);
+                    //palControl.SaveBitmapFile(m_fileName, ImageFormat.Jpeg);
+                    break;
+                case ".pcx":
+                    mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_PCX);
+                    //palControl.SaveBitmapFile(m_fileName, ImageFormat.Pcx);
+                    break;
+                case ".tif":
+                    mainPalette.SaveBitmapFile(m_fileName, FREE_IMAGE_FORMAT.FIF_TIFF);
+                    //palControl.SaveBitmapFile(m_fileName, ImageFormat.Tiff);
+                    break;
             }
         }
     }

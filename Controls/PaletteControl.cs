@@ -610,9 +610,7 @@ namespace PalEdit
 
             newBitmap.Palette = newPalette;
 
-            SetBitmapPalette(newBitmap);
-            SetBitmap(newBitmap);
-            DrawPalette();
+            SetPaletteBitmap(newBitmap);
         }
 
         public void SetBitmapPalette(Bitmap bitmap)
@@ -954,17 +952,21 @@ namespace PalEdit
 
             int count = 0;
             int[] colorIndices = GetColorIndices();
+            List<ColorNode> colorList = GetSelectedColorList();
 
             for (int i = 0; i < Palette.Length; i++)
             {
                 if (Palette[i].IsSelected)
                 {
                     Palette[i].Color = m_palClipboard[count].Color;
+                    colorIndices[colorList[count].Index] = SelectedIndex;
 
                     if (++count == m_palClipboard.Count)
                         count = 0;
                 }
             }
+
+            Colors.SetColorIndices(m_bitmap, colorIndices);
 
             DrawPalette();
 
@@ -974,6 +976,7 @@ namespace PalEdit
         public void SwapPalette()
         {
             int[] selectedIndices = GetSelectedIndices();
+            int[] colorIndices = GetColorIndices();
 
             if (selectedIndices.Length != 2)
                 return;
@@ -981,6 +984,12 @@ namespace PalEdit
             Color tempColor = Palette[selectedIndices[0]].Color;
             Palette[selectedIndices[0]].Color = Palette[selectedIndices[1]].Color;
             Palette[selectedIndices[1]].Color = tempColor;
+
+            int tempIndex = colorIndices[selectedIndices[0]];
+            colorIndices[selectedIndices[0]] = selectedIndices[1];
+            colorIndices[selectedIndices[1]] = tempIndex;
+
+            Colors.SetColorIndices(m_bitmap, colorIndices);
 
             DrawPalette();
 
@@ -990,14 +999,20 @@ namespace PalEdit
         public void MergePalette()
         {
             List<ColorNode> colorList = GetSelectedColorList();
+            int[] colorIndices = GetColorIndices();
 
             for (int i = 0; i < Palette.Length; i++)
             {
                 if (Palette[i].IsSelected)
+                {
                     Palette[i].Color = SelectedColor;
+                    colorIndices[i] = SelectedIndex;
+                }
             }
 
-			DrawPalette();
+            Colors.SetColorIndices(m_bitmap, colorIndices);
+
+            DrawPalette();
 
             PaletteSelect?.Invoke(this, new ColorEventArgs());
         }
@@ -1689,7 +1704,7 @@ namespace PalEdit
             set { if (Selected != null) { Selected.Color = value; DrawPalette(); } }
         }
 
-		public Color[] SelectedColors { get { return GetSelectedColorArray();  } }
+        public Color[] SelectedColors { get { return GetSelectedColorArray();  } }
 
         public int[] SelectedIndices
         {
