@@ -978,16 +978,24 @@ namespace PalEdit
             int[] selectedIndices = GetSelectedIndices();
             int[] colorIndices = GetColorIndices();
 
-            if (selectedIndices.Length != 2)
+            if (selectedIndices.Length % 2 != 0 || selectedIndices.Length == 0)
                 return;
 
-            Color tempColor = Palette[selectedIndices[0]].Color;
-            Palette[selectedIndices[0]].Color = Palette[selectedIndices[1]].Color;
-            Palette[selectedIndices[1]].Color = tempColor;
+            int halfLength = selectedIndices.Length / 2;
 
-            int tempIndex = colorIndices[selectedIndices[0]];
-            colorIndices[selectedIndices[0]] = selectedIndices[1];
-            colorIndices[selectedIndices[1]] = tempIndex;
+            for (int i = 0; i < halfLength; i++)
+            {
+                int firstIndex = selectedIndices[i];
+                int secondIndex = selectedIndices[halfLength + i];
+
+                Color tempColor = Palette[firstIndex].Color;
+                Palette[firstIndex].Color = Palette[secondIndex].Color;
+                Palette[secondIndex].Color = tempColor;
+
+                int tempIndex = colorIndices[firstIndex];
+                colorIndices[firstIndex] = colorIndices[secondIndex];
+                colorIndices[secondIndex] = tempIndex;
+            }
 
             Colors.SetColorIndices(m_bitmap, colorIndices);
 
