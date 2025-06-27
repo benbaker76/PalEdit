@@ -12,7 +12,7 @@ jobs:
   release:
     runs-on: windows-latest
     env:
-      APP_NAME: Crunchy
+      APP_NAME: PalEdit
       ARTIFACT_ROOT: publish
 
     steps:
@@ -46,7 +46,7 @@ jobs:
       - name: Copy data files and docs
         shell: pwsh
         run: |
-          # copy only the contents of Data/ into publish/Crunchy/
+          # copy only the contents of Data/ into publish/PalEdit/
           Copy-Item -Path Data\* -Destination "$env:ARTIFACT_ROOT\$env:APP_NAME" -Recurse -Force
           # also copy README.md and LICENSE into the same folder
           Copy-Item -Path README.md, LICENSE -Destination "$env:ARTIFACT_ROOT\$env:APP_NAME" -Force
@@ -61,7 +61,7 @@ jobs:
           # build the ZIP name
           $zip = "$env:APP_NAME-$ver.zip"
 
-          # zip up the entire Crunchy/ folder
+          # zip up the entire PalEdit/ folder
           Push-Location $env:ARTIFACT_ROOT
           Compress-Archive -Path $env:APP_NAME -DestinationPath "../$zip" -Force
           Pop-Location
