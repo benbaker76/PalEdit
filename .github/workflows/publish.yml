@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 permissions:
-  contents: write      # to create the GitHub Release
+  contents: write
   packages: read
 
 jobs:
@@ -33,10 +33,8 @@ jobs:
       - name: Publish EXE + only your DLLs
         shell: pwsh
         run: |
-          # ensure the target folder exists
           New-Item -ItemType Directory -Force -Path "$env:ARTIFACT_ROOT\$env:APP_NAME" | Out-Null
 
-          # framework-dependent Windows publish
           dotnet publish "$env:APP_NAME\$env:APP_NAME.csproj" `
             --configuration Release `
             --output "$env:ARTIFACT_ROOT\$env:APP_NAME" `
@@ -46,27 +44,20 @@ jobs:
       - name: Copy data files and docs
         shell: pwsh
         run: |
-          # copy only the contents of Data/ into publish/PalEdit/
           Copy-Item -Path Data\* -Destination "$env:ARTIFACT_ROOT\$env:APP_NAME" -Recurse -Force
-          # also copy README.md and LICENSE into the same folder
           Copy-Item -Path README.md, LICENSE -Destination "$env:ARTIFACT_ROOT\$env:APP_NAME" -Force
 
       - name: Zip artifacts
         id: zip
         shell: pwsh
         run: |
-          # grab and clean the version string
           $ver = '${{ steps.get-version.outputs.version }}'.Trim()
+          $zip = "$env:APP_NAME.zip"
 
-          # build the ZIP name
-          $zip = "$env:APP_NAME-$ver.zip"
-
-          # zip up the entire PalEdit/ folder
           Push-Location $env:ARTIFACT_ROOT
           Compress-Archive -Path $env:APP_NAME -DestinationPath "../$zip" -Force
           Pop-Location
 
-          # export the ZIP name for the next step
           Add-Content -Path $env:GITHUB_OUTPUT -Value "ZIP=$zip"
 
       - name: Create GitHub Release
