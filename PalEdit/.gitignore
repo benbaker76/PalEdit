@@ -1,0 +1,7 @@
+.vs
+obj
+*.exe
+*.pdb
+*.manifest
+*.cache
+PalEdit.ini
