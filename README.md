@@ -28,15 +28,15 @@ PalEdit is a palette editor which can edit and manipulate various different pale
 
 ## Screenshots
 
-![](/images/PalEdit1.png)
+![](/.github/img/PalEdit1.png?raw=true)
 
-![](/images/PalEdit2.png)
+![](/.github/img/PalEdit2.png?raw=true)
 
-![](/images/PalEdit3.png)
+![](/.github/img/PalEdit3.png?raw=true)
 
-![](/images/PalEdit4.png)
+![](/.github/img/PalEdit4.png?raw=true)
 
-![](/images/PalEdit5.png)
+![](/.github/img/PalEdit5.png?raw=true)
 
 ## Release Notes
 
