@@ -1229,7 +1229,7 @@ namespace PalEdit
             if (fileName == null)
                 return PaletteType.Invalid;
 
-            string fileExtension = Path.GetExtension(fileName);
+            string fileExtension = Path.GetExtension(fileName).ToLower();
 
             switch (fileExtension)
             {
