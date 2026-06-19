@@ -15,8 +15,9 @@ using ControlsEx.ColorManagement;
 using ControlsEx.ColorManagement.Gradients;
 
 using SimplePaletteQuantizer.Helpers;
-using SimplePaletteQuantizer.Quantizers.XiaolinWu;
 using System.Linq;
+
+using PalEdit.Quantizers;
 
 namespace PalEdit
 {
@@ -583,30 +584,66 @@ namespace PalEdit
 
         public void QuantizeBitmap(int colorOffset, int colorCount)
         {
+            QuantizeBitmap(colorOffset, colorCount, true);
+        }
+
+        /// <summary>
+        /// Quantizes the bitmap down to <paramref name="colorCount"/> colors placed at
+        /// <paramref name="colorOffset"/> in the palette.
+        /// </summary>
+        /// <param name="maintainPalette">
+        /// When <c>true</c> the reduced colors are snapped to the closest colors that already
+        /// exist in the palette, so no new colors are introduced - the image is reduced but the
+        /// palette is maintained. When <c>false</c> a brand new optimal palette is generated with
+        /// Wu's algorithm and the colors are free to change.
+        /// </param>
+        public void QuantizeBitmap(int colorOffset, int colorCount, bool maintainPalette)
+        {
             if (m_bitmap == null)
                 return;
 
+            // Clamp the range so we never write past the 256 entry palette.
+            colorOffset = Math.Max(0, Math.Min(colorOffset, 255));
+            colorCount = Math.Max(1, Math.Min(colorCount, 256 - colorOffset));
+
+            Color[] originalColors = ColorArray;
+
+            // Step 1 - use Wu's algorithm to choose the reduced set of representative colors.
+            // Only the generated palette is read here (not the quantized pixels), so the source
+            // format is irrelevant. When maintaining the palette, each reduced color is snapped to
+            // the closest color that already exists in the palette so no new colors are introduced.
+            Color[] reducedColors = new Color[colorCount];
+
+            using (Bitmap wuBitmap = (Bitmap)ImageBuffer.QuantizeImage(m_bitmap, new WuColorQuantizer(), null, colorCount, 1))
+            {
+                ColorPalette wuPalette = wuBitmap.Palette;
+
+                for (int i = 0; i < colorCount; i++)
+                {
+                    Color color = (i < wuPalette.Entries.Length) ? wuPalette.Entries[i] : Color.Black;
+
+                    if (maintainPalette && originalColors.Length > 0)
+                        color = originalColors[Colors.GetNearestColorIndex(color, originalColors, Colors.NearestColorMode.Sqrt)];
+
+                    reducedColors[i] = Color.FromArgb(255, color.R, color.G, color.B);
+                }
+            }
+
+            // Step 2 - build the result palette: the reduced colors in the target slot, black elsewhere.
             Bitmap newBitmap = new Bitmap(m_bitmap.Width, m_bitmap.Height, PixelFormat.Format8bppIndexed);
             newBitmap.SetResolution(m_bitmap.HorizontalResolution, m_bitmap.VerticalResolution);
             ColorPalette newPalette = newBitmap.Palette;
 
-            for (int i = 0; i < Palette.Length; i++)
-            {
+            for (int i = 0; i < newPalette.Entries.Length; i++)
                 newPalette.Entries[i] = Color.Black;
-            }
 
-            using (Bitmap bitmap = (Bitmap)ImageBuffer.QuantizeImage(m_bitmap, new WuColorQuantizer(), null, colorCount, 1))
-            {
-                ColorPalette palette = bitmap.Palette;
-
-                Colors.CopyBitmap(bitmap, newBitmap, new Rectangle(Point.Empty, newBitmap.Size), new Rectangle(Point.Empty, newBitmap.Size));
-                Colors.AddColorIndexOffset(newBitmap, colorOffset);
-
-                for (int i = 0; i < colorCount; i++)
-                    newPalette.Entries[colorOffset + i] = palette.Entries[i];
-            }
+            for (int i = 0; i < colorCount && colorOffset + i < newPalette.Entries.Length; i++)
+                newPalette.Entries[colorOffset + i] = reducedColors[i];
 
             newBitmap.Palette = newPalette;
+
+            // Step 3 - map every source pixel onto the nearest reduced color and store its index.
+            Colors.RemapBitmapToPalette(m_bitmap, newBitmap, reducedColors, colorOffset, Colors.NearestColorMode.Sqrt);
 
             SetPaletteBitmap(newBitmap);
         }
@@ -673,7 +710,9 @@ namespace PalEdit
             }
 
             SetPaletteBitmap(bitmap);
-            SetBitmap(bitmap);
+
+            if (SetBitmap != null)
+                SetBitmap(bitmap);
         }
 
         public void OpenPaletteFile(string fileName)

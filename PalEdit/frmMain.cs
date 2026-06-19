@@ -1,7 +1,6 @@
 using ControlsEx.ColorManagement.Gradients;
 using SimplePaletteQuantizer.Helpers;
 using SimplePaletteQuantizer.Quantizers;
-using SimplePaletteQuantizer.Quantizers.DistinctSelection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -582,7 +581,7 @@ namespace PalEdit
             {
                 if (frmQuantize.ShowDialog(this) == DialogResult.OK)
                 {
-                    mainPalette.QuantizeBitmap(frmQuantize.ColorOffset, frmQuantize.ColorCount);
+                    mainPalette.QuantizeBitmap(frmQuantize.ColorOffset, frmQuantize.ColorCount, frmQuantize.MaintainPalette);
                 }
             }
         }

@@ -10,7 +10,8 @@ using System.Text;
 using System.Windows.Forms;
 
 using SimplePaletteQuantizer.Helpers;
-using SimplePaletteQuantizer.Quantizers.XiaolinWu;
+
+using PalEdit.Quantizers;
 
 namespace PalEdit
 {

@@ -35,13 +35,14 @@ namespace PalEdit
             this.butCancel = new System.Windows.Forms.Button();
             this.nudColorOffset = new System.Windows.Forms.NumericUpDown();
             this.lblColorOffset = new System.Windows.Forms.Label();
+            this.chkMaintainPalette = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudColorCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudColorOffset)).BeginInit();
             this.SuspendLayout();
             // 
             // butOK
             // 
-            this.butOK.Location = new System.Drawing.Point(24, 64);
+            this.butOK.Location = new System.Drawing.Point(24, 88);
             this.butOK.Name = "butOK";
             this.butOK.Size = new System.Drawing.Size(111, 29);
             this.butOK.TabIndex = 4;
@@ -82,7 +83,7 @@ namespace PalEdit
             // 
             // butCancel
             // 
-            this.butCancel.Location = new System.Drawing.Point(173, 64);
+            this.butCancel.Location = new System.Drawing.Point(173, 88);
             this.butCancel.Name = "butCancel";
             this.butCancel.Size = new System.Drawing.Size(111, 29);
             this.butCancel.TabIndex = 5;
@@ -110,12 +111,25 @@ namespace PalEdit
             this.lblColorOffset.Size = new System.Drawing.Size(65, 13);
             this.lblColorOffset.TabIndex = 0;
             this.lblColorOffset.Text = "Color Offset:";
-            // 
+            //
+            // chkMaintainPalette
+            //
+            this.chkMaintainPalette.AutoSize = true;
+            this.chkMaintainPalette.Checked = true;
+            this.chkMaintainPalette.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkMaintainPalette.Location = new System.Drawing.Point(24, 54);
+            this.chkMaintainPalette.Name = "chkMaintainPalette";
+            this.chkMaintainPalette.Size = new System.Drawing.Size(146, 17);
+            this.chkMaintainPalette.TabIndex = 3;
+            this.chkMaintainPalette.Text = "Maintain original palette";
+            this.chkMaintainPalette.UseVisualStyleBackColor = true;
+            //
             // frmQuantize
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 120);
+            this.ClientSize = new System.Drawing.Size(310, 130);
+            this.Controls.Add(this.chkMaintainPalette);
             this.Controls.Add(this.nudColorOffset);
             this.Controls.Add(this.lblColorOffset);
             this.Controls.Add(this.butCancel);
@@ -142,5 +156,6 @@ namespace PalEdit
         private System.Windows.Forms.Button butCancel;
         private System.Windows.Forms.NumericUpDown nudColorOffset;
         private System.Windows.Forms.Label lblColorOffset;
+        private System.Windows.Forms.CheckBox chkMaintainPalette;
     }
 }

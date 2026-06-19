@@ -8,8 +8,8 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.IO;
 
+using PalEdit.Quantizers;
 using SimplePaletteQuantizer.Helpers;
-using SimplePaletteQuantizer.Quantizers.XiaolinWu;
 using System.Diagnostics;
 
 namespace PalEdit
@@ -529,6 +529,55 @@ namespace PalEdit
 
             srcBitmap.UnlockBits(srcBitmapData);
             dstBitmap.UnlockBits(dstBitmapData);
+        }
+
+        /// <summary>
+        /// Maps every pixel of <paramref name="source"/> to the nearest color in
+        /// <paramref name="palette"/> and writes (indexOffset + nearestIndex) into the
+        /// 8bpp indexed <paramref name="target"/> bitmap. The source is read as 32bpp so
+        /// it works regardless of the source pixel format, avoiding the indexed bit-depth
+        /// mismatches that plague index-copying between different formats.
+        /// </summary>
+        public static void RemapBitmapToPalette(Bitmap source, Bitmap target, Color[] palette, int indexOffset, NearestColorMode nearestColorMode)
+        {
+            if (palette == null || palette.Length == 0)
+                return;
+
+            int width = Math.Min(source.Width, target.Width);
+            int height = Math.Min(source.Height, target.Height);
+
+            BitmapData srcData = source.LockBits(new Rectangle(Point.Empty, source.Size), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+            BitmapData dstData = target.LockBits(new Rectangle(Point.Empty, target.Size), ImageLockMode.ReadWrite, PixelFormat.Format8bppIndexed);
+
+            Dictionary<int, byte> indexCache = new Dictionary<int, byte>();
+
+            unsafe
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int* srcRow = (int*)((byte*)srcData.Scan0 + y * srcData.Stride);
+                    byte* dstRow = (byte*)dstData.Scan0 + y * dstData.Stride;
+
+                    for (int x = 0; x < width; x++)
+                    {
+                        int argb = srcRow[x];
+
+                        byte index;
+
+                        if (!indexCache.TryGetValue(argb, out index))
+                        {
+                            int nearest = GetNearestColorIndex(Color.FromArgb(argb), palette, nearestColorMode);
+                            index = (byte)(indexOffset + nearest);
+                            indexCache[argb] = index;
+                        }
+
+                        dstRow[x] = index;
+                    }
+                }
+            }
+
+            source.UnlockBits(srcData);
+            target.UnlockBits(dstData);
         }
 
 

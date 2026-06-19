@@ -14,8 +14,8 @@ namespace PalEdit
         {
             InitializeComponent();
 
-            nudColorCount.Value = colorCount;
-            nudColorCount.Maximum = 255;
+            nudColorCount.Maximum = 256;
+            nudColorCount.Value = Math.Max(nudColorCount.Minimum, Math.Min(colorCount, nudColorCount.Maximum));
         }
 
         private void butOK_Click(object sender, EventArgs e)
@@ -36,6 +36,11 @@ namespace PalEdit
         public int ColorCount
         {
             get { return (int)nudColorCount.Value; }
+        }
+
+        public bool MaintainPalette
+        {
+            get { return chkMaintainPalette.Checked; }
         }
     }
 }
