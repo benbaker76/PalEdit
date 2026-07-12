@@ -733,7 +733,7 @@ namespace PalEdit
             {
                 string fileExtension = Path.GetExtension(fileName);
 
-                switch (fileExtension)
+                switch (fileExtension.ToLower())
                 {
                     case ".act":
                     case ".pal":
@@ -1520,7 +1520,7 @@ namespace PalEdit
             string fileExtension = Path.GetExtension(m_fileName);
             toolStripStatusLabel1.Text = Path.GetFileName(m_fileName);
 
-            switch (fileExtension)
+            switch (fileExtension.ToLower())
             {
                 case ".act":
                     mainPalette.SavePaletteFile(m_fileName, PaletteFormat.Act);
